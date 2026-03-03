@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://eg8tcs8f3sj8"]
+
+[ext_resource type="Script" uid="uid://b2gm5m5jwibsx" path="res://building boxes/template1x1.gd" id="1_3udms"]
+[ext_resource type="Texture2D" uid="uid://dek4fq3nhyssh" path="res://template spriteovi/sexy_box.png" id="2_3udms"]
+
+[node name="SexyBox" type="Node2D" unique_id=472882630]
+script = ExtResource("1_3udms")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869438289]
+texture_filter = 1
+texture = ExtResource("2_3udms")

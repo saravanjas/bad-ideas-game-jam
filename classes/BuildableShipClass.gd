@@ -1,0 +1,38 @@
+class_name GridBuilder
+extends Node2D
+
+const COLLECTION_ID = 0
+const MAX_TILE_ID = 2
+
+var tilemap:TileMapLayer
+var inBuildMode:bool = false
+var selectedBoxId:int = 1
+
+func _process(delta: float) -> void:
+	if inBuildMode:
+		if Input.is_action_just_pressed("LeftClick"):
+			var mousePos = get_viewport().get_mouse_position()
+			mousePos = tilemap.to_local(mousePos)
+			tilemap.set_cell(tilemap.local_to_map(mousePos), COLLECTION_ID , Vector2i(0,0), selectedBoxId) #position of tile locally, id of collection, vecotr2i(0,0), id of tile
+		
+		if Input.is_action_just_pressed("ScrollDown"):
+			selectedBoxId -= 1
+			selectedBoxId = calibrateBoxId(selectedBoxId)
+		elif Input.is_action_just_pressed("ScrollUp"):
+			selectedBoxId += 1
+			selectedBoxId = calibrateBoxId(selectedBoxId)
+	
+	## entering build mode
+	if Input.is_action_pressed("Space"):
+		inBuildMode = true
+	if Input.is_action_just_released("Space"):
+		inBuildMode = false
+
+
+func calibrateBoxId(id:int):
+	var ret = id
+	if id <= 0:
+		ret = MAX_TILE_ID
+	elif id > MAX_TILE_ID:
+		ret = 1
+	return ret
