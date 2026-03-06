@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drolang84w3tk"
-path="res://.godot/imported/blankTile.png-f7ee6650e9d3e703aa99af49208e4554.ctex"
+path="res://.godot/imported/blankTile.png-28082592e0c0953b604a14628062fdb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://template spriteovi/blankTile.png"
-dest_files=["res://.godot/imported/blankTile.png-f7ee6650e9d3e703aa99af49208e4554.ctex"]
+source_file="res://TempSprites/blankTile.png"
+dest_files=["res://.godot/imported/blankTile.png-28082592e0c0953b604a14628062fdb2.ctex"]
 
 [params]
 

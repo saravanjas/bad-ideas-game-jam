@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dek4fq3nhyssh"
-path="res://.godot/imported/sexy_box.png-ac72da971c3a4c9a3077169d237b387a.ctex"
+path="res://.godot/imported/sexy_box.png-81ca8ad9b34af1dcc5af12f339414152.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://template spriteovi/sexy_box.png"
-dest_files=["res://.godot/imported/sexy_box.png-ac72da971c3a4c9a3077169d237b387a.ctex"]
+source_file="res://TempSprites/sexy_box.png"
+dest_files=["res://.godot/imported/sexy_box.png-81ca8ad9b34af1dcc5af12f339414152.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-extends GridBuilder
+extends ShipClass
 
 
 
