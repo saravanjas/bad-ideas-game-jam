@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dnwor0mc6jw5s"]
+
+[ext_resource type="Script" uid="uid://b2gm5m5jwibsx" path="res://Modules/template1x1/template1x1.gd" id="1_8srou"]
+[ext_resource type="Texture2D" uid="uid://cbau10g4vunq4" path="res://TempSprites/1x1.png" id="2_qk7dd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87fno"]
+size = Vector2(32, 32)
+
+[node name="Template1x1" type="Node2D" unique_id=472882630]
+script = ExtResource("1_8srou")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869438289]
+texture_filter = 1
+texture = ExtResource("2_qk7dd")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=506855556]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=342606737]
+shape = SubResource("RectangleShape2D_87fno")

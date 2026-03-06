@@ -1,0 +1,26 @@
+[gd_scene format=4 uid="uid://bbubsuu64x1pi"]
+
+[ext_resource type="Script" uid="uid://cqkrcy20b5eso" path="res://Player/Player.gd" id="1_q2qul"]
+[ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/template1x1/template1x1.tscn" id="2_gbmm3"]
+[ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_7vdj4"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
+scenes/1/scene = ExtResource("2_gbmm3")
+scenes/2/scene = ExtResource("3_7vdj4")
+
+[sub_resource type="TileSet" id="TileSet_7vdj4"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_7vdj4")
+
+[node name="PlayerShip" type="Node2D" unique_id=681950733]
+script = ExtResource("1_q2qul")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=412447108]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=1260237541]
+physics_interpolation_mode = 1
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAQD//wAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAP//AAAAAAAAAQABAP7/AAAAAAAAAgABAP//AAAAAAAAAgABAAAAAAAAAAAAAgABAAEAAAAAAAAAAgAAAAEAAAAAAAAAAgD//wEAAAAAAAAAAgD+/wEAAAAAAAAAAgD+/wAAAAAAAAAAAgD+////AAAAAAAAAgD+//7/AAAAAAAAAgD///7/AAAAAAAAAgAAAP7/AAAAAAAAAgA=")
+tile_set = SubResource("TileSet_7vdj4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=105189105]
+position_smoothing_enabled = true

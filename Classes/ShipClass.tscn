@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxefwmw5ev6nm"]
+
+[ext_resource type="Script" uid="uid://df762kd24e67e" path="res://Classes/ShipClass.gd" id="1_v7fcj"]
+
+[node name="BuildableShip" type="Node2D" unique_id=972527875]
+script = ExtResource("1_v7fcj")

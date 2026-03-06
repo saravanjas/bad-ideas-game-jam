@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc1kxcwj83xw"
-path="res://.godot/imported/3x3.png-40badb5ad740ac020e9ef34c1f201a7c.ctex"
+uid="uid://doo7wt3kxfojo"
+path="res://.godot/imported/2x3.png-102a334264dc2f8249cb26c67c56eeae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://template spriteovi/3x3.png"
-dest_files=["res://.godot/imported/3x3.png-40badb5ad740ac020e9ef34c1f201a7c.ctex"]
+source_file="res://TempSprites/2x3.png"
+dest_files=["res://.godot/imported/2x3.png-102a334264dc2f8249cb26c67c56eeae.ctex"]
 
 [params]
 
