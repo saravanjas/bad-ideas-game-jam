@@ -6,13 +6,12 @@ const spaceDrag := .98 # newtons laws = bad
 ##
 
 ## PHYSICS VARIABLES
-var totalVelocity:Vector2 = Vector2(100,0)
+var totalVelocity:Vector2 = Vector2(0,0)
 ##
-
 
 ## GRID BUILDER CONSTANTS
 const COLLECTION_ID = 0
-const MAX_TILE_ID = 2
+const MAX_TILE_ID = 4
 ##
 
 ## GRID VARIABLES
@@ -68,5 +67,6 @@ func calibrateBoxId(id:int):
 func getAllModules():
 	var arr:Array[ModuleClass] = []
 	for tile in tilemap.get_children():
-		arr.append(tile)
+		if tile is ModuleClass:
+			arr.append(tile)
 	return arr
