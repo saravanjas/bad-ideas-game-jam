@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bdc0cp68od4on"]
+
+[ext_resource type="Script" uid="uid://di38xstwkm06c" path="res://Classes/InputModuleClass.gd" id="1_mscqq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uq70"]
+size = Vector2(32, 32)
+
+[node name="InputModuleA" type="Node2D" unique_id=1353538752]
+script = ExtResource("1_mscqq")
+key = "a"
+metadata/_custom_type_script = "uid://di38xstwkm06c"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1091800917]
+texture_filter = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=282852767]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=956026608]
+shape = SubResource("RectangleShape2D_5uq70")
