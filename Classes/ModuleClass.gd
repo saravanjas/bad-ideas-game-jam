@@ -1,6 +1,9 @@
 class_name ModuleClass
 extends Node2D
 
+
+
+
 var health := 1
 var connectedModules:Array[Node2D] = []
 
