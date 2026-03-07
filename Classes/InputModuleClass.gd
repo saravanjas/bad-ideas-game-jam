@@ -16,6 +16,8 @@ func _ready() -> void:
 	sprite_2d.texture = keys.get(key)
 
 func _process(delta: float) -> void:
+	if GlobalVariables.gamePaused: return
+	
 	if Input.is_action_just_pressed(key):
 		activate()
 

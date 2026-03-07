@@ -35,7 +35,11 @@ func resolveBuildMode():
 		inBuildMode = false
 
 	if inBuildMode:
+		GlobalVariables.gamePaused = true
 		buildMode()
+	else:
+		GlobalVariables.gamePaused = false
+		
 
 func buildMode():
 	if Input.is_action_just_pressed("LeftClick"):

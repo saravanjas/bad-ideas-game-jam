@@ -8,9 +8,8 @@ func _ready() -> void:
 	tilemap = tile_map_layer_body
 
 func _physics_process(_delta: float) -> void:
-	var modules:Array[ModuleClass]
-	modules = getAllModules()
-
+	if GlobalVariables.gamePaused: return
+	
 	resolvePhysics()
 	character_body_2d.velocity = totalVelocity	
 	character_body_2d.move_and_slide()	
