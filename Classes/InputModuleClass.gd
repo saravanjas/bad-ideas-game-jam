@@ -24,3 +24,6 @@ func activate():
 	for module in modules:
 		if module.has_method("activate") and not(module is InputModuleClass):
 			module.activate()
+
+func rotateModule(angle:float):
+	self.rotation = 0

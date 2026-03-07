@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_7vdj4"]
 [ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_6ysni"]
+[ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="6_6ysni"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
 scenes/1/scene = ExtResource("2_gbmm3")
@@ -29,3 +30,18 @@ tile_set = SubResource("TileSet_7vdj4")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105]
 zoom = Vector2(2.09, 2.09)
 position_smoothing_enabled = true
+
+[node name="Control" type="Control" parent="." unique_id=1000193734]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control" unique_id=235472304]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -35.0
+offset_right = 34.0
+offset_bottom = -14.0
+theme_override_fonts/font = ExtResource("6_6ysni")
+text = "BUILD MODE"
