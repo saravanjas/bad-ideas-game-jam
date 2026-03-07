@@ -62,8 +62,6 @@ func buildMode():
 		selectedBoxId += 1
 		selectedBoxId = calibrateBoxId(selectedBoxId)
 
-
-
 func resolveAllModules():
 	pass
 
