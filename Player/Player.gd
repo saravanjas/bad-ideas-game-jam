@@ -13,5 +13,4 @@ func _physics_process(_delta: float) -> void:
 
 	resolvePhysics()
 	character_body_2d.velocity = totalVelocity	
-	print(character_body_2d.velocity)
 	character_body_2d.move_and_slide()	

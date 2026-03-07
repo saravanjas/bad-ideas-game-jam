@@ -1,7 +1,7 @@
 extends ModuleClass
 
 func activate():
-	print("activated")
 	var vector:Vector2
-	vector = lookVector * recoil	
+	lookVector = Vector2.from_angle(rotation+(PI/2.0)).normalized()
+	vector = lookVector * recoil
 	applyForceToSelf(vector)
