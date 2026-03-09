@@ -2,11 +2,16 @@ class_name ShipClass
 extends Node2D
 
 ## PHYSICS CONSTANTS
+const torqueSuspension := 10000
 const spaceDrag := .98 # newtons laws = bad
+const inertia = .98
 ##
 
 ## PHYSICS VARIABLES
+var rootCenter:Marker2D
+var characterBody:CharacterBody2D
 var totalVelocity:Vector2 = Vector2(0,0)
+var angularVelocity:float = 0
 ##
 
 ## GRID BUILDER CONSTANTS
@@ -38,8 +43,7 @@ func resolveBuildMode():
 		GlobalVariables.gamePaused = true
 		buildMode()
 	else:
-		GlobalVariables.gamePaused = false
-		
+		GlobalVariables.gamePaused = false		
 
 func buildMode():
 	if Input.is_action_just_pressed("LeftClick"):
@@ -75,6 +79,12 @@ func resolvePhysics():
 		totalVelocity *= spaceDrag
 	if totalVelocity.is_zero_approx() : 
 		totalVelocity = Vector2.ZERO
+		
+	#slowly deaccelerate angular velocity
+	if abs(angularVelocity) != 0:
+		angularVelocity *= inertia
+	if abs(angularVelocity) <= .001 : 
+		angularVelocity = 0
 	
 func calibrateBoxId(id:int):
 	var ret = id
@@ -86,7 +96,13 @@ func calibrateBoxId(id:int):
 
 func getCellInstance(child:ModuleClass):
 	lastPlacedTile = child
-	
+
+#gets the look vector of the entire ship
+func getLookVector() -> Vector2:
+	var rotation = characterBody.rotation
+	var lv = Vector2.from_angle(rotation).normalized()
+	return lv
+
 func getAllModules():
 	var arr:Array[ModuleClass] = []
 	for tile in tilemap.get_children():
