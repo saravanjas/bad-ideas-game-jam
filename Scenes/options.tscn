@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c6lgqrkh8s6ou"]
+
+[ext_resource type="Script" uid="uid://bur4j363grglx" path="res://options.gd" id="1_ww8vx"]
+[ext_resource type="Texture2D" uid="uid://ci8xbqtc8r8jf" path="res://TempSprites/meowthership_options.png" id="2_kftxf"]
+[ext_resource type="Texture2D" uid="uid://g7m31dqcjdvo" path="res://TempSprites/exit1.png" id="3_663nc"]
+[ext_resource type="Texture2D" uid="uid://cmn4lsa5gc2c2" path="res://TempSprites/exit2.png" id="4_hvj8k"]
+
+[node name="options" type="Control" unique_id=1155851983]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ww8vx")
+
+[node name="background" type="TextureRect" parent="." unique_id=577368694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kftxf")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="buttons" type="Control" parent="." unique_id=2106984334]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="back" type="TextureButton" parent="buttons" unique_id=1366656599]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 311.0
+offset_right = 207.0
+offset_bottom = 375.0
+texture_normal = ExtResource("3_663nc")
+texture_hover = ExtResource("4_hvj8k")
+
+[connection signal="pressed" from="buttons/back" to="." method="_on_back_pressed"]
