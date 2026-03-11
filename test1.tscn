@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bhhloka5r8khc"]
+
+[ext_resource type="Script" uid="uid://cipk3vps344rf" path="res://test_2.gd" id="1_05d0c"]
+[ext_resource type="Script" uid="uid://buxb51pcnee8d" path="res://parallax goy.gd" id="1_tv86p"]
+[ext_resource type="Texture2D" uid="uid://b6d5ftrha4nfn" path="res://Enemies/Sprites/Ship/Moduli/ModulSpriteovi/knifeModule.png" id="2_djtf0"]
+[ext_resource type="Texture2D" uid="uid://rnlxm6pgei62" path="res://TempSprites/Zvijezdje.png" id="2_qhy6t"]
+[ext_resource type="Texture2D" uid="uid://dsggkg10hhoju" path="res://TempSprites/Planet1.png" id="3_djtf0"]
+[ext_resource type="Texture2D" uid="uid://bpylfc8dypyjq" path="res://TempSprites/Planet2.png" id="4_tv86p"]
+[ext_resource type="Texture2D" uid="uid://cvekb1fw7gy56" path="res://TempSprites/WarRemnant.png" id="6_djtf0"]
+[ext_resource type="PackedScene" uid="uid://c2lbs6006rjqn" path="res://ui.tscn" id="8_mwfoc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05d0c"]
+
+[node name="Root" type="Node2D" unique_id=1092638530]
+script = ExtResource("1_tv86p")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1426574400]
+z_index = 1
+texture_filter = 1
+script = ExtResource("1_05d0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=47514332]
+shape = SubResource("CircleShape2D_05d0c")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=1440630233]
+zoom = Vector2(1.45, 1.45)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=2105301110]
+texture = ExtResource("2_djtf0")
+
+[node name="Zvijezdje" type="Parallax2D" parent="." unique_id=1208621970]
+texture_filter = 1
+scroll_scale = Vector2(0.00021, 0.00021)
+repeat_size = Vector2(1024, 512)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Zvijezdje" unique_id=243133186]
+texture = ExtResource("2_qhy6t")
+
+[node name="Planet1" type="Parallax2D" parent="." unique_id=2087082540]
+z_index = 1
+texture_filter = 1
+scroll_scale = Vector2(0.002, 0.002)
+repeat_size = Vector2(1024, 512)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet1" unique_id=978436488]
+position = Vector2(-15, -54)
+texture = ExtResource("3_djtf0")
+
+[node name="SpaceRemnant" type="Parallax2D" parent="." unique_id=1428709840]
+texture_filter = 1
+scroll_scale = Vector2(0.00021, 0.00021)
+repeat_size = Vector2(1024, 512)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="SpaceRemnant" unique_id=977289041]
+modulate = Color(0.556953, 0.556953, 0.5569529, 1)
+texture = ExtResource("6_djtf0")
+
+[node name="Planet3" type="Parallax2D" parent="." unique_id=134347054]
+texture_filter = 1
+scroll_scale = Vector2(0.001, 0.001)
+scroll_offset = Vector2(-958, -289)
+repeat_size = Vector2(1024, 512)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Planet3" unique_id=1042790619]
+modulate = Color(1, 1, 1, 0.6313726)
+position = Vector2(511, 255)
+texture = ExtResource("4_tv86p")
+
+[node name="CanvasLayer" parent="." unique_id=281492333 instance=ExtResource("8_mwfoc")]
