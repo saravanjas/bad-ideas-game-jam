@@ -99,8 +99,8 @@ func getCellInstance(child:ModuleClass):
 
 #gets the look vector of the entire ship
 func getLookVector() -> Vector2:
-	var rotation = characterBody.rotation
-	var lv = Vector2.from_angle(rotation).normalized()
+	var currRotation = characterBody.rotation
+	var lv = Vector2.from_angle(currRotation).normalized()
 	return lv
 
 func getAllModules():
