@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalVariables="*uid://ctooky2ijk7uy"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 LeftClick={
