@@ -16,6 +16,8 @@ func _ready() -> void:
 	sprite_2d.texture = keys.get(key)
 
 func _process(delta: float) -> void:
+	if GlobalVariables.gamePaused: return
+	
 	if Input.is_action_just_pressed(key):
 		activate()
 
@@ -24,3 +26,6 @@ func activate():
 	for module in modules:
 		if module.has_method("activate") and not(module is InputModuleClass):
 			module.activate()
+
+func rotateModule(angle:float):
+	self.rotation = 0
