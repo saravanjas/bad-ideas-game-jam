@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://bqye8noab3ueb"]
 
 [ext_resource type="PackedScene" uid="uid://bbubsuu64x1pi" path="res://Player/Player.tscn" id="1_5bawo"]
-[ext_resource type="PackedScene" uid="uid://b1n7i27ur1m5x" path="res://Game/refrenceObj.tscn" id="2_gmmwd"]
+[ext_resource type="PackedScene" uid="uid://dsp52qib1ipjh" path="res://GUI/build_mode.tscn" id="2_ktsxd"]
+[ext_resource type="Script" uid="uid://dprhchxltfuut" path="res://GUI/build_mode.gd" id="3_gurxa"]
 
 [node name="root" type="Node2D" unique_id=435723755]
 
 [node name="PlayerShip" parent="." unique_id=681950733 instance=ExtResource("1_5bawo")]
 position = Vector2(111, 72)
 
-[node name="RefrenceObj" parent="." unique_id=1847371335 instance=ExtResource("2_gmmwd")]
-position = Vector2(-142, -42)
+[node name="BuildMode" parent="." unique_id=710618268 instance=ExtResource("2_ktsxd")]
+offset_left = 64.0
+offset_top = 131.0
+offset_right = 64.0
+offset_bottom = 131.0
+script = ExtResource("3_gurxa")

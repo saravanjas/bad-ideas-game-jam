@@ -28,47 +28,16 @@ var lastPlacedTile:ModuleClass
 ##
 
 func _process(delta: float) -> void:
-	resolveBuildMode()
-	if not inBuildMode:
-		resolveAllModules()
-	
-func resolveBuildMode():
-	## entering build mode
-	if Input.is_action_pressed("Space"):
-		inBuildMode = true
-	if Input.is_action_just_released("Space"):
-		inBuildMode = false
+	#resolveBuildMode()
+	#if not inBuildMode:
+	#	resolveAllModules()
+	pass
+	#
 
-	if inBuildMode:
-		GlobalVariables.gamePaused = true
-		buildMode()
-	else:
-		GlobalVariables.gamePaused = false		
-
-func buildMode():
-	if Input.is_action_just_pressed("LeftClick"):
-		var mousePos = get_global_mouse_position()
-		mousePos = tilemap.to_local(mousePos)
-		mousePos = tilemap.local_to_map(mousePos)
-		tilemap.set_cell(mousePos, COLLECTION_ID , Vector2i(0,0), selectedBoxId) #position of tile locally, id of collection, vecotr2i(0,0), id of tile
-		tilemap.child_entered_tree.connect(getCellInstance.bind())
-		await tilemap.child_entered_tree
-		if lastPlacedTile.has_method("rotateModule"):
-			lastPlacedTile.rotateModule(moduleLookVector.angle())
-			
-	#rotate module
-	if Input.is_action_just_pressed("r"):
-		var angle = moduleLookVector.angle()
-		angle += PI/2.0
-		moduleLookVector = Vector2.from_angle(angle).normalized()
-
-	#select different modules
-	if Input.is_action_just_pressed("ScrollDown"):
-		selectedBoxId -= 1
-		selectedBoxId = calibrateBoxId(selectedBoxId)
-	elif Input.is_action_just_pressed("ScrollUp"):
-		selectedBoxId += 1
-		selectedBoxId = calibrateBoxId(selectedBoxId)
+func getLookVector() -> Vector2:
+	var currRotation = characterBody.rotation
+	var lv = Vector2.from_angle(currRotation).normalized()
+	return lv
 
 func resolveAllModules():
 	pass
@@ -85,23 +54,6 @@ func resolvePhysics():
 		angularVelocity *= inertia
 	if abs(angularVelocity) <= .001 : 
 		angularVelocity = 0
-	
-func calibrateBoxId(id:int):
-	var ret = id
-	if id <= 0:
-		ret = MAX_TILE_ID
-	elif id > MAX_TILE_ID:
-		ret = 1
-	return ret
-
-func getCellInstance(child:ModuleClass):
-	lastPlacedTile = child
-
-#gets the look vector of the entire ship
-func getLookVector() -> Vector2:
-	var currRotation = characterBody.rotation
-	var lv = Vector2.from_angle(currRotation).normalized()
-	return lv
 
 func getAllModules():
 	var arr:Array[ModuleClass] = []
@@ -109,3 +61,56 @@ func getAllModules():
 		if tile is ModuleClass:
 			arr.append(tile)
 	return arr
+
+
+#func resolveBuildMode():
+	### entering build mode
+	#if Input.is_action_pressed("Space"):
+		#inBuildMode = true
+	#if Input.is_action_just_released("Space"):
+		#inBuildMode = false
+#
+	#if inBuildMode:
+		#GlobalVariables.gamePaused = true
+		#buildMode()
+	#else:
+		#GlobalVariables.gamePaused = false		
+#
+#func buildMode():
+	#if Input.is_action_just_pressed("LeftClick"):
+		#var mousePos = get_global_mouse_position()
+		#mousePos = tilemap.to_local(mousePos)
+		#mousePos = tilemap.local_to_map(mousePos)
+		#tilemap.set_cell(mousePos, COLLECTION_ID , Vector2i(0,0), selectedBoxId) #position of tile locally, id of collection, vecotr2i(0,0), id of tile
+		#tilemap.child_entered_tree.connect(getCellInstance.bind())
+		#await tilemap.child_entered_tree
+		#if lastPlacedTile.has_method("rotateModule"):
+			#lastPlacedTile.rotateModule(moduleLookVector.angle())
+			#
+	##rotate module
+	#if Input.is_action_just_pressed("r"):
+		#var angle = moduleLookVector.angle()
+		#angle += PI/2.0
+		#moduleLookVector = Vector2.from_angle(angle).normalized()
+#
+	##select different modules
+	#if Input.is_action_just_pressed("ScrollDown"):
+		#selectedBoxId -= 1
+		#selectedBoxId = calibrateBoxId(selectedBoxId)
+	#elif Input.is_action_just_pressed("ScrollUp"):
+		#selectedBoxId += 1
+		#selectedBoxId = calibrateBoxId(selectedBoxId)
+
+	#
+#func calibrateBoxId(id:int):
+	#var ret = id
+	#if id <= 0:
+		#ret = MAX_TILE_ID
+	#elif id > MAX_TILE_ID:
+		#ret = 1
+	#return ret
+#
+#func getCellInstance(child:ModuleClass):
+	#lastPlacedTile = child
+
+#gets the look vector of the entire ship
