@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dsp52qib1ipjh"]
 
-[ext_resource type="Texture2D" uid="uid://dj5vdt2bnehgm" path="res://Enemies/Sprites/UI elementi/BlueprintUI-Sheet.png" id="1_2mf5h"]
+[ext_resource type="Texture2D" uid="uid://dj5vdt2bnehgm" path="res://Sprites/UI elementi/BlueprintUI-Sheet.png" id="1_2mf5h"]
+[ext_resource type="Script" uid="uid://dprhchxltfuut" path="res://GUI/build_mode.gd" id="1_7wy08"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wy08"]
 atlas = ExtResource("1_2mf5h")
@@ -241,6 +242,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7wy08")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1987198879]
 visible = false
@@ -252,3 +254,13 @@ scale = Vector2(1.649, 1.886)
 sprite_frames = SubResource("SpriteFrames_h22cv")
 frame = 31
 frame_progress = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/AnimatedSprite2D" unique_id=73278077]
+scale = Vector2(0.6064281, 0.53022265)
+enabled = false
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer" unique_id=876085155]
+offset_left = 597.0
+offset_top = 187.0
+offset_right = 708.0
+offset_bottom = 433.0

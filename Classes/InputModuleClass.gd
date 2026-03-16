@@ -27,5 +27,5 @@ func activate():
 		if module.has_method("activate") and not(module is InputModuleClass):
 			module.activate()
 
-func rotateModule(angle:float):
+func rotateModule():
 	self.rotation = 0

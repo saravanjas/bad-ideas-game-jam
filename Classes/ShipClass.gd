@@ -27,6 +27,8 @@ var moduleLookVector := Vector2.RIGHT.normalized()
 var lastPlacedTile:ModuleClass
 ##
 
+var moduleRotations:Dictionary = {}
+
 func _process(delta: float) -> void:
 	#resolveBuildMode()
 	#if not inBuildMode:

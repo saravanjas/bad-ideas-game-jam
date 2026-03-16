@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://x0i123gss0ai"]
+
+[ext_resource type="Texture2D" uid="uid://b6d5ftrha4nfn" path="res://Sprites/Moduli/ModulSpriteovi/knifeModule.png" id="1_53va7"]
+[ext_resource type="Script" uid="uid://df2ubrrqa5ncu" path="res://Classes/ModuleClass.gd" id="1_srd3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srd3i"]
+size = Vector2(32, 32)
+
+[node name="Knife" type="Node2D" unique_id=1482576877]
+script = ExtResource("1_srd3i")
+metadata/_custom_type_script = "uid://df2ubrrqa5ncu"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1250294049]
+texture_filter = 1
+texture = ExtResource("1_53va7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=213924534]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1203012098]
+shape = SubResource("RectangleShape2D_srd3i")

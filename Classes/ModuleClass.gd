@@ -16,8 +16,9 @@ func _ready() -> void:
 	player = playerCharacterBody.get_parent()
 	sprite = self.get_node("Sprite2D")
 	#lookVector = Vector2.from_angle(deg_to_rad(rotation)+(PI/2.0)).normalized()
-	
 	_retoggleSpriteVisibility()
+	
+	rotateModule()
 	
 func _process(delta: float) -> void:
 	#print((global_position - player.rootCenter.global_position).length())
@@ -30,7 +31,7 @@ func _retoggleSpriteVisibility():
 	sprite.visible = true
 	
 func lookVector():
-	var playerAngle = player.getLookVector().angle() + (PI/2.0)
+	var playerAngle = GlobalVariables.player.getLookVector().angle() + (PI/2.0)
 	var moduleAngle = rotation#+(PI/2.0)
 	var lv = Vector2.from_angle(playerAngle+moduleAngle)
 	#print("plr: ", playerAngle/PI)
@@ -64,7 +65,10 @@ func applyTorqueToSelf(vector:Vector2,flipY:bool = true, flipX:bool = true):
 	player.angularVelocity += (-torque/player.torqueSuspension)
 
 ##Build Mode
-func rotateModule(angle:float):
+func rotateModule():
+	while not player.moduleRotations.has(GlobalVariables.playerTilemap.local_to_map(position)):
+		await get_tree().process_frame
+	var angle = player.moduleRotations[GlobalVariables.playerTilemap.local_to_map(position)]
 	angle = rad_to_deg(angle)
 	self.rotation_degrees = angle
 	

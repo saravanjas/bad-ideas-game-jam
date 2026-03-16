@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1n7i27ur1m5x"]
 
-[ext_resource type="Texture2D" uid="uid://bda8aoxy7oiv2" path="res://Enemies/Sprites/Cat Deadeye/Animacija/catdeadeye-Sheet.png" id="1_v2lti"]
+[ext_resource type="Texture2D" uid="uid://bda8aoxy7oiv2" path="res://Sprites/Cat Deadeye/Animacija/catdeadeye-Sheet.png" id="1_v2lti"]
 
 [node name="RefrenceObj" type="Node2D" unique_id=1847371335]
 
