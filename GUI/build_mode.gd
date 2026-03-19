@@ -45,7 +45,6 @@ func resolveBuildMode():
 			backgroundAppearTween.play()
 			await backgroundAppearTween.finished
 			
-			cd = false
 			
 			var playerRotationTween = create_tween()
 			playerRotationTween.set_trans(Tween.TRANS_EXPO)
@@ -53,6 +52,7 @@ func resolveBuildMode():
 			playerRotationTween.play()
 			await playerRotationTween.finished
 			
+			cd = false
 			GlobalVariables.buildModeSetupFinished = true
 		else:
 			var resetPlayerPosAndBackground = create_tween()
