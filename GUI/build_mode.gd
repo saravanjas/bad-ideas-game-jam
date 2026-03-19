@@ -12,30 +12,57 @@ var inBuildMode:bool = false
 var selectedBoxId:int = 1
 var moduleLookVector := Vector2.RIGHT.normalized()
 var lastPlacedTile:ModuleClass
+var playerRotationInformation : float
+@onready var playerAccess : Node2D = $"../Player/PlayerShip".get_child(0)
 ##
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
-
+@onready var texture_rect: TextureRect = $CanvasLayer/Background
 
 var cd := false
 func _process(delta: float) -> void:
 	#print(cd)
 	resolveBuildMode()
-
+	animated_sprite_2d.visible = GlobalVariables.inBuildMode
 
 func resolveBuildMode():
 	if cd: return 
 	if Input.is_action_just_pressed("Space"):
 		if not GlobalVariables.inBuildMode:
+			playerRotationInformation = playerAccess.rotation
+			print(playerRotationInformation)
 			cd = true
 			GlobalVariables.inBuildMode  = true
 			canvas_layer.visible = true
 			animated_sprite_2d.play()
 			await animated_sprite_2d.animation_finished 
+			
+			var backgroundAppearTween = create_tween()
+			backgroundAppearTween.tween_property(texture_rect , "modulate:a" , 1.0 , 0.67)
+			backgroundAppearTween.play()
+			await backgroundAppearTween.finished
+			
 			cd = false
+			
+			var playerRotationTween = create_tween()
+			playerRotationTween.set_trans(Tween.TRANS_EXPO)
+			playerRotationTween.tween_property( playerAccess , "rotation" , 0 , 0.3 )
+			playerRotationTween.play()
+			await playerRotationTween.finished
+			
+			GlobalVariables.buildModeSetupFinished = true
 		else:
+			var resetPlayerPosAndBackground = create_tween()
+			resetPlayerPosAndBackground.set_parallel(true)
+			resetPlayerPosAndBackground.tween_property(texture_rect , "modulate:a" , 0.0 , 0.25)
+			resetPlayerPosAndBackground.set_trans(Tween.TRANS_EXPO)
+			resetPlayerPosAndBackground.tween_property( playerAccess , "rotation" , playerRotationInformation , 0.3 )
+			resetPlayerPosAndBackground.play()
+			
 			GlobalVariables.inBuildMode  = false
+			GlobalVariables.buildModeSetupFinished = false
+			
 			canvas_layer.visible = false
 	
 	if GlobalVariables.inBuildMode:
@@ -46,7 +73,9 @@ func resolveBuildMode():
 
 
 func buildMode():
+	tilemap = GlobalVariables.playerTilemap
 	if Input.is_action_just_pressed("LeftClick"):
+		print(tilemap)
 		var mousePos = get_global_mouse_position()
 		mousePos = tilemap.to_local(mousePos)
 		mousePos = tilemap.local_to_map(mousePos)

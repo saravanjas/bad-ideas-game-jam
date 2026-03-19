@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dvilnpyqrm6iu"]
+
+[ext_resource type="PackedScene" uid="uid://bqye8noab3ueb" path="res://Game/root.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://dl4ux3o7ei7k6" path="res://Worlds/world_1.tscn" id="1_e2o6t"]
+
+[node name="Game" type="Node2D" unique_id=1127454506]
+
+[node name="root" parent="." unique_id=435723755 instance=ExtResource("1_80nbo")]
+
+[node name="World1" parent="root" unique_id=1679080849 instance=ExtResource("1_e2o6t")]
+position = Vector2(511, 251)

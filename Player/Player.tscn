@@ -5,8 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_7vdj4"]
 [ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_6ysni"]
-[ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="6_6ysni"]
 [ext_resource type="Script" uid="uid://bnmtvjklrt3kj" path="res://Player/camera_2d.gd" id="6_vlldt"]
+[ext_resource type="Shader" uid="uid://bj40maf265023" path="res://Shaders/PlayerTilemap.gdshader" id="7_j23h2"]
+[ext_resource type="Texture2D" uid="uid://bngu7m4u8rvh3" path="res://Enemies/Sprites/UI elementi/bg.png" id="7_v0k0e"]
+[ext_resource type="Texture2D" uid="uid://d0qy4hvoeqvsi" path="res://Enemies/Sprites/UI elementi/blueprintTilemap.png" id="8_0j2ni"]
+[ext_resource type="Script" uid="uid://cxjuc3pigl5pt" path="res://Shaders/PlayerTilemapSprite.gd" id="9_v0k0e"]
+[ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Enemies/Sprites/UI elementi/dots.png" id="11_5wa8t"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
 scenes/1/scene = ExtResource("2_gbmm3")
@@ -17,6 +21,10 @@ scenes/4/scene = ExtResource("5_6ysni")
 [sub_resource type="TileSet" id="TileSet_7vdj4"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetScenesCollectionSource_7vdj4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5wa8t"]
+shader = ExtResource("7_j23h2")
+shader_parameter/poz = Vector2(0, 0)
 
 [node name="PlayerShip" type="Node2D" unique_id=681950733]
 script = ExtResource("1_q2qul")
@@ -36,17 +44,22 @@ script = ExtResource("6_vlldt")
 [node name="RootCenter" type="Marker2D" parent="CharacterBody2D" unique_id=853778395]
 position = Vector2(16, 16)
 
-[node name="Control" type="Control" parent="." unique_id=1000193734]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GridBlueprint" type="Node2D" parent="CharacterBody2D" unique_id=582485017]
+z_index = -1
+texture_filter = 1
 
-[node name="Label" type="Label" parent="Control" unique_id=235472304]
-layout_mode = 0
-offset_left = -32.0
-offset_top = -35.0
-offset_right = 34.0
-offset_bottom = -14.0
-theme_override_fonts/font = ExtResource("6_6ysni")
-text = "BUILD MODE"
+[node name="BG" type="Sprite2D" parent="CharacterBody2D/GridBlueprint" unique_id=1665295996]
+position = Vector2(16, 16)
+texture = ExtResource("7_v0k0e")
+
+[node name="Lines" type="Sprite2D" parent="CharacterBody2D/GridBlueprint" unique_id=1878225683]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5wa8t")
+position = Vector2(-64, -64)
+texture = ExtResource("8_0j2ni")
+centered = false
+script = ExtResource("9_v0k0e")
+
+[node name="Dots" type="Sprite2D" parent="CharacterBody2D/GridBlueprint" unique_id=2081650938]
+position = Vector2(16, 16)
+texture = ExtResource("11_5wa8t")
