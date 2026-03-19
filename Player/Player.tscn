@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_6ysni"]
 [ext_resource type="Script" uid="uid://bnmtvjklrt3kj" path="res://Player/camera_2d.gd" id="6_vlldt"]
 [ext_resource type="Shader" uid="uid://bj40maf265023" path="res://Shaders/PlayerTilemap.gdshader" id="7_j23h2"]
-[ext_resource type="Texture2D" uid="uid://bngu7m4u8rvh3" path="res://Enemies/Sprites/UI elementi/bg.png" id="7_v0k0e"]
-[ext_resource type="Texture2D" uid="uid://d0qy4hvoeqvsi" path="res://Enemies/Sprites/UI elementi/blueprintTilemap.png" id="8_0j2ni"]
+[ext_resource type="Texture2D" uid="uid://bngu7m4u8rvh3" path="res://Sprites/UI elementi/bg.png" id="7_v0k0e"]
+[ext_resource type="Texture2D" uid="uid://d0qy4hvoeqvsi" path="res://Sprites/UI elementi/blueprintTilemap.png" id="8_0j2ni"]
 [ext_resource type="Script" uid="uid://cxjuc3pigl5pt" path="res://Shaders/PlayerTilemapSprite.gd" id="9_v0k0e"]
-[ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Enemies/Sprites/UI elementi/dots.png" id="11_5wa8t"]
+[ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Sprites/UI elementi/dots.png" id="11_5wa8t"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
 scenes/1/scene = ExtResource("2_gbmm3")
@@ -29,7 +29,7 @@ shader_parameter/poz = Vector2(0, 0)
 [node name="PlayerShip" type="Node2D" unique_id=681950733]
 script = ExtResource("1_q2qul")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=412447108]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=412447108 groups=["PlayerAccess"]]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=1260237541]
 physics_interpolation_mode = 1
@@ -37,7 +37,6 @@ tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 
 tile_set = SubResource("TileSet_7vdj4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105]
-zoom = Vector2(2.09, 2.09)
 position_smoothing_enabled = true
 script = ExtResource("6_vlldt")
 
@@ -47,6 +46,13 @@ position = Vector2(16, 16)
 [node name="GridBlueprint" type="Node2D" parent="CharacterBody2D" unique_id=582485017]
 z_index = -1
 texture_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D/GridBlueprint" unique_id=391719798]
+offset_left = -68.0
+offset_top = -69.0
+offset_right = 100.0
+offset_bottom = 100.0
+color = Color(0, 0, 0, 1)
 
 [node name="BG" type="Sprite2D" parent="CharacterBody2D/GridBlueprint" unique_id=1665295996]
 position = Vector2(16, 16)

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqye8noab3ueb" path="res://Game/root.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://dl4ux3o7ei7k6" path="res://Worlds/world_1.tscn" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://cb1ydrqv8i7n0" path="res://Enemies/Bosses/dr_meowstein.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D" unique_id=1127454506]
 
@@ -9,3 +10,6 @@
 
 [node name="World1" parent="root" unique_id=1679080849 instance=ExtResource("1_e2o6t")]
 position = Vector2(511, 251)
+
+[node name="DrMeowstein" parent="root" unique_id=1432788726 instance=ExtResource("3_feb5d")]
+position = Vector2(280, 132)

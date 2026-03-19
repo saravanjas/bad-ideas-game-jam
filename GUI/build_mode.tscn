@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dsp52qib1ipjh"]
 
-[ext_resource type="Texture2D" uid="uid://dj5vdt2bnehgm" path="res://Enemies/Sprites/UI elementi/BlueprintUI-Sheet.png" id="1_2mf5h"]
-[ext_resource type="Shader" uid="uid://dtr8641ydonat" path="res://Shaders/BuildmodeBackground.gdshader" id="2_hp3x0"]
-[ext_resource type="Texture2D" uid="uid://bngu7m4u8rvh3" path="res://Enemies/Sprites/UI elementi/bg.png" id="3_ne0xy"]
+[ext_resource type="Texture2D" uid="uid://dj5vdt2bnehgm" path="res://Sprites/UI elementi/BlueprintUI-Sheet.png" id="1_2mf5h"]
+[ext_resource type="Shader" uid="uid://b22rinjs14lfp" path="res://Shaders/buildModeBackgroundScroll.gdshader" id="3_5jeey"]
+[ext_resource type="Texture2D" uid="uid://bngu7m4u8rvh3" path="res://Sprites/UI elementi/bg.png" id="3_ne0xy"]
+[ext_resource type="Texture2D" uid="uid://b5n78qsco1rv7" path="res://Sprites/UI elementi/bigbackgroundbuildmode.png" id="4_ne0xy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wy08"]
 atlas = ExtResource("1_2mf5h")
@@ -237,8 +238,15 @@ animations = [{
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5jeey"]
-shader = ExtResource("2_hp3x0")
-shader_parameter/scroll_speed = Vector2(-0.2, 0.2)
+shader = ExtResource("3_5jeey")
+shader_parameter/direction = Vector2(0.25, -0.25)
+shader_parameter/speed = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ne0xy"]
+resource_local_to_scene = true
+shader = ExtResource("3_5jeey")
+shader_parameter/direction = Vector2(0.5, -0.5)
+shader_parameter/speed = 0.01
 
 [node name="BuildMode" type="Control" unique_id=710618268]
 texture_filter = 1
@@ -263,6 +271,7 @@ frame_progress = 1.0
 
 [node name="Background" type="TextureRect" parent="CanvasLayer" unique_id=1578902893]
 modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 0.32156864, 1, 1)
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_5jeey")
@@ -274,3 +283,27 @@ offset_bottom = 219.432
 texture = ExtResource("3_ne0xy")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="Background2" type="TextureRect" parent="CanvasLayer" unique_id=769169543]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ne0xy")
+anchors_preset = -1
+anchor_right = 0.74600005
+anchor_bottom = 0.666
+offset_left = -2.0
+offset_right = 291.6079
+offset_bottom = 219.432
+texture = ExtResource("4_ne0xy")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Background2" unique_id=1558395118]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -12.0
+offset_right = 1262.0
+offset_bottom = 688.0
+color = Color(0, 0, 0, 0.41960785)

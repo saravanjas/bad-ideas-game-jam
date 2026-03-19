@@ -1,18 +1,24 @@
 [gd_scene format=3 uid="uid://dl4ux3o7ei7k6"]
 
-[ext_resource type="Texture2D" uid="uid://c1m8kscgd7le5" path="res://Enemies/Sprites/Space/Background/Zvijezdje.png" id="1_p3r1e"]
-[ext_resource type="Texture2D" uid="uid://bowaam0neckdl" path="res://Enemies/Sprites/Space/Planeti/Planet1.png" id="2_d51r2"]
-[ext_resource type="Texture2D" uid="uid://c30vfwaglvit4" path="res://Enemies/Sprites/Space/Planeti/Planet2.png" id="3_a6m6e"]
-[ext_resource type="Texture2D" uid="uid://b3k4mlhm2opfk" path="res://Enemies/Sprites/Space/Planeti/WarRemnant.png" id="4_sa81t"]
+[ext_resource type="Texture2D" uid="uid://c1m8kscgd7le5" path="res://Sprites/Space/Background/Zvijezdje.png" id="1_p3r1e"]
+[ext_resource type="Texture2D" uid="uid://bowaam0neckdl" path="res://Sprites/Space/Planeti/Planet1.png" id="2_d51r2"]
+[ext_resource type="Texture2D" uid="uid://c30vfwaglvit4" path="res://Sprites/Space/Planeti/Planet2.png" id="3_a6m6e"]
+[ext_resource type="Texture2D" uid="uid://b3k4mlhm2opfk" path="res://Sprites/Space/Planeti/WarRemnant.png" id="4_sa81t"]
+[ext_resource type="Texture2D" uid="uid://cc1xmp4etw710" path="res://Sprites/Space/Planeti/Cruelopolis-removebg-preview.png" id="5_d51r2"]
 
 [node name="World1" type="Node2D" unique_id=1679080849]
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=451367222]
 texture_filter = 1
 scroll_scale = Vector2(0.001, 0.001)
+repeat_size = Vector2(1000, 500)
+repeat_times = 11
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=45011783]
+texture_filter = 1
+texture_repeat = 1
 texture = ExtResource("1_p3r1e")
+region_rect = Rect2(2, 1.7499924, 1018.4999, 512.99994)
 
 [node name="Parallax2D2" type="Parallax2D" parent="." unique_id=855141415]
 z_index = 2
@@ -36,3 +42,21 @@ scroll_scale = Vector2(0.01, 0.01)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D4" unique_id=801722980]
 texture = ExtResource("4_sa81t")
+
+[node name="Parallax2D5" type="Parallax2D" parent="." unique_id=843080761]
+z_index = 2
+texture_filter = 1
+scroll_scale = Vector2(0.05, 0.05)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D5" unique_id=1511081758]
+texture_filter = 1
+position = Vector2(332, -268)
+texture = ExtResource("5_d51r2")
+
+[node name="Parallax2D6" type="Parallax2D" parent="." unique_id=66265474]
+z_index = 2
+texture_filter = 1
+scroll_scale = Vector2(0.05, 0.05)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D6" unique_id=1419702689]
+texture = ExtResource("2_d51r2")
