@@ -24,6 +24,10 @@ GlobalVariables="*uid://ctooky2ijk7uy"
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+PlayerAccess=""
+
 [input]
 
 LeftClick={

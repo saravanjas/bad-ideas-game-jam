@@ -18,7 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if GlobalVariables.gamePaused: return
 	
-	if Input.is_action_just_pressed(key):
+	if Input.is_action_pressed(key):
 		activate()
 
 func activate():

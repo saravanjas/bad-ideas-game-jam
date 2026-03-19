@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw3mxw70m8vha"]
 
 [ext_resource type="Script" uid="uid://cb2jsk7i3s5q4" path="res://Modules/RocketModule/rocket.gd" id="1_s47oy"]
-[ext_resource type="Texture2D" uid="uid://cgtca20q0djaf" path="res://Enemies/Sprites/Ship/Moduli/ModulSpriteovi/rocketModule.png" id="2_erqf0"]
+[ext_resource type="Texture2D" uid="uid://cgtca20q0djaf" path="res://Sprites/Ship/Moduli/ModulSpriteovi/rocketModule.png" id="2_erqf0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oogbe"]
 size = Vector2(32, 32)

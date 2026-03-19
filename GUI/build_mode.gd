@@ -18,8 +18,8 @@ var playerRotationInformation : float
 
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
-@onready var texture_rect: TextureRect = $CanvasLayer/Background
-
+@onready var texture_rect_bg: TextureRect = $CanvasLayer/Background
+@onready var texture_rect_bp: TextureRect = $CanvasLayer/Background2
 var cd := false
 func _process(delta: float) -> void:
 	#print(cd)
@@ -39,7 +39,9 @@ func resolveBuildMode():
 			await animated_sprite_2d.animation_finished 
 			
 			var backgroundAppearTween = create_tween()
-			backgroundAppearTween.tween_property(texture_rect , "modulate:a" , 1.0 , 0.67)
+			backgroundAppearTween.set_parallel(true)
+			backgroundAppearTween.tween_property(texture_rect_bg , "modulate:a" , 1.0 , 0.67)
+			backgroundAppearTween.tween_property(texture_rect_bp , "modulate:a" , 1.0 , 0.67)
 			backgroundAppearTween.play()
 			await backgroundAppearTween.finished
 			
@@ -55,7 +57,8 @@ func resolveBuildMode():
 		else:
 			var resetPlayerPosAndBackground = create_tween()
 			resetPlayerPosAndBackground.set_parallel(true)
-			resetPlayerPosAndBackground.tween_property(texture_rect , "modulate:a" , 0.0 , 0.25)
+			resetPlayerPosAndBackground.tween_property(texture_rect_bg , "modulate:a" , 0.0 , 0.25)
+			resetPlayerPosAndBackground.tween_property(texture_rect_bp , "modulate:a" , 0.0 , 0.25)
 			resetPlayerPosAndBackground.set_trans(Tween.TRANS_EXPO)
 			resetPlayerPosAndBackground.tween_property( playerAccess , "rotation" , playerRotationInformation , 0.3 )
 			resetPlayerPosAndBackground.play()

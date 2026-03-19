@@ -11,6 +11,7 @@ func _ready() -> void:
 	characterBody = character_body_2d
 	rootCenter = root_center
 	GlobalVariables.playerTilemap = tilemap
+	GlobalVariables.player = character_body_2d
 func _physics_process(_delta: float) -> void:
 	if GlobalVariables.gamePaused: return
 	
