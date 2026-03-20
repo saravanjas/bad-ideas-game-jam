@@ -3,7 +3,7 @@ extends Control
 
 ## GRID BUILDER CONSTANTS
 const COLLECTION_ID = 0
-const MAX_TILE_ID = 4
+const MAX_TILE_ID = 5
 ##
 
 ## GRID VARIABLES

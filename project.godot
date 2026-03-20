@@ -21,12 +21,12 @@ GlobalVariables="*uid://ctooky2ijk7uy"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [global_group]
 
 PlayerAccess=""
+Projectiles=""
 
 [input]
 

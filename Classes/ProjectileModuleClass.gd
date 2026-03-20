@@ -1,8 +1,16 @@
 class_name ProjectileModuleClass
 extends ModuleClass
 
-@export var procjetile:Node2D
+@export var procjetile:PackedScene
+func _ready():
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func spawnProjectile() -> ProjectileClass:
+	var proj:ProjectileClass = procjetile.instantiate()
+	proj.global_position = self.global_position
+	proj.rotation = lookVector().angle()
+	GlobalVariables.projectilesNode.add_child(proj)
+	return proj

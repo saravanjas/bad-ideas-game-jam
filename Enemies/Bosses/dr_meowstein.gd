@@ -14,8 +14,8 @@ var positionDifference : float
 
 func _physics_process(delta: float) -> void:
 	time += delta
-	positionDifference = GlobalVariables.player.global_position.x / global_position.x
-	global_position = GlobalVariables.player.global_position + Vector2(positionDifference * sin(15 * time),-250)
+	positionDifference = GlobalVariables.playerBody.global_position.x / global_position.x
+	global_position = GlobalVariables.playerBody.global_position + Vector2(positionDifference * sin(15 * time),-250)
 	
 func LaserAttack():
 	$Ship.play("LaserAttackTelegraph")
