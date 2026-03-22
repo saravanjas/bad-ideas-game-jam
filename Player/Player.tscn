@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://d0qy4hvoeqvsi" path="res://Sprites/UI elementi/blueprintTilemap.png" id="8_0j2ni"]
 [ext_resource type="Script" uid="uid://cxjuc3pigl5pt" path="res://Shaders/PlayerTilemapSprite.gd" id="9_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Sprites/UI elementi/dots.png" id="11_5wa8t"]
+[ext_resource type="Script" uid="uid://dnlu4f3lnqq24" path="res://Player/loot_collection_area.gd" id="13_dm7nj"]
+[ext_resource type="Script" uid="uid://bupigle58rrj0" path="res://Player/loot_detection_area.gd" id="13_p7tob"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
 scenes/1/scene = ExtResource("2_gbmm3")
@@ -28,6 +30,18 @@ sources/0 = SubResource("TileSetScenesCollectionSource_7vdj4")
 shader = ExtResource("7_j23h2")
 shader_parameter/poz = Vector2(0, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wa8t"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wa8t"]
+radius = 221.65288
+
+[sub_resource type="Curve2D" id="Curve2D_5wa8t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1355, -788, 0, 0, 0, 0, -1349, 730, 0, 0, 0, 0, -1282, 730, 0, 0, 0, 0, 1298, 747, 0, 0, 0, 0, 1309, -760, 0, 0, 0, 0, 1242, -782, 0, 0, 0, 0, -1366, -805)
+}
+point_count = 7
+
 [node name="PlayerShip" type="Node2D" unique_id=681950733]
 script = ExtResource("1_q2qul")
 
@@ -39,6 +53,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAP//AAAAAAAABQD/////AAAAAAA
 tile_set = SubResource("TileSet_7vdj4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105]
+zoom = Vector2(1.25, 1.25)
 position_smoothing_enabled = true
 script = ExtResource("6_vlldt")
 
@@ -71,3 +86,44 @@ script = ExtResource("9_v0k0e")
 [node name="Dots" type="Sprite2D" parent="CharacterBody2D/GridBlueprint" unique_id=2081650938]
 position = Vector2(16, 16)
 texture = ExtResource("11_5wa8t")
+
+[node name="Loot" type="Node2D" parent="CharacterBody2D" unique_id=2036979305]
+
+[node name="LootCollectionArea" type="Area2D" parent="CharacterBody2D/Loot" unique_id=407326190]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("13_dm7nj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Loot/LootCollectionArea" unique_id=1565233081]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_5wa8t")
+debug_color = Color(0.8202671, 0.7483104, 0, 0.41960785)
+
+[node name="LootDetectionArea" type="Area2D" parent="CharacterBody2D/Loot" unique_id=1914225519]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("13_p7tob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Loot/LootDetectionArea" unique_id=1096009826]
+position = Vector2(16, 16)
+shape = SubResource("CircleShape2D_5wa8t")
+
+[node name="EnemySpawnPositions" type="Path2D" parent="." unique_id=646620580]
+z_index = -1
+position = Vector2(59.455086, 74.54445)
+scale = Vector2(1.1914018, 1.2429123)
+curve = SubResource("Curve2D_5wa8t")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="EnemySpawnPositions" unique_id=223516086 groups=["SpawnLocations"]]
+position = Vector2(-1355, -788)
+rotation = 1.5668437
+
+[node name="ColorRect" type="ColorRect" parent="EnemySpawnPositions" unique_id=326914467]
+visible = false
+z_index = -1
+offset_left = -1366.0
+offset_top = -807.0
+offset_right = 1298.0
+offset_bottom = 753.0
+
+[connection signal="area_entered" from="CharacterBody2D/Loot/LootCollectionArea" to="CharacterBody2D/Loot/LootCollectionArea" method="area_entered"]

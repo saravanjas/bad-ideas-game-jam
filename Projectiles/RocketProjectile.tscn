@@ -3,6 +3,71 @@
 [ext_resource type="Script" uid="uid://dqw7yksgm46re" path="res://Projectiles/rocket_projectile.gd" id="1_2117n"]
 [ext_resource type="Texture2D" uid="uid://dj10wpm715tm5" path="res://Sprites/Projectiles/Rocket/raketaEarlyAnimacija-Sheet.png" id="1_ujr1x"]
 
+[sub_resource type="Curve" id="Curve_2117n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.75, 0.8988764), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_f8aw5"]
+curve = SubResource("Curve_2117n")
+
+[sub_resource type="Gradient" id="Gradient_33inc"]
+offsets = PackedFloat32Array(0, 0.5081967, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.81960785, 0, 1, 1, 0.7137255, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_y48ox"]
+gradient = SubResource("Gradient_33inc")
+
+[sub_resource type="Curve" id="Curve_lwll6"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(0, 4.9438205), 0.0, 17.737827, 0, 0, Vector2(0.35135132, 2.4157307), -7.7207074, -7.7207074, 0, 0, Vector2(1, 0), 1.4, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pufmo"]
+curve = SubResource("Curve_lwll6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aatn4"]
+inherit_velocity_ratio = 50.0
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+scale_min = 2.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_pufmo")
+color = Color(1, 1, 0, 1)
+color_initial_ramp = SubResource("GradientTexture1D_y48ox")
+alpha_curve = SubResource("CurveTexture_f8aw5")
+hue_variation_min = -1.0
+hue_variation_max = -1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2117n"]
+
+[sub_resource type="Gradient" id="Gradient_2117n"]
+colors = PackedColorArray(1, 0.41960785, 0, 1, 1, 1, 0.41960785, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f8aw5"]
+gradient = SubResource("Gradient_2117n")
+
+[sub_resource type="Curve" id="Curve_f8aw5"]
+_limits = [0.0, 10.0, 0.0, 1.0]
+_data = [Vector2(0, 9.662922), 0.0, 0.0, 0, 0, Vector2(0.08108108, 10), 0.0, 0.0, 0, 0, Vector2(0.4391892, 1.1235957), 0.0, 0.0, 0, 0, Vector2(0.78378373, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_33inc"]
+curve = SubResource("Curve_f8aw5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2117n"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_33inc")
+color_initial_ramp = SubResource("GradientTexture1D_f8aw5")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2117n"]
 atlas = ExtResource("1_ujr1x")
 region = Rect2(0, 0, 32, 32)
@@ -68,15 +133,41 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1h0qn"]
-size = Vector2(5.7999997, 16.9)
+size = Vector2(7.299999, 18.849998)
 
 [node name="RocketProjectile" type="Node2D" unique_id=1585618386]
 script = ExtResource("1_2117n")
 metadata/_custom_type_script = "uid://bjka1sia3v78g"
 
+[node name="Explosion" type="GPUParticles2D" parent="." unique_id=769446143]
+z_index = 1
+z_as_relative = false
+scale = Vector2(2, 2)
+emitting = false
+amount = 128
+lifetime = 2.5
+speed_scale = 1.5
+explosiveness = 1.0
+visibility_rect = Rect2(1920, 1920, 1920, 1920)
+process_material = SubResource("ParticleProcessMaterial_aatn4")
+
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=89135947]
 rotation = 1.5707964
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_2117n")
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 5
+
+[node name="Explosion" type="GPUParticles2D" parent="RigidBody2D" unique_id=1229778437]
+rotation = -1.5707964
+scale = Vector2(2, 2)
+emitting = false
+amount = 128
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2117n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1040043876]
 texture_filter = 1
@@ -88,3 +179,10 @@ frame_progress = 0.13834815
 position = Vector2(-2.9802322e-08, 1.1250005)
 scale = Vector2(2.5, 2.5)
 shape = SubResource("RectangleShape2D_1h0qn")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="RigidBody2D" unique_id=1061136046]
+rotation = -1.5707964
+rect = Rect2(-153, -132, 326, 270)
+
+[connection signal="body_entered" from="RigidBody2D" to="." method="enemyCollision"]
+[connection signal="screen_exited" from="RigidBody2D/VisibleOnScreenNotifier2D" to="." method="exitViewport"]

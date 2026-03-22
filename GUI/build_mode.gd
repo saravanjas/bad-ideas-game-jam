@@ -21,7 +21,7 @@ var playerRotationInformation : float
 @onready var texture_rect_bg: TextureRect = $CanvasLayer/Background
 @onready var texture_rect_bp: TextureRect = $CanvasLayer/Background2
 var cd := false
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#print(cd)
 	resolveBuildMode()
 	animated_sprite_2d.visible = GlobalVariables.inBuildMode

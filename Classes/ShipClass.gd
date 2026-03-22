@@ -27,7 +27,7 @@ var moduleLookVector := Vector2.RIGHT.normalized()
 var lastPlacedTile:ModuleClass
 ##
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#resolveBuildMode()
 	#if not inBuildMode:
 	#	resolveAllModules()

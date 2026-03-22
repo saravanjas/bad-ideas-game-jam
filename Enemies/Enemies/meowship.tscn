@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c5ktovqh0gt2q"]
+
+[ext_resource type="Script" uid="uid://b8vjdheeck35c" path="res://Enemies/Enemies/meowship.gd" id="1_mcjt4"]
+[ext_resource type="Texture2D" uid="uid://ykf3tk7jgl8c" path="res://Sprites/Enemies/catgrunt.png" id="1_sy2wv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mcjt4"]
+size = Vector2(73, 46)
+
+[node name="Meowship" type="CharacterBody2D" unique_id=1733126009]
+collision_layer = 2
+collision_mask = 2
+safe_margin = 0.001
+script = ExtResource("1_mcjt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2601745]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_mcjt4")
+debug_color = Color(0.9971226, 0, 0.18228063, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=219195556]
+texture_filter = 1
+texture = ExtResource("1_sy2wv")
