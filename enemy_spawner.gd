@@ -5,13 +5,18 @@ extends Node2D
 @onready var ghostcat : PackedScene = preload("res://Enemies/Enemies/ghostcat.tscn")
 @onready var spawnLocation : PathFollow2D = get_tree().get_first_node_in_group("SpawnLocations")
 
+@export var maxEnemyCount : int = 5
+var currentEnemyCount : int = 0
 var time_count : float 
 func _ready() -> void:
 	spawn_enemy()
 func _process(delta: float) -> void:
 	time_count += delta
 	var seconds : int = time_count
+	currentEnemyCount = get_child_count()
 func spawn_enemy():
+	if currentEnemyCount == maxEnemyCount:
+		return
 	var enemyChoice := randi_range(0,2)
 	var enemy_instance
 	match enemyChoice:

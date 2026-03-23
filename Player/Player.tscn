@@ -66,9 +66,43 @@ texture_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="CharacterBody2D/GridBlueprint" unique_id=391719798]
 offset_left = -68.0
-offset_top = -69.0
+offset_top = -68.0
 offset_right = 100.0
-offset_bottom = 100.0
+offset_bottom = 101.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D/GridBlueprint/ColorRect" unique_id=1475297983]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 32.0
+offset_right = 200.0
+offset_bottom = 136.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CharacterBody2D/GridBlueprint/ColorRect" unique_id=364724809]
+layout_mode = 0
+offset_left = 136.0
+offset_top = -32.0
+offset_right = 368.0
+offset_bottom = 72.0
+rotation = 1.5707964
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CharacterBody2D/GridBlueprint/ColorRect" unique_id=224969831]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 64.0
+offset_right = 232.0
+offset_bottom = 104.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CharacterBody2D/GridBlueprint/ColorRect" unique_id=312567617]
+layout_mode = 0
+offset_left = 104.0
+offset_top = -64.0
+offset_right = 400.0
+offset_bottom = -24.0
+rotation = 1.5707964
 color = Color(0, 0, 0, 1)
 
 [node name="BG" type="Sprite2D" parent="CharacterBody2D/GridBlueprint" unique_id=1665295996]
@@ -78,7 +112,7 @@ texture = ExtResource("7_v0k0e")
 [node name="Lines" type="Sprite2D" parent="CharacterBody2D/GridBlueprint" unique_id=1878225683]
 texture_filter = 1
 material = SubResource("ShaderMaterial_5wa8t")
-position = Vector2(-64, -64)
+position = Vector2(-130, -130)
 texture = ExtResource("8_0j2ni")
 centered = false
 script = ExtResource("9_v0k0e")
