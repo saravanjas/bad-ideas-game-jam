@@ -1,0 +1,12 @@
+[gd_resource type="VisualShader" format=3 uid="uid://wgr150s5ewqx"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_kgcmc"]
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2(400, 120)
+nodes/fragment/0/position = Vector2(560, 160)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_kgcmc")
+nodes/fragment/2/position = Vector2(280, 160)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)

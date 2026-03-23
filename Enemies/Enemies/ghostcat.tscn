@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cge3spusdtcyr"]
+
+[ext_resource type="Texture2D" uid="uid://c0m4mxvfxo4c6" path="res://Sprites/Enemies/ghostcatfinal-Sheet.png" id="1_r0fhd"]
+[ext_resource type="Script" uid="uid://drnrc5d8gqgw3" path="res://Enemies/Enemies/ghostcat.gd" id="1_wvcm8"]
+[ext_resource type="Shader" uid="uid://ckcgf1dwaa62u" path="res://Shaders/enemyDamage.tres" id="2_t6i7j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khjyv"]
+radius = 25.0
+height = 62.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12gna"]
+resource_local_to_scene = true
+shader = ExtResource("2_t6i7j")
+shader_parameter/BooleanParameter = true
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvcm8"]
+atlas = ExtResource("1_r0fhd")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6i7j"]
+atlas = ExtResource("1_r0fhd")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12gna"]
+atlas = ExtResource("1_r0fhd")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqbvv"]
+atlas = ExtResource("1_r0fhd")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6yqiq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvcm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6i7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12gna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqbvv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[sub_resource type="Animation" id="Animation_dps1h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/BooleanParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2n57m"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/BooleanParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqbvv"]
+_data = {
+&"RESET": SubResource("Animation_dps1h"),
+&"hit": SubResource("Animation_2n57m")
+}
+
+[node name="Node2D" type="CharacterBody2D" unique_id=1004394690]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_wvcm8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1766503073]
+shape = SubResource("CapsuleShape2D_khjyv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1052948851]
+texture_filter = 1
+material = SubResource("ShaderMaterial_12gna")
+sprite_frames = SubResource("SpriteFrames_6yqiq")
+frame_progress = 0.5764321
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1319691514]
+libraries/ = SubResource("AnimationLibrary_nqbvv")
+autoplay = &"hit"

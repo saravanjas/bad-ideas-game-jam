@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
+
 @onready var target : CharacterBody2D = get_tree().get_first_node_in_group("PlayerAccess")
 @onready var loot : PackedScene = preload("res://Scenes/Loot/item_drop.tscn")
 @onready var lootParent := get_tree().get_first_node_in_group("Loot")
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-var speed := 350
-@export var healthPoints := 15
+var speed := 500
+@export var healthPoints := 30
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -17,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	#global_position = global_position.move_toward(target.global_position , speed * delta)
 	var direction = (target.global_position - global_position).normalized()
 	velocity = direction * speed
+	flip(velocity.x)
 	move_and_slide()
 	if healthPoints <= 0:
 		die()
@@ -29,3 +32,9 @@ func die():
 	lootParent.call_deferred("add_sibling" , lootInstance)
 	lootInstance.global_position = self.global_position
 	call_deferred("queue_free")
+
+func flip(side):
+	if side < 0:
+		animated_sprite_2d.flip_h = false
+	else:
+		animated_sprite_2d.flip_h = true
