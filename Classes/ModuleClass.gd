@@ -4,6 +4,8 @@ extends Node2D
 
 @export var health := 1
 @export var recoil := 0
+@export var cooldownTime:float = .3
+var onCooldown := false
 
 var connectedModules:Array[Node2D] = []
 var playerCharacterBody:CharacterBody2D
@@ -30,9 +32,11 @@ func _retoggleSpriteVisibility():
 	sprite.visible = true
 	
 func lookVector():
-	var playerAngle = player.getLookVector().angle() + (PI/2.0)
+	var playerAngle = GlobalVariables.player.getLookVector().angle() + (PI/2.0)
 	var moduleAngle = rotation#+(PI/2.0)
 	var lv = Vector2.from_angle(playerAngle+moduleAngle)
+	lv.x *= -1
+	lv.y *= -1
 	#print("plr: ", playerAngle/PI)
 	#print("module: ", moduleAngle/PI)
 	#print("returend a lv", lv)
@@ -48,14 +52,14 @@ func getAdjacentModules() ->Array[ModuleClass]:
 			arr.append(tile)	
 	return arr
 
-func applyForceToSelf(vector:Vector2, flipY:bool = true, flipX:bool = true):
+func applyForceToSelf(vector:Vector2, flipY:bool = false, flipX:bool = false):
 	if flipY:
 		vector.y *= -1
 	if flipX:
 		vector.x *= -1
 	player.totalVelocity += vector
 
-func applyTorqueToSelf(vector:Vector2,flipY:bool = true, flipX:bool = true):
+func applyTorqueToSelf(vector:Vector2,flipY:bool = false, flipX:bool = false):
 	if flipY:
 		vector.y *= -1
 	if flipX:
@@ -67,4 +71,10 @@ func applyTorqueToSelf(vector:Vector2,flipY:bool = true, flipX:bool = true):
 func rotateModule(angle:float):
 	angle = rad_to_deg(angle)
 	self.rotation_degrees = angle
+
+func playAnimation(animSprite:AnimatedSprite2D, cycleVisibility = false): #cycle Visibility = turn it on and off before and after playing
+		animSprite.visible = true
+		animSprite.play()
+		await animSprite.animation_finished
+		animSprite.visible = false
 	

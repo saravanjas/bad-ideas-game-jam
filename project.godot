@@ -18,15 +18,16 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalVariables="*uid://ctooky2ijk7uy"
+BuildmodeVariables="*uid://c63u0k01smlb6"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [global_group]
 
 PlayerAccess=""
+Projectiles=""
 
 [input]
 

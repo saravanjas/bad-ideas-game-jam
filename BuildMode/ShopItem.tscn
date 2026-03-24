@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dya67v6o0yhdf"]
+
+[ext_resource type="Script" uid="uid://b2hlatfuoylm7" path="res://BuildMode/shop_item.gd" id="1_llnuh"]
+
+[node name="ShopItem" type="Button" unique_id=943801402]
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+script = ExtResource("1_llnuh")
+
+[node name="Description" type="Label" parent="." unique_id=2133429903]
+layout_mode = 0
+offset_right = 27.71
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 9
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

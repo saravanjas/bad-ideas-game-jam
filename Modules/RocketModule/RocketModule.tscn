@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cw3mxw70m8vha"]
+
+[ext_resource type="Script" uid="uid://cb2jsk7i3s5q4" path="res://Modules/RocketModule/RocketModule.gd" id="1_b2g6m"]
+[ext_resource type="PackedScene" uid="uid://y6f05h652fox" path="res://Projectiles/RocketProjectile.tscn" id="2_4gg6x"]
+[ext_resource type="Texture2D" uid="uid://cgtca20q0djaf" path="res://Sprites/Ship/Moduli/ModulSpriteovi/rocketModule.png" id="2_ikaaj"]
+[ext_resource type="Texture2D" uid="uid://cg6egwui4flwu" path="res://Sprites/Ship/Moduli/ModulPucanje/box_module_opening.png" id="4_4gg6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oogbe"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkmo8"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ees1t"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahqfb"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nviu"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lebf"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2lie"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bals8"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooy2h"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imiju"]
+atlas = ExtResource("4_4gg6x")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uda40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkmo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ees1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahqfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nviu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lebf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2lie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bals8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooy2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imiju")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="RocketModule" type="Node2D" unique_id=554576903]
+script = ExtResource("1_b2g6m")
+projectileVelocity = 19.0
+procjetile = ExtResource("2_4gg6x")
+recoil = 10
+metadata/_custom_type_script = "uid://d17pbmq4r44co"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=519749490]
+texture_filter = 1
+texture = ExtResource("2_ikaaj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1913961496]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1778652377]
+shape = SubResource("RectangleShape2D_oogbe")
+
+[node name="BoxOpenAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1383509188]
+visible = false
+texture_filter = 1
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_uda40")
+frame = 8
+frame_progress = 1.0

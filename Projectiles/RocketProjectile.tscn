@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://y6f05h652fox"]
+
+[ext_resource type="Script" uid="uid://dqw7yksgm46re" path="res://Projectiles/rocket_projectile.gd" id="1_2117n"]
+[ext_resource type="Texture2D" uid="uid://dj10wpm715tm5" path="res://Sprites/Projectiles/Rocket/raketaEarlyAnimacija-Sheet.png" id="1_ujr1x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2117n"]
+atlas = ExtResource("1_ujr1x")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8aw5"]
+atlas = ExtResource("1_ujr1x")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33inc"]
+atlas = ExtResource("1_ujr1x")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y48ox"]
+atlas = ExtResource("1_ujr1x")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwll6"]
+atlas = ExtResource("1_ujr1x")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pufmo"]
+atlas = ExtResource("1_ujr1x")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aatn4"]
+atlas = ExtResource("1_ujr1x")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chwfm"]
+atlas = ExtResource("1_ujr1x")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4grqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2117n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8aw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33inc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y48ox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwll6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pufmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aatn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chwfm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h0qn"]
+size = Vector2(5.7999997, 16.9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2117n"]
+size = Vector2(42, 14)
+
+[node name="RocketProjectile" type="Node2D" unique_id=1585618386]
+script = ExtResource("1_2117n")
+metadata/_custom_type_script = "uid://bjka1sia3v78g"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=89135947]
+rotation = 1.5707964
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1040043876]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_4grqx")
+frame_progress = 0.13834815
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=2013827510]
+position = Vector2(-2.9802322e-08, 1.1250005)
+scale = Vector2(2.5, 2.5)
+shape = SubResource("RectangleShape2D_1h0qn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=770934069]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1652019980]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2117n")
+debug_color = Color(0.15137485, 0.5705569, 5.7756904e-07, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

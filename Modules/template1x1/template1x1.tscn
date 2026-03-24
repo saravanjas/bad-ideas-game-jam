@@ -8,7 +8,7 @@ size = Vector2(32, 32)
 
 [node name="Template1x1" type="Node2D" unique_id=472882630]
 script = ExtResource("1_8srou")
-recoil = 200
+recoil = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869438289]
 texture_filter = 1

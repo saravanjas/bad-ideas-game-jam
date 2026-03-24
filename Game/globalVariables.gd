@@ -4,4 +4,13 @@ var gamePaused := false
 var inBuildMode := false
 var buildModeSetupFinished := false
 var playerTilemap:TileMapLayer
-var player : CharacterBody2D 
+var player:ShipClass
+var playerBody:CharacterBody2D 
+
+var projectilesNode:Node
+
+var inventory:Dictionary = {
+	"Cardboard" = 100,
+	"Tape" = 100,
+	"Screws" = 100
+} 
