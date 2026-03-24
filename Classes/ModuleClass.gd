@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	_retoggleSpriteVisibility()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#print((global_position - player.rootCenter.global_position).length())
 	pass
 	#lookVector = Vector2.from_angle(deg_to_rad(rotation)+(PI/2.0)).normalized()

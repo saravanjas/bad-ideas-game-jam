@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bb4pyn3fl3fb3"]
+
+[ext_resource type="Script" uid="uid://bogy4cc4dkyo3" path="res://Enemies/Enemies/acidcat.gd" id="1_lcn0r"]
+[ext_resource type="Shader" uid="uid://ckcgf1dwaa62u" path="res://Shaders/enemyDamage.tres" id="2_dps1h"]
+[ext_resource type="Texture2D" uid="uid://c6kg7741o3xrh" path="res://Sprites/Enemies/acidcat2-Sheet.png" id="2_inbyo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2n57m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dps1h"]
+radius = 24.875
+height = 49.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sctef"]
+resource_local_to_scene = true
+shader = ExtResource("2_dps1h")
+shader_parameter/BooleanParameter = true
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n57m"]
+atlas = ExtResource("2_inbyo")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sctef"]
+atlas = ExtResource("2_inbyo")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m7q6"]
+atlas = ExtResource("2_inbyo")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_818es"]
+atlas = ExtResource("2_inbyo")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwfbx"]
+atlas = ExtResource("2_inbyo")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr88h"]
+atlas = ExtResource("2_inbyo")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_52c63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2n57m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sctef")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_3m7q6")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_818es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwfbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr88h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_dps1h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/BooleanParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2n57m"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/BooleanParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sctef"]
+_data = {
+&"RESET": SubResource("Animation_dps1h"),
+&"hit": SubResource("Animation_2n57m")
+}
+
+[node name="Acidcat" type="CharacterBody2D" unique_id=1224916723]
+material = SubResource("ShaderMaterial_2n57m")
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_lcn0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=552641154]
+shape = SubResource("CapsuleShape2D_dps1h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=199291706]
+texture_filter = 1
+material = SubResource("ShaderMaterial_sctef")
+position = Vector2(-3, -4)
+sprite_frames = SubResource("SpriteFrames_52c63")
+autoplay = "default"
+frame_progress = 0.8775632
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=557935771]
+libraries/ = SubResource("AnimationLibrary_sctef")
+autoplay = &"hit"
