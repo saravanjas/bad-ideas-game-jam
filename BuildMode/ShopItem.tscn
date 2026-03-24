@@ -1,12 +1,86 @@
 [gd_scene format=3 uid="uid://dya67v6o0yhdf"]
 
 [ext_resource type="Script" uid="uid://b2hlatfuoylm7" path="res://BuildMode/shop_item.gd" id="1_llnuh"]
+[ext_resource type="Texture2D" uid="uid://d4a13gbklgkhb" path="res://Sprites/UI elementi/buildmodeBoxInterior1.png" id="2_mgknx"]
+[ext_resource type="Texture2D" uid="uid://bimh0u3qp06hf" path="res://Sprites/UI elementi/buildmodeBoxOpen.png" id="3_36vy2"]
+[ext_resource type="Texture2D" uid="uid://cgtca20q0djaf" path="res://Sprites/Ship/Moduli/ModulSpriteovi/rocketModule.png" id="3_x0mnx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0mnx"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_destw"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s062"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgj5r"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbt1b"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npjkv"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ony4h"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5odr"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ope23"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4nxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0mnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_destw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s062")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgj5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbt1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npjkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ony4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5odr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ope23")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
 
 [node name="ShopItem" type="Button" unique_id=943801402]
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
+custom_minimum_size = Vector2(128, 128)
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(8, 8)
 script = ExtResource("1_llnuh")
 
 [node name="Description" type="Label" parent="." unique_id=2133429903]
@@ -15,4 +89,24 @@ offset_right = 27.71
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 9
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1178130105]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(2, 2)
+texture = ExtResource("2_mgknx")
+
+[node name="ItemOfferTexture" type="Sprite2D" parent="." unique_id=456504887]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(3, 3)
+texture = ExtResource("3_x0mnx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826589513]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_l4nxw")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

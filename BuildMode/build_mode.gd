@@ -26,7 +26,7 @@ var shop:Array[ShopItem] = []
 @onready var animated_sprite_2d: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
 @onready var texture_rect_bg: TextureRect = $CanvasLayer/Background
 @onready var texture_rect_bp: TextureRect = $CanvasLayer/Background2
-@onready var h_box_container: HBoxContainer = $CanvasLayer/HBoxContainer
+@onready var h_box_container: HBoxContainer = $ItemBoxes/HBoxContainer
 
 
 func _ready() -> void:
@@ -44,10 +44,13 @@ func resolveBuildMode():
 			playerRotationInformation = GlobalVariables.playerBody.rotation
 			cd = true
 			GlobalVariables.inBuildMode  = true
+			tweenCameraBuildmode()
 			canvas_layer.visible = true
 			animated_sprite_2d.play()
 			await animated_sprite_2d.animation_finished 
-			
+			for child in get_children():
+				if child is CanvasLayer:
+					child.visible = true
 			var backgroundAppearTween = _tween1()
 			await backgroundAppearTween.finished
 		
@@ -62,8 +65,11 @@ func resolveBuildMode():
 		else:
 			var resetPlayerPosAndBackground = _tween3()
 			GlobalVariables.inBuildMode  = false
+			resetCameraTween()
 			GlobalVariables.buildModeSetupFinished = false
-			canvas_layer.visible = false
+			for child in get_children():
+				if child is CanvasLayer:
+					child.visible = false
 	
 	if GlobalVariables.inBuildMode:
 		GlobalVariables.gamePaused = true
@@ -175,3 +181,17 @@ func _tween3() -> Tween:
 	resetPlayerPosAndBackground.tween_property( GlobalVariables.playerBody , "rotation" , playerRotationInformation , 0.3 )
 	resetPlayerPosAndBackground.play()
 	return resetPlayerPosAndBackground
+
+func tweenCameraBuildmode():
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(2.0,2.0) , 0.5)
+	tween.tween_property(GlobalVariables.playerCamera , "position:y" , -50 , 0.5)
+	tween.play()
+
+func resetCameraTween():
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(1.0,1.0) , 0.5)
+	tween.tween_property(GlobalVariables.playerCamera , "position:y" , 0 , 0.5)
+	tween.play()

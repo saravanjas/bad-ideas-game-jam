@@ -53,7 +53,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAP//AAAAAAAABQD/////AAAAAAA
 tile_set = SubResource("TileSet_7vdj4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105]
-zoom = Vector2(1.25, 1.25)
+offset = Vector2(16, 0)
 position_smoothing_enabled = true
 script = ExtResource("6_vlldt")
 
