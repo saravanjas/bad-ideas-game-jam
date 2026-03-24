@@ -135,6 +135,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1h0qn"]
 size = Vector2(7.299999, 18.849998)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2117n"]
+size = Vector2(42, 14)
+
 [node name="RocketProjectile" type="Node2D" unique_id=1585618386]
 script = ExtResource("1_2117n")
 metadata/_custom_type_script = "uid://bjka1sia3v78g"
@@ -186,3 +189,11 @@ rect = Rect2(-153, -132, 326, 270)
 
 [connection signal="body_entered" from="RigidBody2D" to="." method="enemyCollision"]
 [connection signal="screen_exited" from="RigidBody2D/VisibleOnScreenNotifier2D" to="." method="exitViewport"]
+[node name="Area2D" type="Area2D" parent="." unique_id=770934069]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1652019980]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2117n")
+debug_color = Color(0.15137485, 0.5705569, 5.7756904e-07, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

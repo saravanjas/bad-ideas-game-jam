@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bqye8noab3ueb"]
 
 [ext_resource type="PackedScene" uid="uid://bbubsuu64x1pi" path="res://Player/Player.tscn" id="1_5bawo"]
-[ext_resource type="PackedScene" uid="uid://dsp52qib1ipjh" path="res://Build Mode/build_mode.tscn" id="2_ktsxd"]
-[ext_resource type="Script" uid="uid://dprhchxltfuut" path="res://Build Mode/build_mode.gd" id="3_gurxa"]
+[ext_resource type="PackedScene" uid="uid://dsp52qib1ipjh" path="res://BuildMode/build_mode.tscn" id="2_ktsxd"]
+[ext_resource type="Script" uid="uid://dprhchxltfuut" path="res://BuildMode/build_mode.gd" id="3_gurxa"]
 
 [node name="root" type="Node2D" unique_id=435723755]
 

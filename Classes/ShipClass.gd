@@ -55,7 +55,7 @@ func resolvePhysics():
 	if abs(angularVelocity) <= .001 : 
 		angularVelocity = 0
 
-func getAllModules():
+func getAllModules() -> Array:
 	var arr:Array[ModuleClass] = []
 	for tile in tilemap.get_children():
 		if tile is ModuleClass:
