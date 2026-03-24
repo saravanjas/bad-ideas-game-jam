@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bbubsuu64x1pi"]
 
 [ext_resource type="Script" uid="uid://cqkrcy20b5eso" path="res://Player/Player.gd" id="1_q2qul"]
-[ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/template1x1/template1x1.tscn" id="2_gbmm3"]
+[ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/ThrusterModule/ThrusterModule.tscn" id="2_gbmm3"]
 [ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_7vdj4"]
 [ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_6ysni"]
@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://d0qy4hvoeqvsi" path="res://Sprites/UI elementi/blueprintTilemap.png" id="8_0j2ni"]
 [ext_resource type="Script" uid="uid://cxjuc3pigl5pt" path="res://Shaders/PlayerTilemapSprite.gd" id="9_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Sprites/UI elementi/dots.png" id="11_5wa8t"]
-[ext_resource type="Script" uid="uid://dnlu4f3lnqq24" path="res://Player/loot_collection_area.gd" id="13_dm7nj"]
-[ext_resource type="Script" uid="uid://bupigle58rrj0" path="res://Player/loot_detection_area.gd" id="13_p7tob"]
+[ext_resource type="Script" path="res://Player/loot_collection_area.gd" id="13_dm7nj"]
+[ext_resource type="Script" path="res://Player/loot_detection_area.gd" id="13_p7tob"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
 scenes/1/scene = ExtResource("2_gbmm3")
