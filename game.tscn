@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4ux3o7ei7k6" path="res://Worlds/world_1.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://twlpx8jitsm3" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cb1ydrqv8i7n0" path="res://Enemies/Bosses/dr_meowstein.tscn" id="3_feb5d"]
-[ext_resource type="Script" uid="uid://ypi1jo3ermhb" path="res://enemy_spawner.gd" id="4_7jktm"]
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="4_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=1127454506]
 script = ExtResource("1_fc0e3")
