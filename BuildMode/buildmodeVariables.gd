@@ -11,25 +11,29 @@ var moduleInfo:Dictionary = {
 	
 	"InputModuleA" = {
 		"Cost" = [1,2,1],
-		"Text" = "Input A"
+		"Text" = "Input A" ,
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/keyA.png"
 	},
 	
 	
 	"InputModuleW" = {
 		"Cost" = [1,2,1],
-		"Text" = "Input W"
+		"Text" = "Input W",
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/keyW.png"
 	} ,
 	
 	
 	"RocketModule"  = {
 		"Cost" = [1,0,0],
-		"Text" = "Rocket"
+		"Text" = "Rocket" ,
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/rocketModule.png"
 	} ,
 	
 	
 	"ThrusterModule"  = {
 		"Cost" = [4,2,0],
-		"Text" = "Thruster"
+		"Text" = "Thruster",
+		"Texture" = "bruh" ,
 	} 
 	
 }
