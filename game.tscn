@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4ux3o7ei7k6" path="res://Worlds/world_1.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://twlpx8jitsm3" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cb1ydrqv8i7n0" path="res://Enemies/Bosses/dr_meowstein.tscn" id="3_feb5d"]
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="4_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=1127454506]
 script = ExtResource("1_fc0e3")
@@ -11,9 +12,18 @@ script = ExtResource("1_fc0e3")
 [node name="root" parent="." unique_id=435723755 instance=ExtResource("1_80nbo")]
 
 [node name="World1" parent="root" unique_id=1679080849 instance=ExtResource("1_e2o6t")]
-position = Vector2(511, 251)
 
-[node name="Projectiles" type="Node" parent="root/World1" unique_id=1992649742]
+[node name="Projectiles" type="Node" parent="root/World1" unique_id=1992649742 groups=["Projectiles"]]
+
+[node name="Enemies" type="Node2D" parent="root/World1" unique_id=1782284680]
+script = ExtResource("4_7jktm")
+
+[node name="SpawnTimer" type="Timer" parent="root/World1/Enemies" unique_id=1296057821]
+autostart = true
+
+[node name="Loot" type="Node2D" parent="root/World1" unique_id=2054349770 groups=["Loot"]]
 
 [node name="DrMeowstein" parent="root" unique_id=1432788726 instance=ExtResource("3_feb5d")]
 position = Vector2(280, 132)
+
+[connection signal="timeout" from="root/World1/Enemies/SpawnTimer" to="root/World1/Enemies" method="spawn_timer_timeout"]

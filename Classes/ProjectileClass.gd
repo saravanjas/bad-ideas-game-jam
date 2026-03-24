@@ -9,7 +9,7 @@ var velocity = 0
 var lookVector:Vector2 = Vector2.RIGHT
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	rigid_body_2d.move_and_collide(velocity*lookVector)
 	
 func setVelocity(vel:float):

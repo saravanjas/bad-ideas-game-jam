@@ -1,16 +1,126 @@
 [gd_scene format=3 uid="uid://dnwor0mc6jw5s"]
 
 [ext_resource type="Script" uid="uid://b2gm5m5jwibsx" path="res://Modules/template1x1/template1x1.gd" id="1_8srou"]
-[ext_resource type="Texture2D" uid="uid://cbau10g4vunq4" path="res://TempSprites/1x1.png" id="2_qk7dd"]
+[ext_resource type="Texture2D" uid="uid://cg1sa0wm7pggq" path="res://Sprites/Ship/Moduli/ModulSpriteovi/boosterModule.png" id="2_qk7dd"]
+[ext_resource type="Texture2D" uid="uid://cvrw1hwtds710" path="res://Sprites/Ship/Moduli/ModulSpriteovi/booster-Sheet.png" id="3_nv44j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87fno"]
 size = Vector2(32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc7rn"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssrrg"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duox5"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e0at"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk7dd"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv44j"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yvuc"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d1wc"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mp5m"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6m68"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvuvs"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc0df"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1rkc"]
+atlas = ExtResource("3_nv44j")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yvuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc7rn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssrrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duox5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e0at")
+}],
+"loop": true,
+"name": &"on",
+"speed": 13.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk7dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv44j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yvuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d1wc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mp5m")
+}],
+"loop": false,
+"name": &"reset",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6m68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvuvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc0df")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1rkc")
+}],
+"loop": false,
+"name": &"start",
+"speed": 10.0
+}]
+
 [node name="Template1x1" type="Node2D" unique_id=472882630]
 script = ExtResource("1_8srou")
-recoil = 50
+recoil = 15
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1869438289]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106137366]
 texture_filter = 1
 texture = ExtResource("2_qk7dd")
 
@@ -18,3 +128,18 @@ texture = ExtResource("2_qk7dd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=342606737]
 shape = SubResource("RectangleShape2D_87fno")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=165976134]
+visible = false
+texture_filter = 1
+position = Vector2(0, 32)
+rotation = -3.1415927
+sprite_frames = SubResource("SpriteFrames_1yvuc")
+animation = &"reset"
+
+[node name="BoosterTimeout" type="Timer" parent="." unique_id=1401710208]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="BoosterTimeout" to="." method="booster_timeout"]
