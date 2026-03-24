@@ -33,7 +33,7 @@ var moduleInfo:Dictionary = {
 	"ThrusterModule"  = {
 		"Cost" = [4,2,0],
 		"Text" = "Thruster",
-		"Texture" = "bruh" ,
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/boosterModule.png"
 	} 
 	
 }

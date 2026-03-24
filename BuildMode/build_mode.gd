@@ -141,11 +141,13 @@ func fillBlankItem(name:String, newItem:ShopItem):
 	
 	## add Module Name / Key
 	newItem.moduleName = name
-	
 	## add Description
 	await get_tree().process_frame
 	newItem.description.text = BuildmodeVariables.moduleInfo[name]["Text"]
-
+	newItem.itemTexture.texture = load(BuildmodeVariables.moduleInfo[name]["Texture"])
+	newItem.price_label_1.text = str(newItem.cost["Cardboard"])
+	newItem.price_label_2.text = str(newItem.cost["Tape"])
+	newItem.price_label_3.text = str(newItem.cost["Screws"])
 func calibrateBoxId(id:int):
 	var ret = id
 	if id <= 0:
@@ -185,7 +187,7 @@ func _tween3() -> Tween:
 func tweenCameraBuildmode():
 	var tween = create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(2.0,2.0) , 0.5)
+	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(1.5,1.5) , 0.5)
 	tween.tween_property(GlobalVariables.playerCamera , "position:y" , -50 , 0.5)
 	tween.play()
 
