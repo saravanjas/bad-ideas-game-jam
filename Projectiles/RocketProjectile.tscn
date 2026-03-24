@@ -70,12 +70,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1h0qn"]
 size = Vector2(5.7999997, 16.9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2117n"]
+size = Vector2(42, 14)
+
 [node name="RocketProjectile" type="Node2D" unique_id=1585618386]
 script = ExtResource("1_2117n")
 metadata/_custom_type_script = "uid://bjka1sia3v78g"
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=89135947]
 rotation = 1.5707964
+collision_layer = 0
+collision_mask = 0
 gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1040043876]
@@ -88,3 +93,12 @@ frame_progress = 0.13834815
 position = Vector2(-2.9802322e-08, 1.1250005)
 scale = Vector2(2.5, 2.5)
 shape = SubResource("RectangleShape2D_1h0qn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=770934069]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1652019980]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_2117n")
+debug_color = Color(0.15137485, 0.5705569, 5.7756904e-07, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

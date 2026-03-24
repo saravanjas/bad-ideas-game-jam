@@ -81,7 +81,9 @@ animations = [{
 
 [node name="RocketModule" type="Node2D" unique_id=554576903]
 script = ExtResource("1_b2g6m")
+projectileVelocity = 19.0
 procjetile = ExtResource("2_4gg6x")
+recoil = 10
 metadata/_custom_type_script = "uid://d17pbmq4r44co"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=519749490]
