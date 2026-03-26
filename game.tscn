@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bqye8noab3ueb" path="res://Game/root.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://dl4ux3o7ei7k6" path="res://Worlds/world_1.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://twlpx8jitsm3" path="res://game.gd" id="1_fc0e3"]
-[ext_resource type="PackedScene" uid="uid://cb1ydrqv8i7n0" path="res://Enemies/Bosses/dr_meowstein.tscn" id="3_feb5d"]
-[ext_resource type="Script" path="res://enemy_spawner.gd" id="4_7jktm"]
+[ext_resource type="Script" uid="uid://ypi1jo3ermhb" path="res://enemy_spawner.gd" id="4_7jktm"]
+[ext_resource type="Script" uid="uid://byxfh52u0rr8v" path="res://Scenes/GameManager/gameStartTransitionCanvas.gd" id="5_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=1127454506]
 script = ExtResource("1_fc0e3")
@@ -23,7 +23,14 @@ autostart = true
 
 [node name="Loot" type="Node2D" parent="root/World1" unique_id=2054349770 groups=["Loot"]]
 
-[node name="DrMeowstein" parent="root" unique_id=1432788726 instance=ExtResource("3_feb5d")]
-position = Vector2(280, 132)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=79877745]
+script = ExtResource("5_7jktm")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=176307231]
+offset_left = -309.0
+offset_top = -228.0
+offset_right = 1611.0
+offset_bottom = 852.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="timeout" from="root/World1/Enemies/SpawnTimer" to="root/World1/Enemies" method="spawn_timer_timeout"]

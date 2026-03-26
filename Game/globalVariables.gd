@@ -8,7 +8,7 @@ var player:ShipClass
 var playerBody:CharacterBody2D 
 var playerCamera : Camera2D
 var projectilesNode:Node
-
+var hasSelectedModule := false
 var inventory:Dictionary = {
 	"Cardboard" = 100,
 	"Tape" = 100,

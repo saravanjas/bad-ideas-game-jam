@@ -7,7 +7,7 @@ extends Label
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if int(self.text) == 0:
-		parentTexture.self_modulate = Color()
+		parentTexture.modulate = Color(0,0,0,0.2)
 	else:
 		parentTexture.self_modulate = Color.WHITE
 	if GlobalVariables.inventory["Cardboard"] < int(text):

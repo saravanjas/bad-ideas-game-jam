@@ -114,8 +114,6 @@ position = Vector2(64, 64)
 rotation = 1.5707964
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_l4nxw")
-frame = 8
-frame_progress = 1.0
 
 [node name="PriceTags" type="HBoxContainer" parent="." unique_id=542983363]
 texture_filter = 1
