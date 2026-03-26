@@ -8,6 +8,10 @@ signal itemBoughtSignal(moduleName)
 @onready var description: Label = $Description
 @onready var itemTexture : Sprite2D = $ItemOfferTexture
 @export var moduleName:String
+@onready var price_label_1: Label = $PriceTags/Control/Cardboard/PriceLabel1
+@onready var price_label_2: Label = $PriceTags/Control2/Tape/PriceLabel2
+@onready var price_label_3: Label = $PriceTags/Control3/Nails/PriceLabel3
+
 @export var cost:Dictionary = {
 	"Cardboard" = 0,
 	"Tape" = 0,
@@ -30,8 +34,6 @@ func _on_pressed() -> void:
 		for key in cost.keys():
 			GlobalVariables.inventory.set(key,GlobalVariables.inventory.get(key) - cost.get(key))
 		emit_signal("itemBoughtSignal", self, moduleName)
-
-
 func _on_mouse_entered() -> void:
 	if !revealed:
 		animated_sprite_2d.play("default")

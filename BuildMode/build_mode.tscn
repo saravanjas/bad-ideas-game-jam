@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dj5vdt2bnehgm" path="res://Sprites/UI elementi/BlueprintUI-Sheet.png" id="1_xt3s2"]
 [ext_resource type="Shader" uid="uid://b22rinjs14lfp" path="res://Shaders/buildModeBackgroundScroll.gdshader" id="2_v3b1d"]
-[ext_resource type="Texture2D" uid="uid://bngu7m4u8rvh3" path="res://Sprites/UI elementi/bg.png" id="3_onwak"]
+[ext_resource type="Texture2D" uid="uid://bkx613wud2bjm" path="res://Sprites/UI elementi/bg2.png" id="3_xt3s2"]
 [ext_resource type="Texture2D" uid="uid://b5n78qsco1rv7" path="res://Sprites/UI elementi/bigbackgroundbuildmode.png" id="4_hr7ym"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7wy08"]
@@ -280,7 +280,7 @@ anchor_right = 0.74600005
 anchor_bottom = 0.666
 offset_right = 293.6079
 offset_bottom = 219.432
-texture = ExtResource("3_onwak")
+texture = ExtResource("3_xt3s2")
 expand_mode = 1
 stretch_mode = 1
 
@@ -322,5 +322,5 @@ offset_top = -32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 120
 alignment = 1
