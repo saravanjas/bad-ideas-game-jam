@@ -30,7 +30,7 @@ var shop:Array[ShopItem] = []
 
 
 func _ready() -> void:
-	pass
+	fillShop()
 
 var cd := false
 func _process(delta: float) -> void:
@@ -48,9 +48,9 @@ func resolveBuildMode():
 			canvas_layer.visible = true
 			animated_sprite_2d.play()
 			await animated_sprite_2d.animation_finished 
-			for child in get_children():
-				if child is CanvasLayer:
-					child.visible = true
+			#for child in get_children():
+				#if child is CanvasLayer:
+					#child.visible = true
 			var backgroundAppearTween = _tween1()
 			await backgroundAppearTween.finished
 		
@@ -67,9 +67,9 @@ func resolveBuildMode():
 			GlobalVariables.inBuildMode  = false
 			resetCameraTween()
 			GlobalVariables.buildModeSetupFinished = false
-			for child in get_children():
-				if child is CanvasLayer:
-					child.visible = false
+			#for child in get_children():
+				#if child is CanvasLayer:
+					#child.visible = false
 	
 	if GlobalVariables.inBuildMode:
 		GlobalVariables.gamePaused = true
@@ -164,6 +164,8 @@ func _tween1() -> Tween:
 	backgroundAppearTween.set_parallel(true)
 	backgroundAppearTween.tween_property(texture_rect_bg , "modulate:a" , 1.0 , 0.67)
 	backgroundAppearTween.tween_property(texture_rect_bp , "modulate:a" , 1.0 , 0.67)
+	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
+	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
 	backgroundAppearTween.play()
 	return backgroundAppearTween
 
@@ -179,6 +181,8 @@ func _tween3() -> Tween:
 	resetPlayerPosAndBackground.set_parallel(true)
 	resetPlayerPosAndBackground.tween_property(texture_rect_bg , "modulate:a" , 0.0 , 0.25)
 	resetPlayerPosAndBackground.tween_property(texture_rect_bp , "modulate:a" , 0.0 , 0.25)
+	resetPlayerPosAndBackground.tween_property(h_box_container , "modulate:a" , 0.0 , 0.67)
+	resetPlayerPosAndBackground.tween_property(h_box_container , "modulate:a" , 0.0 , 0.67)
 	resetPlayerPosAndBackground.set_trans(Tween.TRANS_EXPO)
 	resetPlayerPosAndBackground.tween_property( GlobalVariables.playerBody , "rotation" , playerRotationInformation , 0.3 )
 	resetPlayerPosAndBackground.play()
@@ -197,3 +201,11 @@ func resetCameraTween():
 	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(1.0,1.0) , 0.5)
 	tween.tween_property(GlobalVariables.playerCamera , "position:y" , 0 , 0.5)
 	tween.play()
+
+func _tween1_hbox() -> Tween:
+	var backgroundAppearTween = create_tween()
+	backgroundAppearTween.set_parallel(true)
+	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
+	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
+	backgroundAppearTween.play()
+	return backgroundAppearTween

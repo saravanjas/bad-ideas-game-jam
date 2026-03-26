@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 	if !GlobalVariables.inBuildMode:
 		animated_sprite_2d.frame = 0
 		revealed = false
+	itemTexture.visible = GlobalVariables.inBuildMode
 func _on_pressed() -> void:
 	var passed = true
 	for key in cost.keys():
@@ -35,6 +36,7 @@ func _on_pressed() -> void:
 			GlobalVariables.inventory.set(key,GlobalVariables.inventory.get(key) - cost.get(key))
 		emit_signal("itemBoughtSignal", self, moduleName)
 func _on_mouse_entered() -> void:
-	if !revealed:
-		animated_sprite_2d.play("default")
-		revealed = true
+	if GlobalVariables.buildModeSetupFinished:
+		if !revealed:
+			animated_sprite_2d.play("default")
+			revealed = true
