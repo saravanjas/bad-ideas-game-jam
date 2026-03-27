@@ -1,14 +1,25 @@
 extends Control
 
+@onready var master_bus_id = AudioServer.get_bus_index("Master")
+@onready var music_bus_id = AudioServer.get_bus_index("Music")
+@onready var sfx_bus_id = AudioServer.get_bus_index("SFX")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$buttons/master.value = db_to_linear(AudioServer.get_bus_volume_db(master_bus_id))
+	$buttons/music.value = db_to_linear(AudioServer.get_bus_volume_db(music_bus_id))
+	$buttons/sfx.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus_id))
 
+func _on_master_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(master_bus_id, linear_to_db(value))
+	AudioServer.set_bus_mute(master_bus_id, value < 0.01)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_music_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(music_bus_id, linear_to_db(value))
+	AudioServer.set_bus_mute(music_bus_id, value < 0.01)
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(sfx_bus_id, linear_to_db(value))
+	AudioServer.set_bus_mute(sfx_bus_id, value < 0.01)
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

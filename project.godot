@@ -15,6 +15,10 @@ run/main_scene="uid://cxs2w1oj2u4dy"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://c4rl2hmr272ag"
+
 [autoload]
 
 GlobalVariables="*uid://ctooky2ijk7uy"
@@ -94,5 +98,6 @@ common/physics_interpolation=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 environment/defaults/default_clear_color=Color(0.2592937, 0.2592937, 0.2592937, 1)
