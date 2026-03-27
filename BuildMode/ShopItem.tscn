@@ -1,12 +1,93 @@
 [gd_scene format=3 uid="uid://dya67v6o0yhdf"]
 
 [ext_resource type="Script" uid="uid://b2hlatfuoylm7" path="res://BuildMode/shop_item.gd" id="1_llnuh"]
+[ext_resource type="Texture2D" uid="uid://d4a13gbklgkhb" path="res://Sprites/UI elementi/buildmodeBoxInterior1.png" id="2_mgknx"]
+[ext_resource type="Texture2D" uid="uid://bimh0u3qp06hf" path="res://Sprites/UI elementi/buildmodeBoxOpen.png" id="3_36vy2"]
+[ext_resource type="Texture2D" uid="uid://cgtca20q0djaf" path="res://Sprites/Ship/Moduli/ModulSpriteovi/rocketModule.png" id="3_x0mnx"]
+[ext_resource type="Texture2D" uid="uid://q55or2u1xafj" path="res://Sprites/Loot/Sprite-0004.png" id="5_7s062"]
+[ext_resource type="Texture2D" uid="uid://c2rdhtlco6t2g" path="res://Sprites/Loot/ductTape.png" id="6_hgj5r"]
+[ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="6_npjkv"]
+[ext_resource type="Script" uid="uid://cy5swhuaqyv4p" path="res://BuildMode/PriceLabelScripts/price_label1.gd" id="6_vbt1b"]
+[ext_resource type="Texture2D" uid="uid://dmeekj2y5s8e1" path="res://Sprites/Loot/nails.png" id="7_vbt1b"]
+[ext_resource type="Script" uid="uid://cm4h5xe851sme" path="res://BuildMode/PriceLabelScripts/price_label2.gd" id="9_ony4h"]
+[ext_resource type="Script" uid="uid://b2ya83u6l8hlp" path="res://BuildMode/PriceLabelScripts/price_label3.gd" id="11_s5odr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0mnx"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_destw"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s062"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgj5r"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbt1b"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npjkv"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ony4h"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5odr"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ope23"]
+atlas = ExtResource("3_36vy2")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4nxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0mnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_destw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s062")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgj5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbt1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npjkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ony4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5odr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ope23")
+}],
+"loop": false,
+"name": &"default",
+"speed": 18.0
+}]
 
 [node name="ShopItem" type="Button" unique_id=943801402]
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
+custom_minimum_size = Vector2(128, 128)
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(8, 8)
 script = ExtResource("1_llnuh")
 
 [node name="Description" type="Label" parent="." unique_id=2133429903]
@@ -15,4 +96,91 @@ offset_right = 27.71
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 9
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1178130105]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(2, 2)
+texture = ExtResource("2_mgknx")
+
+[node name="ItemOfferTexture" type="Sprite2D" parent="." unique_id=456504887]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(3, 3)
+texture = ExtResource("3_x0mnx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1826589513]
+texture_filter = 1
+position = Vector2(64, 64)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_l4nxw")
+
+[node name="PriceTags" type="HBoxContainer" parent="." unique_id=542983363]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.2340001
+offset_left = -8.25
+offset_top = -32.0
+offset_right = 34.04799
+offset_bottom = 17.0
+theme_override_constants/separation = 64
+
+[node name="Control" type="Control" parent="PriceTags" unique_id=973241636]
+layout_mode = 2
+
+[node name="Cardboard" type="Sprite2D" parent="PriceTags/Control" unique_id=2100423642]
+texture = ExtResource("5_7s062")
+
+[node name="PriceLabel1" type="Label" parent="PriceTags/Control/Cardboard" unique_id=562767300]
+offset_left = 14.5
+offset_top = -3.875
+offset_right = 32.5
+offset_bottom = 89.125
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_npjkv")
+theme_override_font_sizes/font_size = 32
+text = "9
+"
+script = ExtResource("6_vbt1b")
+
+[node name="Control2" type="Control" parent="PriceTags" unique_id=1026127377]
+layout_mode = 2
+
+[node name="Tape" type="Sprite2D" parent="PriceTags/Control2" unique_id=457033948]
+texture = ExtResource("6_hgj5r")
+
+[node name="PriceLabel2" type="Label" parent="PriceTags/Control2/Tape" unique_id=1696723327]
+offset_left = 14.5
+offset_top = -3.875
+offset_right = 32.5
+offset_bottom = 89.125
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_npjkv")
+theme_override_font_sizes/font_size = 32
+text = "9
+"
+script = ExtResource("9_ony4h")
+
+[node name="Control3" type="Control" parent="PriceTags" unique_id=700703138]
+layout_mode = 2
+
+[node name="Nails" type="Sprite2D" parent="PriceTags/Control3" unique_id=1275173854]
+texture = ExtResource("7_vbt1b")
+
+[node name="PriceLabel3" type="Label" parent="PriceTags/Control3/Nails" unique_id=279478533]
+offset_left = 14.5
+offset_top = -3.875
+offset_right = 32.5
+offset_bottom = 89.125
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("6_npjkv")
+theme_override_font_sizes/font_size = 32
+text = "9
+"
+script = ExtResource("11_s5odr")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

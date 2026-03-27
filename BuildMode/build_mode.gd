@@ -26,11 +26,11 @@ var shop:Array[ShopItem] = []
 @onready var animated_sprite_2d: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
 @onready var texture_rect_bg: TextureRect = $CanvasLayer/Background
 @onready var texture_rect_bp: TextureRect = $CanvasLayer/Background2
-@onready var h_box_container: HBoxContainer = $CanvasLayer/HBoxContainer
+@onready var h_box_container: HBoxContainer = $ItemBoxes/HBoxContainer
 
 
 func _ready() -> void:
-	pass
+	fillShop()
 
 var cd := false
 func _process(delta: float) -> void:
@@ -44,10 +44,13 @@ func resolveBuildMode():
 			playerRotationInformation = GlobalVariables.playerBody.rotation
 			cd = true
 			GlobalVariables.inBuildMode  = true
+			tweenCameraBuildmode()
 			canvas_layer.visible = true
 			animated_sprite_2d.play()
 			await animated_sprite_2d.animation_finished 
-			
+			#for child in get_children():
+				#if child is CanvasLayer:
+					#child.visible = true
 			var backgroundAppearTween = _tween1()
 			await backgroundAppearTween.finished
 		
@@ -62,8 +65,11 @@ func resolveBuildMode():
 		else:
 			var resetPlayerPosAndBackground = _tween3()
 			GlobalVariables.inBuildMode  = false
+			resetCameraTween()
 			GlobalVariables.buildModeSetupFinished = false
-			canvas_layer.visible = false
+			#for child in get_children():
+				#if child is CanvasLayer:
+					#child.visible = false
 	
 	if GlobalVariables.inBuildMode:
 		GlobalVariables.gamePaused = true
@@ -135,11 +141,13 @@ func fillBlankItem(name:String, newItem:ShopItem):
 	
 	## add Module Name / Key
 	newItem.moduleName = name
-	
 	## add Description
 	await get_tree().process_frame
 	newItem.description.text = BuildmodeVariables.moduleInfo[name]["Text"]
-
+	newItem.itemTexture.texture = load(BuildmodeVariables.moduleInfo[name]["Texture"])
+	newItem.price_label_1.text = str(newItem.cost["Cardboard"])
+	newItem.price_label_2.text = str(newItem.cost["Tape"])
+	newItem.price_label_3.text = str(newItem.cost["Screws"])
 func calibrateBoxId(id:int):
 	var ret = id
 	if id <= 0:
@@ -156,6 +164,8 @@ func _tween1() -> Tween:
 	backgroundAppearTween.set_parallel(true)
 	backgroundAppearTween.tween_property(texture_rect_bg , "modulate:a" , 1.0 , 0.67)
 	backgroundAppearTween.tween_property(texture_rect_bp , "modulate:a" , 1.0 , 0.67)
+	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
+	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
 	backgroundAppearTween.play()
 	return backgroundAppearTween
 
@@ -171,7 +181,31 @@ func _tween3() -> Tween:
 	resetPlayerPosAndBackground.set_parallel(true)
 	resetPlayerPosAndBackground.tween_property(texture_rect_bg , "modulate:a" , 0.0 , 0.25)
 	resetPlayerPosAndBackground.tween_property(texture_rect_bp , "modulate:a" , 0.0 , 0.25)
+	resetPlayerPosAndBackground.tween_property(h_box_container , "modulate:a" , 0.0 , 0.67)
+	resetPlayerPosAndBackground.tween_property(h_box_container , "modulate:a" , 0.0 , 0.67)
 	resetPlayerPosAndBackground.set_trans(Tween.TRANS_EXPO)
 	resetPlayerPosAndBackground.tween_property( GlobalVariables.playerBody , "rotation" , playerRotationInformation , 0.3 )
 	resetPlayerPosAndBackground.play()
 	return resetPlayerPosAndBackground
+
+func tweenCameraBuildmode():
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(1.5,1.5) , 0.5)
+	tween.tween_property(GlobalVariables.playerCamera , "position:y" , -50 , 0.5)
+	tween.play()
+
+func resetCameraTween():
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(1.0,1.0) , 0.5)
+	tween.tween_property(GlobalVariables.playerCamera , "position:y" , 0 , 0.5)
+	tween.play()
+
+func _tween1_hbox() -> Tween:
+	var backgroundAppearTween = create_tween()
+	backgroundAppearTween.set_parallel(true)
+	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
+	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
+	backgroundAppearTween.play()
+	return backgroundAppearTween

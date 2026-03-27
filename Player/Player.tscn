@@ -12,8 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://d0qy4hvoeqvsi" path="res://Sprites/UI elementi/blueprintTilemap.png" id="8_0j2ni"]
 [ext_resource type="Script" uid="uid://cxjuc3pigl5pt" path="res://Shaders/PlayerTilemapSprite.gd" id="9_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Sprites/UI elementi/dots.png" id="11_5wa8t"]
-[ext_resource type="Script" path="res://Player/loot_collection_area.gd" id="13_dm7nj"]
-[ext_resource type="Script" path="res://Player/loot_detection_area.gd" id="13_p7tob"]
+[ext_resource type="Script" uid="uid://dnlu4f3lnqq24" path="res://Player/loot_collection_area.gd" id="13_dm7nj"]
+[ext_resource type="Script" uid="uid://bupigle58rrj0" path="res://Player/loot_detection_area.gd" id="13_p7tob"]
+[ext_resource type="Texture2D" uid="uid://ci3gc7fw4inmo" path="res://Sprites/UI elementi/LocationPointer.png" id="15_3mea3"]
+[ext_resource type="Script" uid="uid://c0jlba3boud7t" path="res://Player/objective_marker.gd" id="16_7v5gs"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
 scenes/1/scene = ExtResource("2_gbmm3")
@@ -52,8 +54,8 @@ physics_interpolation_mode = 1
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAP//AAAAAAAABQD/////AAAAAAAABQD//wAAAAAAAAAAAwABAAAAAAAAAAAAAwAAAAEAAAAAAAAAAgABAAIAAAAAAAAAAQAAAAIAAAAAAAAABAA=")
 tile_set = SubResource("TileSet_7vdj4")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105]
-zoom = Vector2(1.25, 1.25)
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]
+offset = Vector2(16, 0)
 position_smoothing_enabled = true
 script = ExtResource("6_vlldt")
 
@@ -159,5 +161,15 @@ offset_left = -1366.0
 offset_top = -807.0
 offset_right = 1298.0
 offset_bottom = 753.0
+
+[node name="ObjectiveMarker" type="Sprite2D" parent="." unique_id=986215150]
+texture_filter = 1
+rotation = 1.5707964
+scale = Vector2(3.7058823, 3.9705882)
+texture = ExtResource("15_3mea3")
+offset = Vector2(0, -32)
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 70)
+script = ExtResource("16_7v5gs")
 
 [connection signal="area_entered" from="CharacterBody2D/Loot/LootCollectionArea" to="CharacterBody2D/Loot/LootCollectionArea" method="area_entered"]
