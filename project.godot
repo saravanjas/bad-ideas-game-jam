@@ -23,11 +23,14 @@ BuildmodeVariables="*uid://c63u0k01smlb6"
 [display]
 
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://fa6d3v4p6f21"
 
 [global_group]
 
 PlayerAccess=""
 Projectiles=""
+PlayerCamera=""
+gameManager=""
 
 [input]
 
@@ -92,4 +95,4 @@ common/physics_interpolation=true
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.2592937, 0.2592937, 0.2592937, 1)
