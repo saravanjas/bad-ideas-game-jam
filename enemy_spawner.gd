@@ -15,6 +15,7 @@ func _process(delta: float) -> void:
 	var seconds : int = time_count
 	currentEnemyCount = get_child_count()
 func spawn_enemy():
+	pass
 	if currentEnemyCount == maxEnemyCount:
 		return
 	var enemyChoice := randi_range(0,2)
@@ -33,4 +34,5 @@ func spawn_enemy():
 
 
 func spawn_timer_timeout() -> void:
-	spawn_enemy()
+	#spawn_enemy()
+	pass

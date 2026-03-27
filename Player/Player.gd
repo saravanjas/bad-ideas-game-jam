@@ -5,6 +5,7 @@ extends ShipClass
 @onready var root_center: Marker2D = $CharacterBody2D/RootCenter
 @onready var camera_2d: Camera2D = $CharacterBody2D/Camera2D
 @onready var enemy_spawn_positions: Path2D = $EnemySpawnPositions
+@onready var objective_marker: Sprite2D = $ObjectiveMarker
 
 
 func _ready() -> void:
@@ -22,3 +23,8 @@ func _physics_process(_delta: float) -> void:
 	character_body_2d.velocity = totalVelocity
 	character_body_2d.rotation = character_body_2d.rotation + _delta*angularVelocity
 	character_body_2d.move_and_slide()	
+	
+	objective_marker.global_position = character_body_2d.global_position
+	var lookAngle = (GlobalVariables.nextObjective.global_position - character_body_2d.global_position).angle()
+	print(lookAngle)
+	objective_marker.rotation = lookAngle + PI/2

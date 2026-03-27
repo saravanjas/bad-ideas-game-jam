@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://ypi1jo3ermhb" path="res://enemy_spawner.gd" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://byxfh52u0rr8v" path="res://Scenes/GameManager/gameStartTransitionCanvas.gd" id="5_7jktm"]
 
-[node name="Game" type="Node2D" unique_id=1127454506]
+[node name="Game" type="Node2D" unique_id=1127454506 groups=["gameManager"]]
 script = ExtResource("1_fc0e3")
 
 [node name="root" parent="." unique_id=435723755 instance=ExtResource("1_80nbo")]

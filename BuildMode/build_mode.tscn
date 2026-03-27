@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://daj3piboila0k" path="res://Sprites/UI elementi/blueprint animacija_diag-Sheet.png" id="2_onwak"]
 [ext_resource type="Shader" uid="uid://b22rinjs14lfp" path="res://Shaders/buildModeBackgroundScroll.gdshader" id="2_v3b1d"]
 [ext_resource type="Texture2D" uid="uid://bkx613wud2bjm" path="res://Sprites/UI elementi/bg2.png" id="3_xt3s2"]
-[ext_resource type="Texture2D" uid="uid://b5n78qsco1rv7" path="res://Sprites/UI elementi/bigbackgroundbuildmode.png" id="4_hr7ym"]
+[ext_resource type="Texture2D" uid="uid://g5r36rv0ojss" path="res://Sprites/UI elementi/bigbackgroundbuildmode-FIXED.png" id="4_xt3s2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xt3s2"]
 atlas = ExtResource("2_onwak")
@@ -298,7 +298,7 @@ anchor_bottom = 0.666
 offset_left = -2.0
 offset_right = 291.6079
 offset_bottom = 219.432
-texture = ExtResource("4_hr7ym")
+texture = ExtResource("4_xt3s2")
 expand_mode = 1
 stretch_mode = 1
 

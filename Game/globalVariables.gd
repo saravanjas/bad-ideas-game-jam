@@ -9,6 +9,10 @@ var playerBody:CharacterBody2D
 var playerCamera : Camera2D
 var projectilesNode:Node
 var hasSelectedModule := false
+var anntenaeDestroyed := 0
+var nextObjective = null
+var objectiveOnScreen := false
+var inCombat := false
 var inventory:Dictionary = {
 	"Cardboard" = 100,
 	"Tape" = 100,
