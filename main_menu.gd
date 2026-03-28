@@ -18,7 +18,7 @@ func _on_quit_pressed() -> void:
 func _on_play_button_pressed() -> void:
 	transitionBlackBlock.visible = true
 	for child in get_children():
-		if not ( child is AnimatedSprite2D or child is Sprite2D):
+		if not ( child is AnimatedSprite2D or child is Sprite2D or child is AudioStreamPlayer):
 			var tween = create_tween()
 			tween.tween_property(child , "modulate:a" , 0 , 1)
 			tween.play()

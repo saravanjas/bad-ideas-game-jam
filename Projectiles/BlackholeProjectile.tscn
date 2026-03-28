@@ -158,5 +158,13 @@ pitch_scale = 0.89
 autoplay = true
 bus = &"SFX"
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=959332974]
+rect = Rect2(-200, -200, 400, 400)
+
+[node name="DespawnTimer" type="Timer" parent="." unique_id=533467160]
+
 [connection signal="body_entered" from="RigidBody2D" to="." method="enemyEnteredHole"]
 [connection signal="body_shape_entered" from="RigidBody2D" to="." method="enemyEntered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="screenEntered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="screenExtied"]
+[connection signal="timeout" from="DespawnTimer" to="." method="despawn_timer_timeout"]

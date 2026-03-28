@@ -8,9 +8,13 @@ var health = 150
 @onready var playerCameraAccess = get_tree().get_first_node_in_group("PlayerCamera")
 @onready var gameManager = get_tree().get_first_node_in_group("gameManager")
 @onready var radio_noise: AudioStreamPlayer2D = $"../RadioNoise"
+@onready var antenna_damaged_sfx: AudioStreamPlayer2D = $"../AntennaDamagedSFX"
+@onready var explosion_small: AudioStreamPlayer2D = $"../ExplosionSmall"
+@onready var explosion_big: AudioStreamPlayer2D = $"../ExplosionBig"
 
 
 var destroyed := false
+var canStopShaking := false
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -20,17 +24,20 @@ func _process(delta: float) -> void:
 	pass
 
 func take_damage(damage):
+	GlobalScripts.display_number(damage , global_position + Vector2(randi_range(20,40),randi_range(20,40)))
+	antenna_damaged_sfx.play()
 	print("Raketa OUCH!")
 	health -= damage
 	if health <= 0 and !destroyed:
-		collision_layer = 64
 		destroyed = true
+		collision_layer = 64
 		explode()
 		shake()
 		radio_noise.stop()
 func explode():
 	var explosionCount = randi_range(5,7)
 	for i in range(explosionCount):
+		explosion_small.play()
 		var explosionInstance = explosion.duplicate()
 		explosionInstance.emitting = true
 		add_child(explosionInstance)
@@ -39,7 +46,9 @@ func explode():
 	await get_tree().create_timer(1.5).timeout
 	BIG_explode()
 func BIG_explode():
-	
+	canStopShaking = true
+	destroyed = true
+	explosion_big.play()
 	animated_sprite_2d.visible = false
 	explosion_aftermath.modulate = Color(0.28,0.28,0.28,1)
 	for child in explosion_aftermath.get_children():
@@ -54,13 +63,13 @@ func BIG_explode():
 	explosion.lifetime = 8
 	explosion.scale = explosion.scale * 5
 	smoke.emitting = true
-	playerCameraAccess.shake(20)
+	playerCameraAccess.shake(80)
 	await get_tree().create_timer(1).timeout
 	playerCameraAccess.stopShaking()
 	GlobalVariables.nextObjective = null
 	gameManager.spawn_objective( GlobalVariables.anntenaeDestroyed)
 func shake():
-	if !destroyed:
+	if !canStopShaking:
 		var tween = create_tween()
 		tween.tween_property(animated_sprite_2d , "position:x" , randi_range(-10,10) , randi_range(0.1 , 0.2))
 		tween.play()
