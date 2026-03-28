@@ -2,15 +2,15 @@ extends CharacterBody2D
 
 
 @onready var target : CharacterBody2D = get_tree().get_first_node_in_group("PlayerAccess")
-@onready var loot : PackedScene = preload("res://Scenes/Loot/item_drop.tscn")
 @onready var lootParent := get_tree().get_first_node_in_group("Loot")
+
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+
 var speed := 500
 @export var healthPoints := 30
-func _ready() -> void:
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,13 +24,12 @@ func _physics_process(delta: float) -> void:
 	if healthPoints <= 0:
 		die()
 func take_damage(damage):
+	GlobalScripts.display_number(damage , global_position)
 	animation_player.play("hit")
 	healthPoints -= damage
 	
 func die():
-	var lootInstance = loot.instantiate()
-	lootParent.call_deferred("add_sibling" , lootInstance)
-	lootInstance.global_position = self.global_position
+	GlobalScripts.spawnLoot( self.global_position , "Normal" , lootParent )
 	call_deferred("queue_free")
 
 func flip(side):

@@ -19,6 +19,7 @@ script = ExtResource("1_fc0e3")
 script = ExtResource("4_7jktm")
 
 [node name="SpawnTimer" type="Timer" parent="root/World1/Enemies" unique_id=1296057821]
+wait_time = 0.2
 autostart = true
 
 [node name="Loot" type="Node2D" parent="root/World1" unique_id=2054349770 groups=["Loot"]]
@@ -32,5 +33,7 @@ offset_top = -228.0
 offset_right = 1611.0
 offset_bottom = 852.0
 color = Color(0, 0, 0, 1)
+
+[node name="DamageNumbers" type="Node2D" parent="." unique_id=1049360624]
 
 [connection signal="timeout" from="root/World1/Enemies/SpawnTimer" to="root/World1/Enemies" method="spawn_timer_timeout"]

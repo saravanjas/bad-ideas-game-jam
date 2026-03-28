@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://c4rl2hmr272ag"
 
 GlobalVariables="*uid://ctooky2ijk7uy"
 BuildmodeVariables="*uid://c63u0k01smlb6"
+GlobalScripts="*uid://os4v1gv4w3og"
 
 [display]
 

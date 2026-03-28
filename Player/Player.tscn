@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bngu7m4u8rvh3" path="res://Sprites/UI elementi/bg.png" id="7_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://d0qy4hvoeqvsi" path="res://Sprites/UI elementi/blueprintTilemap.png" id="8_0j2ni"]
 [ext_resource type="PackedScene" uid="uid://b537aw3rr5hhl" path="res://Modules/LightningModule.tscn" id="8_3nb2p"]
+[ext_resource type="PackedScene" uid="uid://cq5q12372fdtj" path="res://Modules/LaserModule/LaserModule.tscn" id="9_d7xyo"]
 [ext_resource type="Script" uid="uid://cxjuc3pigl5pt" path="res://Shaders/PlayerTilemapSprite.gd" id="9_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Sprites/UI elementi/dots.png" id="11_5wa8t"]
 [ext_resource type="Script" uid="uid://dnlu4f3lnqq24" path="res://Player/loot_collection_area.gd" id="13_dm7nj"]
@@ -27,6 +28,7 @@ scenes/4/scene = ExtResource("5_6ysni")
 scenes/5/scene = ExtResource("6_5wa8t")
 scenes/6/scene = ExtResource("7_8sa4y")
 scenes/7/scene = ExtResource("8_3nb2p")
+scenes/8/scene = ExtResource("9_d7xyo")
 
 [sub_resource type="TileSet" id="TileSet_7vdj4"]
 tile_size = Vector2i(32, 32)
@@ -55,7 +57,7 @@ script = ExtResource("1_q2qul")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=1260237541]
 physics_interpolation_mode = 1
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgD//wAAAAAAAAAAAwAAAAEAAAAAAAAAAgAAAAIAAAAAAAAABAABAAAAAAAAAAAAAwABAAIAAAAAAAAAAQD//wIAAAAAAAAAAQD+/wAAAAAAAAAAAQD/////AAAAAAAABwABAP//AAAAAAAABwA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgD//wAAAAAAAAAAAwAAAAEAAAAAAAAAAgAAAAIAAAAAAAAABAABAAAAAAAAAAAAAwABAAIAAAAAAAAAAQD//wIAAAAAAAAAAQD+/wAAAAAAAAAAAQD/////AAAAAAAACAABAP//AAAAAAAACAD+////AAAAAAAACAD9////AAAAAAAACAACAP//AAAAAAAACAADAP//AAAAAAAACAD9/wAAAAAAAAAABAACAAAAAAAAAAAABAADAAAAAAAAAAAABAA=")
 tile_set = SubResource("TileSet_7vdj4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]

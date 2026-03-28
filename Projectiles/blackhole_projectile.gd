@@ -1,14 +1,15 @@
-extends ProjectileClass
+extends Node2D
 
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $RigidBody2D/AnimatedSprite2D
+@onready var rigid_body_2d: Area2D = $RigidBody2D
 
-
-
-
+var velocity = 0
+var lookVector:Vector2 = Vector2.RIGHT
 
 @export var damage := 999
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
 	rotation = randi()
 	animated_sprite_2d.play()
@@ -24,6 +25,17 @@ func alternateSizes():
 	alternateSizes()
 
 
-func enemyEntered(body_rid: RID, body: Node, body_shape_index: int, local_shape_index: int) -> void:
+
+func enemyEnteredHole(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(damage)
+
+func setVelocity(vel:float):
+	velocity = vel
+
+func setLookVector(lv:Vector2):
+	lv = lv.normalized()
+	lookVector = lv
+
+func _physics_process(delta: float) -> void:
+	global_position += lookVector * velocity * delta

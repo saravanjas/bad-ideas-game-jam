@@ -7,6 +7,7 @@ var moduleIds:Dictionary = {
 	"ThrusterModule" = 1,
 	"BlackholeModule" = 6,
 	"LightningModule" = 7,
+	"LaserModule" = 8,
 }
 
 var moduleInfo:Dictionary = {
@@ -40,7 +41,7 @@ var moduleInfo:Dictionary = {
 	
 	
 	"BlackholeModule" = {
-		"Cost" = [4,4,4],
+		"Cost" = [4,4,8],
 		"Text" = "It's super-massive.",
 		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/blackholeModule.png"
 	},
@@ -49,5 +50,11 @@ var moduleInfo:Dictionary = {
 		"Cost" = [1,2,4],
 		"Text" = "Z!z-zap!",
 		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/lightningModule.png",
+	},
+	
+	"LaserModule" = {
+		"Cost" = [0,1,5],
+		"Text" = "Shing shing shing shing",
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/LaserModule.png"
 	}
 }

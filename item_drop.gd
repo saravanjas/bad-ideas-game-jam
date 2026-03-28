@@ -1,8 +1,13 @@
 extends Area2D
 
 var target : Area2D
+@export var texture : CompressedTexture2D 
+@export var type : int
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready() -> void:
+	sprite_2d.texture = texture
+	rotation = randi()
 func _process(delta: float) -> void:
 	if target != null:
 		global_position = global_position.move_toward(target.global_position , 500 * delta)
