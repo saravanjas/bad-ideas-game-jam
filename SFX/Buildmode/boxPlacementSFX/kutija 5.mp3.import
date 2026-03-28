@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkkra7eimiuhw"
+path="res://.godot/imported/kutija 5.mp3-bafbb6817ecaed6f296ad6dbde5407aa.mp3str"
+
+[deps]
+
+source_file="res://SFX/Buildmode/boxPlacementSFX/kutija 5.mp3"
+dest_files=["res://.godot/imported/kutija 5.mp3-bafbb6817ecaed6f296ad6dbde5407aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

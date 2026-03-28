@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bbubsuu64x1pi"]
 
 [ext_resource type="Script" uid="uid://cqkrcy20b5eso" path="res://Player/Player.gd" id="1_q2qul"]
-[ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/template1x1/template1x1.tscn" id="2_gbmm3"]
+[ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/ThrusterModule/ThrusterModule.tscn" id="2_gbmm3"]
 [ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_7vdj4"]
 [ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_6ysni"]
@@ -57,7 +57,7 @@ script = ExtResource("1_q2qul")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=1260237541]
 physics_interpolation_mode = 1
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgD//wAAAAAAAAAAAwAAAAEAAAAAAAAAAgAAAAIAAAAAAAAABAABAAAAAAAAAAAAAwABAAIAAAAAAAAAAQD//wIAAAAAAAAAAQD+/wAAAAAAAAAAAQD/////AAAAAAAABgABAP//AAAAAAAACAD+////AAAAAAAACAD9////AAAAAAAACAACAP//AAAAAAAACAADAP//AAAAAAAACAD9/wAAAAAAAAAABAACAAAAAAAAAAAABAADAAAAAAAAAAAABAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgD//wAAAAAAAAAAAwAAAAEAAAAAAAAAAgAAAAIAAAAAAAAABAABAAAAAAAAAAAAAwABAAIAAAAAAAAAAQD//wIAAAAAAAAAAQD+/wAAAAAAAAAAAQD/////AAAAAAAABgABAP//AAAAAAAACAD+////AAAAAAAACAD9////AAAAAAAACAACAP//AAAAAAAACAADAP//AAAAAAAACAD9/wAAAAAAAAAAAwACAAAAAAAAAAAABAADAAAAAAAAAAAABAA=")
 tile_set = SubResource("TileSet_7vdj4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]

@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://7ddk22wal32m" path="res://SFX/Buildmode/boxPlacementSFX/kutija 1.wav" id="6_dl4qg"]
 [ext_resource type="AudioStream" uid="uid://dwquucimrrcwh" path="res://SFX/Buildmode/boxPlacementSFX/kutija 2.wav" id="7_3ktn1"]
 [ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="8_4sa5u"]
+[ext_resource type="AudioStream" uid="uid://dkkra7eimiuhw" path="res://SFX/Buildmode/boxPlacementSFX/kutija 5.mp3" id="9_3ktn1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xt3s2"]
 atlas = ExtResource("2_onwak")
@@ -254,10 +255,11 @@ shader_parameter/speed = 0.01
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dl4qg"]
 random_pitch = 1.0233738
-streams_count = 3
+streams_count = 4
 stream_0/stream = ExtResource("6_dl4qg")
 stream_1/stream = ExtResource("7_3ktn1")
 stream_2/stream = ExtResource("8_4sa5u")
+stream_3/stream = ExtResource("9_3ktn1")
 
 [node name="BuildMode" type="Control" unique_id=710618268]
 texture_filter = 1
