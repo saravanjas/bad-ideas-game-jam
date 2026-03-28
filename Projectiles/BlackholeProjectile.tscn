@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://cha63enhb4nm7"]
+
+[ext_resource type="Texture2D" uid="uid://b3akts15eigrw" path="res://Sprites/Projectiles/Blackhole/blackhole-Sheet.png" id="1_ljh1i"]
+[ext_resource type="Script" uid="uid://dqq4y6ntdlrua" path="res://Projectiles/blackhole_projectile.gd" id="1_uu8iy"]
+[ext_resource type="Texture2D" uid="uid://cferjl4blt1p3" path="res://Sprites/Ship/Moduli/ModulSpriteovi/light.png" id="3_of0t5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uu8iy"]
+radius = 96.02083
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of0t5"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(0, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdpri"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(512, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1qny"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(1024, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agjvf"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(1536, 0, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd2g8"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(0, 256, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir6ns"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(512, 256, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vobew"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(1024, 256, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wehf"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(1536, 256, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxtx2"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(0, 512, 512, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnylt"]
+atlas = ExtResource("1_ljh1i")
+region = Rect2(512, 512, 512, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vbi6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of0t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdpri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1qny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agjvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd2g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ir6ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vobew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wehf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxtx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnylt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_bdpri"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RigidBody2D/PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+
+[sub_resource type="Animation" id="Animation_k1qny"]
+resource_name = "light"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RigidBody2D/PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.4000000000000001, 0.4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_agjvf"]
+_data = {
+&"RESET": SubResource("Animation_bdpri"),
+&"light": SubResource("Animation_k1qny")
+}
+
+[node name="Node2D" type="Node2D" unique_id=927190586]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_uu8iy")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1752741490]
+collision_layer = 2
+collision_mask = 2
+mass = 500.0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1349637660]
+position = Vector2(-2, -10)
+shape = SubResource("CircleShape2D_uu8iy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=1915944901]
+sprite_frames = SubResource("SpriteFrames_5vbi6")
+autoplay = "default"
+frame_progress = 0.45268345
+
+[node name="PointLight2D" type="PointLight2D" parent="RigidBody2D" unique_id=2033700453]
+z_index = 1
+position = Vector2(0, -12)
+color = Color(0.89317304, 1.5113056e-05, 0.59852993, 1)
+energy = 16.0
+texture = ExtResource("3_of0t5")
+texture_scale = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1927073128]
+libraries/ = SubResource("AnimationLibrary_agjvf")
+autoplay = &"light"
+
+[connection signal="body_shape_entered" from="RigidBody2D" to="." method="enemyEntered"]
