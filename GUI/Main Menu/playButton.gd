@@ -15,7 +15,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func mouse_entered() -> void:
 	print("yea")
 	box_open.play("default")

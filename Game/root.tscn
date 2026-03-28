@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bbubsuu64x1pi" path="res://Player/Player.tscn" id="1_5bawo"]
 [ext_resource type="PackedScene" uid="uid://dsp52qib1ipjh" path="res://BuildMode/build_mode.tscn" id="2_ktsxd"]
 [ext_resource type="Script" uid="uid://dprhchxltfuut" path="res://BuildMode/build_mode.gd" id="3_gurxa"]
+[ext_resource type="PackedScene" uid="uid://bkfe7nrnvaett" path="res://Scenes/pause_menu.tscn" id="4_gurxa"]
 
 [node name="root" type="Node2D" unique_id=435723755]
 
@@ -20,3 +21,7 @@ offset_top = 131.0
 offset_right = 64.0
 offset_bottom = 131.0
 script = ExtResource("3_gurxa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1083509107]
+
+[node name="PauseMenu" parent="CanvasLayer" unique_id=1666276163 instance=ExtResource("4_gurxa")]
