@@ -3,10 +3,18 @@ extends Control
 @onready var main_container = $MainContainer
 @onready var options_container = $OptionsContainer
 
+@onready var master_slider = $OptionsContainer/buttons/master
+@onready var music_slider = $OptionsContainer/buttons/music
+@onready var sfx_slider = $OptionsContainer/buttons/sfx
+
 func _ready():
 	hide()
 	main_container.show()
 	options_container.hide()
+	
+	master_slider.value = GlobalAudio.get_volume(GlobalAudio.master_bus_id)
+	music_slider.value = GlobalAudio.get_volume(GlobalAudio.music_bus_id)
+	sfx_slider.value = GlobalAudio.get_volume(GlobalAudio.sfx_bus_id)
 
 func _input(event):
 	if event.is_action_pressed("Escape"): 
@@ -35,3 +43,12 @@ func _on_back_pressed() -> void:
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func _on_master_value_changed(value: float) -> void:
+	GlobalAudio.set_volume(GlobalAudio.master_bus_id, value)
+
+func _on_music_value_changed(value: float) -> void:
+	GlobalAudio.set_volume(GlobalAudio.music_bus_id, value)
+
+func _on_sfx_value_changed(value: float) -> void:
+	GlobalAudio.set_volume(GlobalAudio.sfx_bus_id, value)

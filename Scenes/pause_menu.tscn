@@ -13,10 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://bxgb3166x3q6c" path="res://Sprites/UI elementi/quitbuttonclick.png" id="10_q7fiq"]
 [ext_resource type="Texture2D" uid="uid://dxyv4k2qikrs" path="res://Sprites/UI elementi/quitbuttonhover.png" id="11_6wqnn"]
 [ext_resource type="Texture2D" uid="uid://bn2f808lbkhyi" path="res://Sprites/UI elementi/options.png" id="12_1ymcx"]
-[ext_resource type="Texture2D" uid="uid://g7m31dqcjdvo" path="res://TempSprites/exit1.png" id="13_h7ojb"]
-[ext_resource type="Texture2D" uid="uid://cmn4lsa5gc2c2" path="res://TempSprites/exit2.png" id="14_wqpeb"]
+[ext_resource type="Texture2D" uid="uid://bkhixm107qi85" path="res://Sprites/UI elementi/backbuttonnormal.png" id="14_wqpeb"]
+[ext_resource type="Texture2D" uid="uid://uyffyan0p707" path="res://Sprites/UI elementi/backbuttonclick.png" id="15_8flw2"]
 [ext_resource type="Texture2D" uid="uid://dax02mvwqxdcb" path="res://Sprites/UI elementi/knob.png" id="15_tekra"]
 [ext_resource type="Texture2D" uid="uid://dbt0324bwkfnm" path="res://Sprites/UI elementi/knob_highlight.png" id="16_8flw2"]
+[ext_resource type="Texture2D" uid="uid://bacgfxbn6omvx" path="res://Sprites/UI elementi/backbuttonhover.png" id="16_c8xnj"]
 [ext_resource type="Texture2D" uid="uid://b5el3jnmsgy2k" path="res://Sprites/UI elementi/sliderbg.png" id="17_c8xnj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m5ant"]
@@ -59,19 +60,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.011764706, 0.08627451, 0.15294118, 0.90588236)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1094542946]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -50.5
-offset_right = 50.5
-offset_bottom = 45.0
-grow_horizontal = 2
-scale = Vector2(3.4, 3.4)
-texture = ExtResource("2_h7ojb")
-expand_mode = 1
-
 [node name="background" type="TextureRect" parent="." unique_id=2015391057]
 texture_filter = 1
 layout_mode = 1
@@ -83,6 +71,20 @@ texture = ExtResource("2_vmyb1")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Pawsed" type="TextureRect" parent="MainContainer" unique_id=1094542946]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 382.99997
+offset_top = 95.0
+offset_right = 483.99997
+offset_bottom = 140.0
+grow_horizontal = 2
+scale = Vector2(3.4, 3.4)
+texture = ExtResource("2_h7ojb")
+expand_mode = 1
 
 [node name="Resume" type="TextureButton" parent="MainContainer" unique_id=1584576075]
 layout_mode = 1
@@ -173,13 +175,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="back" type="TextureButton" parent="OptionsContainer/buttons" unique_id=1496359237]
-layout_mode = 0
-offset_left = 126.0
-offset_top = 492.0
-offset_right = 190.0
-offset_bottom = 556.0
-texture_normal = ExtResource("13_h7ojb")
-texture_hover = ExtResource("14_wqpeb")
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 162.0
+offset_top = 438.0
+offset_right = 214.0
+offset_bottom = 466.00003
+grow_vertical = 0
+scale = Vector2(3.4, 3.4)
+pivot_offset = Vector2(26, 14)
+texture_normal = ExtResource("14_wqpeb")
+texture_pressed = ExtResource("15_8flw2")
+texture_hover = ExtResource("16_c8xnj")
 
 [node name="master" type="HSlider" parent="OptionsContainer/buttons" unique_id=2051420649]
 layout_mode = 0
@@ -227,3 +236,6 @@ value = 1.0
 [connection signal="pressed" from="MainContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="OptionsContainer/buttons/back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="OptionsContainer/buttons/master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/buttons/music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="OptionsContainer/buttons/sfx" to="." method="_on_sfx_value_changed"]

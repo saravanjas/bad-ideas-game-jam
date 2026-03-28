@@ -23,5 +23,6 @@ offset_bottom = 131.0
 script = ExtResource("3_gurxa")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1083509107]
+layer = 100
 
 [node name="PauseMenu" parent="CanvasLayer" unique_id=1666276163 instance=ExtResource("4_gurxa")]
