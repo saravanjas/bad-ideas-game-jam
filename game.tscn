@@ -36,4 +36,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="DamageNumbers" type="Node2D" parent="." unique_id=1049360624]
 
+[node name="ImportantTechnicalLoadingSound" type="AudioStreamPlayer" parent="." unique_id=1596824908]
+
 [connection signal="timeout" from="root/World1/Enemies/SpawnTimer" to="root/World1/Enemies" method="spawn_timer_timeout"]

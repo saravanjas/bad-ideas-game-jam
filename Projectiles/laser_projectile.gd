@@ -1,12 +1,15 @@
 extends Node2D
 
+@onready var laser_sfx: AudioStreamPlayer2D = $LaserSFX
+
 
 var velocity = 0
 var lookVector:Vector2 = Vector2.RIGHT
 
 @export var damage := 8
-
-
+func _ready() -> void:
+	laser_sfx.pitch_scale = randf_range(1.4,1.7)
+	laser_sfx.play()
 func setVelocity(vel:float):
 	velocity = vel
 

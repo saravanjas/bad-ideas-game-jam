@@ -21,7 +21,7 @@ func mouse_entered() -> void:
 	box_open.play("default")
 	play_button.scale = Vector2(1.,1.)
 	play_button.modulate = Color.YELLOW
-
+	
 
 func mouse_exited() -> void:
 	box_open.play_backwards()

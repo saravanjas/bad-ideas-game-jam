@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b3akts15eigrw" path="res://Sprites/Projectiles/Blackhole/blackhole-Sheet.png" id="1_ljh1i"]
 [ext_resource type="Script" uid="uid://dqq4y6ntdlrua" path="res://Projectiles/blackhole_projectile.gd" id="1_uu8iy"]
 [ext_resource type="Texture2D" uid="uid://cferjl4blt1p3" path="res://Sprites/Ship/Moduli/ModulSpriteovi/light.png" id="3_of0t5"]
+[ext_resource type="AudioStream" uid="uid://cq57epi7x5041" path="res://SFX/BlackHole/blackHoleSFX.wav" id="4_bdpri"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uu8iy"]
 radius = 96.02083
@@ -123,7 +124,6 @@ _data = {
 }
 
 [node name="Node2D" type="Node2D" unique_id=927190586]
-scale = Vector2(0.5, 0.5)
 script = ExtResource("1_uu8iy")
 
 [node name="RigidBody2D" type="Area2D" parent="." unique_id=914946093]
@@ -150,6 +150,13 @@ texture_scale = 0.4
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1927073128]
 libraries/ = SubResource("AnimationLibrary_agjvf")
 autoplay = &"light"
+
+[node name="BlackHoleSFX" type="AudioStreamPlayer2D" parent="." unique_id=841417271]
+stream = ExtResource("4_bdpri")
+volume_db = 2.9158878
+pitch_scale = 0.89
+autoplay = true
+bus = &"SFX"
 
 [connection signal="body_entered" from="RigidBody2D" to="." method="enemyEnteredHole"]
 [connection signal="body_shape_entered" from="RigidBody2D" to="." method="enemyEntered"]

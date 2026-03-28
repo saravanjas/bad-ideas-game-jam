@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ddukbu2wmib4f" path="res://Sprites/Enemies/Antenna/antennapart2.png" id="5_jn623"]
 [ext_resource type="Texture2D" uid="uid://cfqppeqho0oj1" path="res://Sprites/Enemies/Antenna/antennapart3.png" id="6_gjtra"]
 [ext_resource type="Texture2D" uid="uid://cvys4rxya8m51" path="res://Sprites/Projectiles/Rocket/raketaParticleSheet.png" id="6_vhtua"]
+[ext_resource type="AudioStream" uid="uid://c22cov7qais61" path="res://SFX/Antenna/radionoiseAntenna.wav" id="8_vhtua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rur1j"]
 atlas = ExtResource("1_k5juj")
@@ -150,5 +151,13 @@ texture = ExtResource("6_gjtra")
 position = Vector2(-238.5, -235)
 rect = Rect2(-10, -10, 500, 500)
 
+[node name="RadioNoise" type="AudioStreamPlayer2D" parent="." unique_id=704994771]
+stream = ExtResource("8_vhtua")
+volume_db = 0.9719615
+autoplay = true
+max_distance = 3000.0
+bus = &"SFX"
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="RigidBody2D" method="visible_on_screen"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="RigidBody2D" method="screen_exited"]
+[connection signal="finished" from="RadioNoise" to="RigidBody2D" method="radio_over"]

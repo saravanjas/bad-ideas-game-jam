@@ -7,6 +7,9 @@ var health = 150
 @onready var smoke: GPUParticles2D = $"../ExplosionAftermath/Sprite2D2/Smoke"
 @onready var playerCameraAccess = get_tree().get_first_node_in_group("PlayerCamera")
 @onready var gameManager = get_tree().get_first_node_in_group("gameManager")
+@onready var radio_noise: AudioStreamPlayer2D = $"../RadioNoise"
+
+
 var destroyed := false
 func _ready() -> void:
 	pass # Replace with function body.
@@ -24,6 +27,7 @@ func take_damage(damage):
 		destroyed = true
 		explode()
 		shake()
+		radio_noise.stop()
 func explode():
 	var explosionCount = randi_range(5,7)
 	for i in range(explosionCount):
@@ -71,3 +75,8 @@ func visible_on_screen() -> void:
 
 func screen_exited() -> void:
 		GlobalVariables.objectiveOnScreen = false
+
+
+func radio_over() -> void:
+	if !destroyed:
+		radio_noise.play()

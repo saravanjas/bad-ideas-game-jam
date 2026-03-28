@@ -27,7 +27,8 @@ var shop:Array[ShopItem] = []
 @onready var texture_rect_bg: TextureRect = $CanvasLayer/Background
 @onready var texture_rect_bp: TextureRect = $CanvasLayer/Background2
 @onready var h_box_container: HBoxContainer = $ItemBoxes/HBoxContainer
-
+@onready var buildmodeSFX: AudioStreamPlayer = $buildmodeSFX
+@onready var box_placement_sfx: AudioStreamPlayer = $boxPlacementSFX
 
 func _ready() -> void:
 	fillShop()
@@ -40,7 +41,9 @@ func _process(delta: float) -> void:
 func resolveBuildMode():
 	if cd: return 
 	if Input.is_action_just_pressed("Space"):
+		
 		if not GlobalVariables.inBuildMode:
+			buildmodeSFX.play()
 			playerRotationInformation = GlobalVariables.playerBody.rotation
 			cd = true
 			GlobalVariables.inBuildMode  = true
@@ -116,7 +119,7 @@ func placeTile():
 	await tilemap.child_entered_tree
 	if lastPlacedTile.has_method("rotateModule"):
 		lastPlacedTile.rotateModule(moduleLookVector.angle())
-
+	box_placement_sfx.play()
 func fillShop():
 	while shop.size() < 3:
 		var newItem:ShopItem = blankShopItem.instantiate()

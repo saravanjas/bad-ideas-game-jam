@@ -20,3 +20,5 @@ func shake(shakingStrenght ):
 
 func stopShaking():
 	shakingEnabled = false
+	await get_tree().create_timer(0.1).timeoutw
+	shakingEnabled = true

@@ -46,11 +46,13 @@ var moduleInfo:Dictionary = {
 		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/blackholeModule.png"
 	},
 	
+	
 	"LightningModule" = {
 		"Cost" = [1,2,4],
 		"Text" = "Z!z-zap!",
 		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/lightningModule.png",
 	},
+	
 	
 	"LaserModule" = {
 		"Cost" = [0,1,5],
