@@ -10,6 +10,7 @@ var lookVector:Vector2 = Vector2.RIGHT
 @export var damage := 999
 
 @onready var black_hole_sfx: AudioStreamPlayer2D = $BlackHoleSFX
+@onready var despawn_timer: Timer = $DespawnTimer
 
 func _ready() -> void:
 	shake()
@@ -53,3 +54,15 @@ func shake():
 	playerCameraAccess.shake(50)
 	await get_tree().create_timer(0.5).timeout
 	playerCameraAccess.stopShaking()
+
+
+func screenExtied() -> void:
+	despawn_timer.start()
+
+
+func despawn_timer_timeout() -> void:
+	queue_free()
+
+
+func screenEntered() -> void:
+	despawn_timer.stop()

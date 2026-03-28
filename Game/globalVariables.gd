@@ -14,7 +14,7 @@ var nextObjective = null
 var objectiveOnScreen := false
 var inCombat := false
 var inventory:Dictionary = {
-	"Cardboard" = 0,
-	"Tape" = 0,
-	"Screws" = 0
+	"Cardboard" = 100,
+	"Tape" = 100,
+	"Screws" = 100,
 } 

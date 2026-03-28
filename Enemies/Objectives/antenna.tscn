@@ -2,12 +2,24 @@
 
 [ext_resource type="Script" uid="uid://45ldhr1su82n" path="res://Enemies/Objectives/antenna.gd" id="1_fi25d"]
 [ext_resource type="Texture2D" uid="uid://bdir54q6tda54" path="res://Sprites/Enemies/Antenna/Sprite-0001.png" id="1_k5juj"]
+[ext_resource type="Shader" uid="uid://ckcgf1dwaa62u" path="res://Shaders/enemyDamage.tres" id="2_bt7a6"]
 [ext_resource type="Texture2D" uid="uid://ddiochaisur7y" path="res://Sprites/Enemies/Antenna/Sprite-0002.png" id="2_fi25d"]
 [ext_resource type="Texture2D" uid="uid://x1tbovs1gpu1" path="res://Sprites/Enemies/Antenna/antennapart1.png" id="4_rur1j"]
 [ext_resource type="Texture2D" uid="uid://ddukbu2wmib4f" path="res://Sprites/Enemies/Antenna/antennapart2.png" id="5_jn623"]
 [ext_resource type="Texture2D" uid="uid://cfqppeqho0oj1" path="res://Sprites/Enemies/Antenna/antennapart3.png" id="6_gjtra"]
 [ext_resource type="Texture2D" uid="uid://cvys4rxya8m51" path="res://Sprites/Projectiles/Rocket/raketaParticleSheet.png" id="6_vhtua"]
 [ext_resource type="AudioStream" uid="uid://c22cov7qais61" path="res://SFX/Antenna/radionoiseAntenna.wav" id="8_vhtua"]
+[ext_resource type="AudioStream" uid="uid://528ftjc6o0gw" path="res://SFX/Antenna/antennaHit.mp3" id="9_qxeko"]
+[ext_resource type="AudioStream" uid="uid://bc3atnirjy8s8" path="res://SFX/Antenna/antennaHit3.mp3" id="10_bt7a6"]
+[ext_resource type="AudioStream" uid="uid://usgr3pag067n" path="res://SFX/Antenna/antennaHit2.mp3" id="11_wpo73"]
+[ext_resource type="AudioStream" uid="uid://bjt65datt8bpb" path="res://SFX/Antenna/antennaExplosion2.mp3" id="13_1mnab"]
+[ext_resource type="AudioStream" uid="uid://br4exylsm4f81" path="res://SFX/Antenna/antennaExplosion.mp3" id="14_qre52"]
+[ext_resource type="AudioStream" uid="uid://7p37d4vdfoio" path="res://SFX/Antenna/antennaExplosion1.mp3" id="15_qre52"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpo73"]
+shader = ExtResource("2_bt7a6")
+shader_parameter/BooleanParameter = true
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rur1j"]
 atlas = ExtResource("1_k5juj")
@@ -54,6 +66,43 @@ gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_33inc")
 color_initial_ramp = SubResource("GradientTexture1D_f8aw5")
 
+[sub_resource type="Animation" id="Animation_dps1h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/BooleanParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2n57m"]
+resource_name = "hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/BooleanParameter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bt7a6"]
+_data = {
+&"RESET": SubResource("Animation_dps1h"),
+&"hit": SubResource("Animation_2n57m")
+}
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gjtra"]
 particles_animation = true
 particles_anim_h_frames = 8
@@ -81,6 +130,18 @@ anim_speed_max = 2.0
 turbulence_noise_strength = 11.11
 turbulence_influence_max = 0.70100003
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1mnab"]
+random_pitch = 1.0293022
+streams_count = 3
+stream_0/stream = ExtResource("9_qxeko")
+stream_1/stream = ExtResource("10_bt7a6")
+stream_2/stream = ExtResource("11_wpo73")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c7frk"]
+streams_count = 2
+stream_0/stream = ExtResource("13_1mnab")
+stream_1/stream = ExtResource("14_qre52")
+
 [node name="Antenna" type="Node2D" unique_id=1546380471]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -94,6 +155,7 @@ safe_margin = 0.001
 script = ExtResource("1_fi25d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D" unique_id=2053243901]
+material = SubResource("ShaderMaterial_wpo73")
 sprite_frames = SubResource("SpriteFrames_jn623")
 autoplay = "default"
 frame_progress = 0.5643908
@@ -112,6 +174,10 @@ one_shot = true
 speed_scale = 1.63
 explosiveness = 0.78
 process_material = SubResource("ParticleProcessMaterial_rur1j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D" unique_id=1618426667]
+libraries/ = SubResource("AnimationLibrary_bt7a6")
+autoplay = &"hit"
 
 [node name="ExplosionAftermath" type="Node2D" parent="." unique_id=153401401]
 position = Vector2(0, -40)
@@ -157,6 +223,21 @@ volume_db = 0.9719615
 autoplay = true
 max_distance = 3000.0
 bus = &"SFX"
+
+[node name="AntennaDamagedSFX" type="AudioStreamPlayer2D" parent="." unique_id=156663149]
+stream = SubResource("AudioStreamRandomizer_1mnab")
+bus = &"AntennaDamage"
+
+[node name="ExplosionSmall" type="AudioStreamPlayer2D" parent="." unique_id=2064108666]
+stream = SubResource("AudioStreamRandomizer_c7frk")
+max_polyphony = 7
+bus = &"AntennaDamage"
+
+[node name="ExplosionBig" type="AudioStreamPlayer2D" parent="." unique_id=575725532]
+stream = ExtResource("15_qre52")
+volume_db = 5.0
+pitch_scale = 0.5
+bus = &"AntennaDamage"
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="RigidBody2D" method="visible_on_screen"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="RigidBody2D" method="screen_exited"]
