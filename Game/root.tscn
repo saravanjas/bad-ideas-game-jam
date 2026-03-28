@@ -8,7 +8,6 @@
 [ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="5_vut8h"]
 [ext_resource type="Texture2D" uid="uid://c2rdhtlco6t2g" path="res://Sprites/Loot/ductTape.png" id="7_xsh8v"]
 [ext_resource type="Texture2D" uid="uid://dmeekj2y5s8e1" path="res://Sprites/Loot/nails.png" id="9_036uw"]
-[ext_resource type="PackedScene" uid="uid://bkfe7nrnvaett" path="res://Scenes/pause_menu.tscn" id="4_gurxa"]
 
 [node name="root" type="Node2D" unique_id=435723755]
 
@@ -26,3 +25,77 @@ offset_top = 131.0
 offset_right = 64.0
 offset_bottom = 131.0
 script = ExtResource("3_gurxa")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1212405539]
+script = ExtResource("4_exxn8")
+
+[node name="Control" type="Control" parent="UI" unique_id=225091635]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemInfo" type="HBoxContainer" parent="UI/Control" unique_id=1622666920]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.944
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_right = 192.0
+grow_vertical = 0
+theme_override_constants/separation = 64
+
+[node name="Control" type="Control" parent="UI/Control/ItemInfo" unique_id=1581834718]
+layout_mode = 2
+
+[node name="Cardboard" type="Sprite2D" parent="UI/Control/ItemInfo/Control" unique_id=1434075422]
+texture = ExtResource("4_7wk35")
+
+[node name="Cardboard" type="Label" parent="UI/Control/ItemInfo/Control/Cardboard" unique_id=953739017]
+offset_left = 14.5
+offset_top = -3.875
+offset_right = 32.5
+offset_bottom = 89.125
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_vut8h")
+theme_override_font_sizes/font_size = 32
+text = "9
+"
+
+[node name="Control2" type="Control" parent="UI/Control/ItemInfo" unique_id=1975900188]
+layout_mode = 2
+
+[node name="Tape" type="Sprite2D" parent="UI/Control/ItemInfo/Control2" unique_id=1726451368]
+texture = ExtResource("7_xsh8v")
+
+[node name="DuctTape" type="Label" parent="UI/Control/ItemInfo/Control2/Tape" unique_id=379143262]
+offset_left = 14.5
+offset_top = -3.875
+offset_right = 32.5
+offset_bottom = 89.125
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_vut8h")
+theme_override_font_sizes/font_size = 32
+text = "9
+"
+
+[node name="Control3" type="Control" parent="UI/Control/ItemInfo" unique_id=528653093]
+layout_mode = 2
+
+[node name="Nails" type="Sprite2D" parent="UI/Control/ItemInfo/Control3" unique_id=1912346676]
+texture = ExtResource("9_036uw")
+
+[node name="Screws" type="Label" parent="UI/Control/ItemInfo/Control3/Nails" unique_id=566829806]
+offset_left = 14.5
+offset_top = -3.875
+offset_right = 32.5
+offset_bottom = 89.125
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_vut8h")
+theme_override_font_sizes/font_size = 32
+text = "9
+"
