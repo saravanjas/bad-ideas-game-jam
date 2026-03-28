@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bffwxwqabtp5e"]
+
+[ext_resource type="Script" uid="uid://bgusu0nriog55" path="res://Modules/BlackholeModule/blackhole_module.gd" id="1_8sng4"]
+[ext_resource type="Texture2D" uid="uid://c38au3ncxsy6h" path="res://Sprites/Ship/Moduli/ModulSpriteovi/blackholeModule.png" id="1_vuf32"]
+[ext_resource type="Texture2D" uid="uid://cg6egwui4flwu" path="res://Sprites/Ship/Moduli/ModulPucanje/box_module_opening.png" id="2_8sng4"]
+[ext_resource type="PackedScene" uid="uid://cha63enhb4nm7" path="res://Projectiles/BlackholeProjectile.tscn" id="2_p5d2w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkmo8"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ees1t"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahqfb"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nviu"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lebf"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2lie"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bals8"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooy2h"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imiju"]
+atlas = ExtResource("2_8sng4")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5d2w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkmo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ees1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahqfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nviu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lebf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2lie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bals8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooy2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imiju")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuf32"]
+size = Vector2(32, 32)
+
+[node name="BlackholeModule" type="Node2D" unique_id=680493536]
+script = ExtResource("1_8sng4")
+procjetile = ExtResource("2_p5d2w")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=1573101774]
+texture = ExtResource("1_vuf32")
+
+[node name="BoxOpenAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=818328974]
+visible = false
+texture_filter = 1
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_p5d2w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=756561295]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=86137728]
+shape = SubResource("RectangleShape2D_vuf32")

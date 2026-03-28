@@ -20,6 +20,7 @@ func take_damage(damage):
 	print("Raketa OUCH!")
 	health -= damage
 	if health <= 0 and !destroyed:
+		collision_layer = 64
 		destroyed = true
 		explode()
 		shake()
@@ -34,6 +35,7 @@ func explode():
 	await get_tree().create_timer(1.5).timeout
 	BIG_explode()
 func BIG_explode():
+	
 	animated_sprite_2d.visible = false
 	explosion_aftermath.modulate = Color(0.28,0.28,0.28,1)
 	for child in explosion_aftermath.get_children():
