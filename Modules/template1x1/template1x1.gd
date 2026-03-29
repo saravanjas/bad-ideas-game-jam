@@ -1,16 +1,10 @@
 extends ModuleClass
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var booster_timeout_node: Timer = $BoosterTimeout
-@onready var booster_sfx: AudioStreamPlayer2D = $boosterSFX
-
 var active : bool = false
+@onready var booster_timeout_node: Timer = $BoosterTimeout
 var current_anim : String 
 
-var boosterSoundPlaying := false
 func activate():
-	if !boosterSoundPlaying:
-		boosterSoundPlaying = true
-		booster_sfx.play()
 	animated_sprite_2d.visible = true
 	booster_timeout_node.start()
 	var vector:Vector2
@@ -38,5 +32,3 @@ func booster_timeout() -> void:
 	$AnimatedSprite2D.play("reset")
 	active = false
 	current_anim = "reset"
-	booster_sfx.stop()
-	boosterSoundPlaying = false
