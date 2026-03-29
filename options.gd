@@ -9,17 +9,14 @@ func _ready() -> void:
 	$buttons/music.value = db_to_linear(AudioServer.get_bus_volume_db(music_bus_id))
 	$buttons/sfx.value = db_to_linear(AudioServer.get_bus_volume_db(sfx_bus_id))
 
-func _on_master_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(master_bus_id, linear_to_db(value))
-	AudioServer.set_bus_mute(master_bus_id, value < 0.01)
+func _on_master_value_changed(value: float) -> void:
+	GlobalAudio.set_volume(GlobalAudio.master_bus_id, value)
 
-func _on_music_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(music_bus_id, linear_to_db(value))
-	AudioServer.set_bus_mute(music_bus_id, value < 0.01)
+func _on_music_value_changed(value: float) -> void:
+	GlobalAudio.set_volume(GlobalAudio.music_bus_id, value)
 
-func _on_sfx_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(sfx_bus_id, linear_to_db(value))
-	AudioServer.set_bus_mute(sfx_bus_id, value < 0.01)
+func _on_sfx_value_changed(value: float) -> void:
+	GlobalAudio.set_volume(GlobalAudio.sfx_bus_id, value)
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

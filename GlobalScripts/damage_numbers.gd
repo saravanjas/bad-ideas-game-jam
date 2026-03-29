@@ -53,18 +53,25 @@ func display_number(value : int , position : Vector2 ):
 	#tween.tween_property(
 		#number , "position:y" ,number.position.y , 0.5
 	#w).set_ease(Tween.EASE_IN).set_delay(0.5)
-	await tween.finished
+	"""await tween.finished
 	var tween2 = get_tree().create_tween()
 	tween2.tween_property(
 		number , "scale" , Vector2.ZERO , 0.1
 	).set_ease(Tween.EASE_IN).set_delay(0.5)
 	tween2.tween_property(
 		number , "modulate:a" , 0.0 , 0.6
-	)
+	)"""
 	
-	await tween2.finished
-	number.queue_free()
-
+	await tween.finished
+	if not is_instance_valid(number):
+		return
+	var tween2 = get_tree().create_tween()
+	if tween2:
+		tween2.tween_property(number , "scale" , Vector2.ZERO , 0.1).set_ease(Tween.EASE_IN).set_delay(0.5)
+		tween2.tween_property(number , "modulate:a" , 0.0 , 0.6)
+		await tween2.finished
+	if is_instance_valid(number):
+		number.queue_free()
 
 func spawnLoot( globalPosition , enemyType , parent):
 	var numberRoll := randf_range(0,1)

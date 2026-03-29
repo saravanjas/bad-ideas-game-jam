@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://c1m8kscgd7le5" path="res://Sprites/Space/Background/Zvijezdje.png" id="2_trj04"]
 [ext_resource type="Texture2D" uid="uid://dqmf3k2pw7ycd" path="res://Sprites/Space/Planeti/planetMacaka.png" id="2_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://cu8vxyrdo0r14" path="res://Sprites/UI elementi/mainmenu.png" id="2_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://ewngvelp4it1" path="res://TempSprites/startoptions1.png" id="3_16hvj"]
-[ext_resource type="Texture2D" uid="uid://b336kjllf1j2k" path="res://TempSprites/startoptions2.png" id="4_vr1f0"]
+[ext_resource type="PackedScene" uid="uid://vi5t4amepsue" path="res://GUI/Main Menu/options_button.tscn" id="6_5egv6"]
+[ext_resource type="Texture2D" uid="uid://d28ni2hbj85pe" path="res://Sprites/UI elementi/optionsbutton.png" id="7_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://p3s7f2jlix5i" path="res://TempSprites/quit1.png" id="7_vtepg"]
 [ext_resource type="Texture2D" uid="uid://cs1auphpt416k" path="res://TempSprites/quit2.png" id="8_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://btpgs5hltxf0u" path="res://Sprites/UI elementi/play!6.png" id="11_vr1f0"]
@@ -432,15 +432,16 @@ offset_left = -1.0
 offset_right = 39.0
 offset_bottom = 40.0
 
-[node name="Options" type="TextureButton" parent="buttons" unique_id=772540742]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 392.0
-offset_right = 259.0
-offset_bottom = 456.0
-texture_normal = ExtResource("3_16hvj")
-texture_pressed = ExtResource("4_vr1f0")
-texture_hover = ExtResource("4_vr1f0")
+[node name="options_button" parent="buttons" unique_id=1546162664 instance=ExtResource("6_5egv6")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 249.0
+offset_top = 374.0
+offset_right = 273.0
+offset_bottom = 398.0
+scale = Vector2(2, 2)
+button_function_texture = ExtResource("7_8dnnj")
+button_function_outline_texture = ExtResource("7_8dnnj")
 
 [node name="Quit" type="TextureButton" parent="buttons" unique_id=327937314]
 layout_mode = 0
@@ -480,7 +481,7 @@ color = Color(0, 0, 0, 1)
 stream = SubResource("AudioStreamRandomizer_wyh8j")
 
 [connection signal="animation_finished" from="Planet" to="." method="planet_animation_finished"]
-[connection signal="pressed" from="buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="buttons/options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="buttons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="buttons/PlayButton" to="." method="button_pressed"]
 [connection signal="pressed" from="buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="buttons/PlayButton" to="." method="button_pressed"]

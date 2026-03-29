@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="5_vut8h"]
 [ext_resource type="Texture2D" uid="uid://c2rdhtlco6t2g" path="res://Sprites/Loot/ductTape.png" id="7_xsh8v"]
 [ext_resource type="Texture2D" uid="uid://dmeekj2y5s8e1" path="res://Sprites/Loot/nails.png" id="9_036uw"]
+[ext_resource type="PackedScene" uid="uid://bkfe7nrnvaett" path="res://Scenes/pause_menu.tscn" id="9_iqk3u"]
 
 [node name="root" type="Node2D" unique_id=435723755]
 
@@ -99,3 +100,8 @@ theme_override_fonts/font = ExtResource("5_vut8h")
 theme_override_font_sizes/font_size = 32
 text = "9
 "
+
+[node name="Pause" type="CanvasLayer" parent="." unique_id=1432512329]
+layer = 100
+
+[node name="PauseMenu" parent="Pause" unique_id=1666276163 instance=ExtResource("9_iqk3u")]
