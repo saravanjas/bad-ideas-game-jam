@@ -38,7 +38,9 @@ expand_margin_bottom = 6.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="options" type="Control" unique_id=1155851983]
+[node name="options" type="Control" unique_id=1155851983 groups=["OptionsNode"]]
+visible = false
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ww8vx")

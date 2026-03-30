@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cffl60k6kirx1"]
+
+[ext_resource type="Script" uid="uid://b1kkorww3vwfw" path="res://game_root.gd" id="1_hhn2h"]
+
+[node name="GameRoot" type="Node" unique_id=989327122]
+script = ExtResource("1_hhn2h")
+
+[node name="GameParent" type="Node2D" parent="." unique_id=911129749 groups=["GameParent"]]

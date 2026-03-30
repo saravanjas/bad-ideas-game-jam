@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BadIdeasGameJam"
-run/main_scene="uid://cxs2w1oj2u4dy"
+run/main_scene="uid://cffl60k6kirx1"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -25,9 +25,11 @@ GlobalVariables="*uid://ctooky2ijk7uy"
 BuildmodeVariables="*uid://c63u0k01smlb6"
 GlobalScripts="*uid://os4v1gv4w3og"
 GlobalAudio="*uid://bhvkll2ko20sp"
+UINodeAccess="*uid://yym13gkeum6d"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://fa6d3v4p6f21"
 
@@ -37,6 +39,9 @@ PlayerAccess=""
 Projectiles=""
 PlayerCamera=""
 gameManager=""
+OptionsNode=""
+DamageNumbersNode=""
+GameParent=""
 
 [input]
 

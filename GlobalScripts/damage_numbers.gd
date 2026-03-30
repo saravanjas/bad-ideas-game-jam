@@ -13,7 +13,7 @@ const CARDBOARD_TEXTURE = preload("uid://q55or2u1xafj")
 
 func display_number(value : int , position : Vector2 ):
 	if text == null:
-		text = get_node("/root/Game/DamageNumbers")
+		text = get_tree().get_first_node_in_group("DamageNumbersNode")
 	var number = Label.new()
 	number.global_position = position
 	number.text = str(value)

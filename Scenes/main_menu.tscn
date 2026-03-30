@@ -489,5 +489,5 @@ bus = &"Music"
 [connection signal="animation_finished" from="Planet" to="." method="planet_animation_finished"]
 [connection signal="pressed" from="buttons/options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="buttons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="buttons/PlayButton" to="." method="button_pressed"]
 [connection signal="pressed" from="buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="buttons/PlayButton" to="." method="button_pressed"]

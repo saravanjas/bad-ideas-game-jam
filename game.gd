@@ -4,11 +4,9 @@ extends Node2D
 @onready var enemies: Node2D = $root/World1/Enemies
 
 func _ready() -> void:
-	for child in get_tree().current_scene.find_children("Projectiles", "Node", true):
-		GlobalVariables.projectilesNode = child
-		break
+	UINodeAccess.GameInstance
+	GlobalVariables.projectilesNode = get_tree().get_first_node_in_group("Projectiles")
 	spawn_objective(GlobalVariables.anntenaeDestroyed)
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
