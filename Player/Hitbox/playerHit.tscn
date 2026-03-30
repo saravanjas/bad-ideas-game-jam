@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dnrd6dwkly8f1"]
+
+[ext_resource type="AudioStream" uid="uid://c13jf5se7eebc" path="res://SFX/Buildmode/boxPlacementSFX/kutija 4.wav" id="1_gulun"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=937610599]
+stream = ExtResource("1_gulun")
+pitch_scale = 1.18

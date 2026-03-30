@@ -14,7 +14,7 @@ extends CharacterBody2D
 
 var speed := 500
 @export var healthPoints := 30
-
+@export var damage = 15
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

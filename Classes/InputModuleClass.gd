@@ -14,7 +14,7 @@ var keys = {
 func _ready() -> void:
 	playerCharacterBody = self.get_parent().get_parent()
 	sprite_2d.texture = keys.get(key)
-
+	
 func _process(_delta: float) -> void:
 	if GlobalVariables.gamePaused: return
 	

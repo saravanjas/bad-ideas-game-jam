@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d1em4mbcvlfhv"]
+
+[ext_resource type="Script" uid="uid://c0df0htbb8ck3" path="res://Player/Hitbox/Hitbox.gd" id="1_ifm8v"]
+[ext_resource type="PackedScene" uid="uid://dnrd6dwkly8f1" path="res://Player/Hitbox/playerHit.tscn" id="2_tsmvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx2wn"]
+size = Vector2(36, 36)
+
+[node name="Hitbox" type="Area2D" unique_id=566453932]
+collision_layer = 32
+collision_mask = 32
+script = ExtResource("1_ifm8v")
+damageSound = ExtResource("2_tsmvn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1896825469]
+shape = SubResource("RectangleShape2D_wx2wn")
+debug_color = Color(0.61776453, 0.5359162, 0, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="body_entered"]

@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://di38xstwkm06c" path="res://Classes/InputModuleClass.gd" id="1_y00q0"]
 [ext_resource type="Texture2D" uid="uid://c12xbre2sjr3b" path="res://Sprites/Ship/Moduli/ModulSpriteovi/keyS.png" id="2_r8xhd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx2wn"]
-size = Vector2(32, 32)
+[ext_resource type="PackedScene" uid="uid://d1em4mbcvlfhv" path="res://Modules/InputModuleS/hitbox.tscn" id="3_1fg0i"]
+[ext_resource type="PackedScene" uid="uid://bqyfkjgbu1gj" path="res://Player/module_collision_box.tscn" id="3_r8xhd"]
 
 [node name="Node2D" type="Node2D" unique_id=1254300434]
 script = ExtResource("1_y00q0")
@@ -14,7 +13,8 @@ metadata/_custom_type_script = "uid://di38xstwkm06c"
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=223560719]
 texture = ExtResource("2_r8xhd")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=476720720]
+[node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("3_1fg0i")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=995609162]
-shape = SubResource("RectangleShape2D_wx2wn")
+[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("3_r8xhd")]
+
+[connection signal="body_entered" from="Hitbox" to="." method="body_entered"]

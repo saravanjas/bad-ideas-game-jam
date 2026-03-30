@@ -29,7 +29,6 @@ UINodeAccess="*uid://yym13gkeum6d"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://fa6d3v4p6f21"
 
@@ -99,9 +98,11 @@ Escape={
 [layer_names]
 
 2d_physics/layer_1="player"
-2d_physics/layer_2="enemy"
+2d_physics/layer_2="enemyCollisionWithPlayer"
 2d_physics/layer_3="loot"
 2d_physics/layer_4="lootCollection"
+2d_physics/layer_5="enemyHitbox"
+2d_physics/layer_6="enemyHurtbox"
 
 [physics]
 

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bqyfkjgbu1gj"]
+
+[ext_resource type="Script" uid="uid://cyke2mhnp3sgk" path="res://Player/module_collision_box.gd" id="1_wji3w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gmbq"]
+size = Vector2(32, 32)
+
+[node name="ModuleCollisionBox" type="CharacterBody2D" unique_id=2114816925]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_wji3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1443828279]
+shape = SubResource("RectangleShape2D_4gmbq")
+debug_color = Color(0.93106383, 0.26363742, 5.7756904e-07, 0.41960785)
