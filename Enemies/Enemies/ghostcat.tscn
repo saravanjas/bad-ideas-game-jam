@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c0m4mxvfxo4c6" path="res://Sprites/Enemies/ghostcatfinal-Sheet.png" id="1_r0fhd"]
 [ext_resource type="Script" uid="uid://drnrc5d8gqgw3" path="res://Enemies/Enemies/ghostcat.gd" id="1_wvcm8"]
 [ext_resource type="Shader" uid="uid://ckcgf1dwaa62u" path="res://Shaders/enemyDamage.tres" id="2_t6i7j"]
+[ext_resource type="AudioStream" uid="uid://bcvajqqmwu5rr" path="res://SFX/EnemyDamage/enemyDamageSFX.mp3" id="4_t6i7j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khjyv"]
 radius = 25.0
@@ -105,3 +106,8 @@ frame_progress = 0.5764321
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1319691514]
 libraries/ = SubResource("AnimationLibrary_nqbvv")
 autoplay = &"hit"
+
+[node name="DamageSFX" type="AudioStreamPlayer2D" parent="." unique_id=831959855]
+stream = ExtResource("4_t6i7j")
+max_polyphony = 6
+bus = &"SFX"

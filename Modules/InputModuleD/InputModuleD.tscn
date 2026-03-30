@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://iagjwm70t6a2"]
+
+[ext_resource type="Script" uid="uid://di38xstwkm06c" path="res://Classes/InputModuleClass.gd" id="1_tpgbj"]
+[ext_resource type="Texture2D" uid="uid://dunuvdg5e4r4f" path="res://Sprites/Ship/Moduli/ModulSpriteovi/keyD.png" id="2_vyeqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu66y"]
+size = Vector2(32, 32)
+
+[node name="Node2D" type="Node2D" unique_id=1424804895]
+script = ExtResource("1_tpgbj")
+key = "d"
+metadata/_custom_type_script = "uid://di38xstwkm06c"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1614416142]
+texture = ExtResource("2_vyeqh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1250730573]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1114033306]
+shape = SubResource("RectangleShape2D_pu66y")

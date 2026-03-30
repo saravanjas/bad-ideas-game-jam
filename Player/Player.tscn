@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cqkrcy20b5eso" path="res://Player/Player.gd" id="1_q2qul"]
 [ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/template1x1/template1x1.tscn" id="2_gbmm3"]
 [ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_7vdj4"]
+[ext_resource type="PackedScene" uid="uid://dlb5q6u1x3e6w" path="res://Modules/InputModuleS/InputModuleS.tscn" id="3_roy6y"]
 [ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_6ysni"]
 [ext_resource type="PackedScene" uid="uid://cw3mxw70m8vha" path="res://Modules/RocketModule/RocketModule.tscn" id="6_5wa8t"]
@@ -15,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cq5q12372fdtj" path="res://Modules/LaserModule/LaserModule.tscn" id="9_d7xyo"]
 [ext_resource type="Script" uid="uid://cxjuc3pigl5pt" path="res://Shaders/PlayerTilemapSprite.gd" id="9_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Sprites/UI elementi/dots.png" id="11_5wa8t"]
+[ext_resource type="PackedScene" uid="uid://iagjwm70t6a2" path="res://Modules/InputModuleD/InputModuleD.tscn" id="11_u5tep"]
 [ext_resource type="Script" uid="uid://dnlu4f3lnqq24" path="res://Player/loot_collection_area.gd" id="13_dm7nj"]
 [ext_resource type="Script" uid="uid://bupigle58rrj0" path="res://Player/loot_detection_area.gd" id="13_p7tob"]
 [ext_resource type="Texture2D" uid="uid://ci3gc7fw4inmo" path="res://Sprites/UI elementi/LocationPointer.png" id="15_3mea3"]
@@ -29,6 +31,8 @@ scenes/5/scene = ExtResource("6_5wa8t")
 scenes/6/scene = ExtResource("7_8sa4y")
 scenes/7/scene = ExtResource("8_3nb2p")
 scenes/8/scene = ExtResource("9_d7xyo")
+scenes/9/scene = ExtResource("11_u5tep")
+scenes/10/scene = ExtResource("3_roy6y")
 
 [sub_resource type="TileSet" id="TileSet_7vdj4"]
 tile_size = Vector2i(32, 32)
@@ -57,7 +61,7 @@ script = ExtResource("1_q2qul")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=1260237541]
 physics_interpolation_mode = 1
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgD//wAAAAAAAAAAAwAAAAEAAAAAAAAAAgAAAAIAAAAAAAAABAABAAAAAAAAAAAAAwABAAIAAAAAAAAAAQD//wIAAAAAAAAAAQD+/wAAAAAAAAAAAQD/////AAAAAAAABgABAP//AAAAAAAACAD+////AAAAAAAACAD9////AAAAAAAACAACAP//AAAAAAAACAADAP//AAAAAAAACAD9/wAAAAAAAAAABAACAAAAAAAAAAAABAADAAAAAAAAAAAABAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAAAAAAAAAAAACQAAAP//AAAAAAAAAwD//wAAAAAAAAAABAACAAAAAAAAAAAAAVAAAP7/AAAAAAAAAQD+/wAAAAAAAAAAAWAAAAEAAAAAAAAACgAAAAIAAAAAAAAAATA=")
 tile_set = SubResource("TileSet_7vdj4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]

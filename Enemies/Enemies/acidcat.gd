@@ -7,6 +7,8 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var damageSFX: AudioStreamPlayer2D = $DamageSFX
+
 
 
 var speed := 500
@@ -24,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	if healthPoints <= 0:
 		die()
 func take_damage(damage):
+	damageSFX.pitch_scale = randf_range(0.8,1.2)
+	damageSFX.play()
 	GlobalScripts.display_number(damage , global_position)
 	animation_player.play("hit")
 	healthPoints -= damage

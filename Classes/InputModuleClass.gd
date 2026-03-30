@@ -7,8 +7,8 @@ extends ModuleClass
 var keys = {
 	"w":preload("uid://cxeo868pjb75g"),
 	"a":preload("uid://c2ntpn00aoydo"),
-	#"s":,
-	#"d"
+	"s":preload("uid://c12xbre2sjr3b"),
+	"d":preload("uid://dunuvdg5e4r4f")
 }
 
 func _ready() -> void:

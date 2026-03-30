@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://7ddk22wal32m" path="res://SFX/Buildmode/boxPlacementSFX/kutija 1.wav" id="12_vtepg"]
 [ext_resource type="AudioStream" uid="uid://dwquucimrrcwh" path="res://SFX/Buildmode/boxPlacementSFX/kutija 2.wav" id="13_8dnnj"]
 [ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="14_m3bi6"]
+[ext_resource type="AudioStream" uid="uid://cbpg4s2gerg3y" path="res://Soundtrack/MAIN MENU.mp3" id="15_8dnnj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vr1f0"]
 resource_local_to_scene = true
@@ -480,8 +481,13 @@ color = Color(0, 0, 0, 1)
 [node name="boxPlacementSFX" type="AudioStreamPlayer" parent="." unique_id=1235132707]
 stream = SubResource("AudioStreamRandomizer_wyh8j")
 
+[node name="mainMenuTheme" type="AudioStreamPlayer" parent="." unique_id=2055710740]
+stream = ExtResource("15_8dnnj")
+autoplay = true
+bus = &"Music"
+
 [connection signal="animation_finished" from="Planet" to="." method="planet_animation_finished"]
 [connection signal="pressed" from="buttons/options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="buttons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="buttons/PlayButton" to="." method="button_pressed"]
+[connection signal="pressed" from="buttons/PlayButton" to="." method="_on_play_button_pressed"]
