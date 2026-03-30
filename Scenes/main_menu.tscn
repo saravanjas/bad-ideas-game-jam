@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dqmf3k2pw7ycd" path="res://Sprites/Space/Planeti/planetMacaka.png" id="2_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://cu8vxyrdo0r14" path="res://Sprites/UI elementi/mainmenu.png" id="2_yhxw7"]
 [ext_resource type="PackedScene" uid="uid://vi5t4amepsue" path="res://GUI/Main Menu/options_button.tscn" id="6_5egv6"]
+[ext_resource type="PackedScene" uid="uid://cospwfgjhkmxb" path="res://GUI/Main Menu/quit_button.tscn" id="6_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://d28ni2hbj85pe" path="res://Sprites/UI elementi/optionsbutton.png" id="7_8dnnj"]
-[ext_resource type="Texture2D" uid="uid://p3s7f2jlix5i" path="res://TempSprites/quit1.png" id="7_vtepg"]
-[ext_resource type="Texture2D" uid="uid://cs1auphpt416k" path="res://TempSprites/quit2.png" id="8_8dnnj"]
+[ext_resource type="Texture2D" uid="uid://c2i2ebm6l33lh" path="res://Sprites/UI elementi/quitbutton.png" id="7_m3bi6"]
 [ext_resource type="Texture2D" uid="uid://btpgs5hltxf0u" path="res://Sprites/UI elementi/play!6.png" id="11_vr1f0"]
 [ext_resource type="PackedScene" uid="uid://o1td64fkt67k" path="res://GUI/Main Menu/control.tscn" id="12_t1dhk"]
 [ext_resource type="AudioStream" uid="uid://7ddk22wal32m" path="res://SFX/Buildmode/boxPlacementSFX/kutija 1.wav" id="12_vtepg"]
@@ -433,35 +433,35 @@ offset_left = -1.0
 offset_right = 39.0
 offset_bottom = 40.0
 
+[node name="quit_button" parent="buttons" unique_id=521682165 instance=ExtResource("6_8dnnj")]
+layout_mode = 1
+offset_left = 643.0
+offset_top = 343.0
+offset_right = 707.0
+offset_bottom = 407.0
+scale = Vector2(2, 2)
+button_function_texture = ExtResource("7_m3bi6")
+button_function_outline_texture = ExtResource("7_m3bi6")
+
 [node name="options_button" parent="buttons" unique_id=1546162664 instance=ExtResource("6_5egv6")]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 249.0
-offset_top = 374.0
-offset_right = 273.0
-offset_bottom = 398.0
+offset_left = 139.0
+offset_top = 305.0
+offset_right = 163.0
+offset_bottom = 329.0
 scale = Vector2(2, 2)
 button_function_texture = ExtResource("7_8dnnj")
 button_function_outline_texture = ExtResource("7_8dnnj")
-
-[node name="Quit" type="TextureButton" parent="buttons" unique_id=327937314]
-layout_mode = 0
-offset_left = 784.0
-offset_top = 329.0
-offset_right = 848.0
-offset_bottom = 393.0
-texture_normal = ExtResource("7_vtepg")
-texture_pressed = ExtResource("8_8dnnj")
-texture_hover = ExtResource("8_8dnnj")
 
 [node name="PlayButton" parent="buttons" unique_id=549852517 instance=ExtResource("12_t1dhk")]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
-offset_left = 521.0
-offset_top = 364.0
-offset_right = 545.0
-offset_bottom = 388.0
+offset_left = 391.0
+offset_top = 376.0
+offset_right = 415.0
+offset_bottom = 420.0
 scale = Vector2(2, 2)
 button_function_texture = ExtResource("11_vr1f0")
 button_function_outline_texture = ExtResource("11_vr1f0")
@@ -487,7 +487,7 @@ autoplay = true
 bus = &"Music"
 
 [connection signal="animation_finished" from="Planet" to="." method="planet_animation_finished"]
+[connection signal="pressed" from="buttons/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="buttons/options_button" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="buttons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="buttons/PlayButton" to="." method="button_pressed"]
+[connection signal="pressed" from="buttons/PlayButton" to="." method="_on_play_button_pressed"]

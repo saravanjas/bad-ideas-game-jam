@@ -5,11 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://c1m8kscgd7le5" path="res://Sprites/Space/Background/Zvijezdje.png" id="3_hvj8k"]
 [ext_resource type="Texture2D" uid="uid://bn2f808lbkhyi" path="res://Sprites/UI elementi/options.png" id="4_38txh"]
 [ext_resource type="Texture2D" uid="uid://dax02mvwqxdcb" path="res://Sprites/UI elementi/knob.png" id="7_5a0sy"]
+[ext_resource type="Texture2D" uid="uid://bk8fonhqpknwv" path="res://Sprites/UI elementi/master.png" id="8_aag3x"]
 [ext_resource type="Texture2D" uid="uid://dbt0324bwkfnm" path="res://Sprites/UI elementi/knob_highlight.png" id="8_g5vgl"]
 [ext_resource type="Texture2D" uid="uid://bkhixm107qi85" path="res://Sprites/UI elementi/backbuttonnormal.png" id="8_srb65"]
+[ext_resource type="Texture2D" uid="uid://daihhkg2slv8q" path="res://Sprites/UI elementi/music.png" id="9_033dp"]
 [ext_resource type="Texture2D" uid="uid://uyffyan0p707" path="res://Sprites/UI elementi/backbuttonclick.png" id="9_qcivb"]
 [ext_resource type="Texture2D" uid="uid://b5el3jnmsgy2k" path="res://Sprites/UI elementi/sliderbg.png" id="9_srb65"]
 [ext_resource type="Texture2D" uid="uid://bacgfxbn6omvx" path="res://Sprites/UI elementi/backbuttonhover.png" id="10_aag3x"]
+[ext_resource type="Texture2D" uid="uid://ew7l1k7ogylr" path="res://Sprites/UI elementi/sfx.png" id="10_fpdr8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5a0sy"]
 resource_local_to_scene = true
@@ -87,6 +90,11 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="master_icon" type="Sprite2D" parent="buttons/master" unique_id=855744863]
+position = Vector2(108.823524, 5.8823533)
+texture = ExtResource("8_aag3x")
+hframes = 4
+
 [node name="music" type="HSlider" parent="buttons" unique_id=1738127742]
 layout_mode = 0
 offset_left = 100.99999
@@ -101,6 +109,11 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
+[node name="music_icon" type="Sprite2D" parent="buttons/music" unique_id=1055641712]
+position = Vector2(108.82353, 5.882362)
+texture = ExtResource("9_033dp")
+hframes = 4
+
 [node name="sfx" type="HSlider" parent="buttons" unique_id=159167212]
 layout_mode = 0
 offset_left = 99.99999
@@ -114,6 +127,11 @@ theme_override_styles/slider = SubResource("StyleBoxTexture_g5vgl")
 max_value = 1.0
 step = 0.01
 value = 1.0
+
+[node name="sfx_icon" type="Sprite2D" parent="buttons/sfx" unique_id=249759665]
+position = Vector2(108.823524, 5.882353)
+texture = ExtResource("10_fpdr8")
+hframes = 4
 
 [node name="back" type="TextureButton" parent="buttons" unique_id=1175598501]
 layout_mode = 1
