@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 func generateHoverRadiusLoop():
 	while not GlobalVariables.gamePaused:
 		print("yes")
-		await get_tree().create_timer(timeBeforeNewHoverRadius)
+		await get_tree().create_timer(timeBeforeNewHoverRadius).timeout
 		hoverRadius = getNewHoverRadius()
 	
 func getNewHoverRadius() -> int: #generates the radius between inner and outer distancee
@@ -49,7 +49,7 @@ func getNewHoverRadius() -> int: #generates the radius between inner and outer d
 func calculateAndSetVelocity():
 	var direction = (target.global_position - global_position).normalized()
 	velocity = direction * speed * \
-	((abs(target.global_position - global_position)-hoverRadius)/ hoverRadius)
+	(((target.global_position - global_position).length()-hoverRadius)/ hoverRadius)
 
 
 func take_damage(damage):
