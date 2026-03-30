@@ -7,18 +7,23 @@ extends ProjectileModuleClass
 @onready var lightning_hitbox: Area2D = $LightningHitbox
 @onready var lightning_timer: Timer = $LightningTimer
 @onready var lightning_sparks: GPUParticles2D = $LightningBolt/LightningSparks
+@onready var lightning_sfx: AudioStreamPlayer2D = $LightningSFX
 
 var targets : Array = []
 var attacking := false
 var damage := 1
-# Called when the node enters the scene tree for the first time.
+var lightningSFXPlaying := false
+
 func _ready() -> void:
 	pass # Replace with function body.
 
 
 func activate():
-	
 	if onCooldown: return
+	
+	if !lightningSFXPlaying:
+		lightningSFXPlaying = true
+		lightning_sfx.play()
 	
 	lightning_sparks.emitting = true
 	
@@ -52,3 +57,8 @@ func lightning_timer_timeout() -> void:
 	lightning_bolt.visible = false
 	lightning_sparks.restart()
 	lightning_sparks.emitting = false
+	lightningSFXPlaying = false
+	lightning_sfx.stop()
+
+func lightning_sfx_finished() -> void:
+	lightning_sfx.play()

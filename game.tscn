@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://twlpx8jitsm3" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="Script" uid="uid://ypi1jo3ermhb" path="res://enemy_spawner.gd" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://byxfh52u0rr8v" path="res://Scenes/GameManager/gameStartTransitionCanvas.gd" id="5_7jktm"]
+[ext_resource type="AudioStream" uid="uid://cbpg4s2gerg3y" path="res://Soundtrack/MAIN MENU.mp3" id="6_ryrav"]
 
 [node name="Game" type="Node2D" unique_id=1127454506 groups=["gameManager"]]
 script = ExtResource("1_fc0e3")
@@ -37,5 +38,10 @@ color = Color(0, 0, 0, 1)
 [node name="DamageNumbers" type="Node2D" parent="." unique_id=1049360624]
 
 [node name="ImportantTechnicalLoadingSound" type="AudioStreamPlayer" parent="." unique_id=1596824908]
+
+[node name="mainMenuTheme" type="AudioStreamPlayer" parent="." unique_id=337303189]
+stream = ExtResource("6_ryrav")
+autoplay = true
+bus = &"Music"
 
 [connection signal="timeout" from="root/World1/Enemies/SpawnTimer" to="root/World1/Enemies" method="spawn_timer_timeout"]

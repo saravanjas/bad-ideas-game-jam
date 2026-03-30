@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://861l1l7h486l" path="res://item_drop.gd" id="1_3frig"]
 [ext_resource type="Texture2D" uid="uid://q55or2u1xafj" path="res://Sprites/Loot/Sprite-0004.png" id="2_our5y"]
 [ext_resource type="Script" uid="uid://dw4crnyyacndy" path="res://Scenes/Loot/collection_area_loot.gd" id="3_our5y"]
+[ext_resource type="AudioStream" uid="uid://clrnvo5k1wtow" path="res://SFX/LootPickup/cardboardPickupBETTER.mp3" id="4_yibmf"]
+[ext_resource type="AudioStream" uid="uid://dvfk3p83oq2f" path="res://SFX/LootPickup/ductTape.mp3" id="5_tbpwh"]
+[ext_resource type="AudioStream" uid="uid://mqnmlx7cw85b" path="res://SFX/LootPickup/nailPickup.wav" id="6_tbpwh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wdmqy"]
 radius = 30.594116
@@ -13,6 +16,7 @@ collision_mask = 4
 script = ExtResource("1_3frig")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1658368449]
+z_index = 2
 texture_filter = 1
 texture = ExtResource("2_our5y")
 
@@ -26,5 +30,37 @@ script = ExtResource("3_our5y")
 
 [node name="collectionArea" type="CollisionShape2D" parent="Area2D" unique_id=500557263]
 shape = SubResource("CircleShape2D_wdmqy")
+
+[node name="CardboardPickup" type="AudioStreamPlayer2D" parent="." unique_id=2072285634]
+stream = ExtResource("4_yibmf")
+volume_db = 5.831774
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="DuctTapePickup" type="AudioStreamPlayer2D" parent="." unique_id=1186704346]
+stream = ExtResource("5_tbpwh")
+volume_db = -2.9158912
+pitch_scale = 0.73
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="NailPickup" type="AudioStreamPlayer2D" parent="." unique_id=375672576]
+stream = ExtResource("6_tbpwh")
+volume_db = 8.747666
+max_polyphony = 6
+bus = &"SFX"
+
+[node name="outlineItem" type="Sprite2D" parent="." unique_id=1961269855]
+self_modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("2_our5y")
+
+[node name="outlineColor" type="Sprite2D" parent="." unique_id=1522093746]
+self_modulate = Color(1, 0, 0, 1)
+z_index = 1
+texture_filter = 1
+scale = Vector2(1.09, 1.09)
+texture = ExtResource("2_our5y")
 
 [connection signal="area_entered" from="." to="." method="collection_area_entered"]

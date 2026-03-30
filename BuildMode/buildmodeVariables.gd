@@ -8,6 +8,8 @@ var moduleIds:Dictionary = {
 	"BlackholeModule" = 6,
 	"LightningModule" = 7,
 	"LaserModule" = 8,
+	"InputModuleD" = 9,
+	"InputModuleS" = 10,
 }
 
 var moduleInfo:Dictionary = {
@@ -24,6 +26,20 @@ var moduleInfo:Dictionary = {
 		"Text" = "Input W",
 		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/keyW.png"
 	} ,
+	
+	
+	"InputModuleS" = {
+		"Cost" = [1,2,1],
+		"Text" = "bmk iskr",
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/keyS.png"
+	},
+	
+	
+	"InputModuleD" = {
+		"Cost" = [1,2,1],
+		"Text" = "Ma-ma-mangio pasta , italiano lifestyle",
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/keyD.png"
+	},
 	
 	
 	"RocketModule"  = {

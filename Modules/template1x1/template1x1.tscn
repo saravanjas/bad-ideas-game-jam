@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b2gm5m5jwibsx" path="res://Modules/template1x1/template1x1.gd" id="1_8srou"]
 [ext_resource type="Texture2D" uid="uid://cg1sa0wm7pggq" path="res://Sprites/Ship/Moduli/ModulSpriteovi/boosterModule.png" id="2_qk7dd"]
 [ext_resource type="Texture2D" uid="uid://cvrw1hwtds710" path="res://Sprites/Ship/Moduli/ModulSpriteovi/booster-Sheet.png" id="3_nv44j"]
+[ext_resource type="AudioStream" uid="uid://yhsp4imyjeyf" path="res://SFX/BoosterModule/boosterModule.wav" id="4_nv44j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87fno"]
 size = Vector2(32, 32)
@@ -141,5 +142,11 @@ animation = &"reset"
 wait_time = 0.1
 one_shot = true
 
+[node name="BoosterSFX" type="AudioStreamPlayer2D" parent="." unique_id=1031766988]
+stream = ExtResource("4_nv44j")
+volume_db = 2.9158878
+bus = &"SFX"
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="BoosterTimeout" to="." method="booster_timeout"]
+[connection signal="finished" from="BoosterSFX" to="." method="booster_sfx_finished"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://1d5rwf1s2ksw"]
 
 [ext_resource type="Script" uid="uid://di38xstwkm06c" path="res://Classes/InputModuleClass.gd" id="1_8qvsw"]
+[ext_resource type="Texture2D" uid="uid://cxeo868pjb75g" path="res://Sprites/Ship/Moduli/ModulSpriteovi/keyW.png" id="2_s1nem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8qvsw"]
 size = Vector2(32, 32)
@@ -12,6 +13,7 @@ metadata/_custom_type_script = "uid://di38xstwkm06c"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1473940883]
 texture_filter = 1
+texture = ExtResource("2_s1nem")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1725379437]
 

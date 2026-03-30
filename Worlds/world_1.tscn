@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bowaam0neckdl" path="res://Sprites/Space/Planeti/Planet1.png" id="2_d51r2"]
 [ext_resource type="Texture2D" uid="uid://c30vfwaglvit4" path="res://Sprites/Space/Planeti/Planet2.png" id="3_a6m6e"]
 [ext_resource type="Texture2D" uid="uid://b3k4mlhm2opfk" path="res://Sprites/Space/Planeti/WarRemnant.png" id="4_sa81t"]
-[ext_resource type="Texture2D" uid="uid://cc1xmp4etw710" path="res://Sprites/Space/Planeti/Cruelopolis-removebg-preview.png" id="5_d51r2"]
+[ext_resource type="Texture2D" uid="uid://duasqlpqtg2f" path="res://Sprites/Space/Planeti/Planet3.png" id="5_d51r2"]
+[ext_resource type="Texture2D" uid="uid://y0li2ufg0cvb" path="res://Sprites/Space/Planeti/Planet4.png" id="6_a6m6e"]
 
 [node name="World1" type="Node2D" unique_id=1679080849]
 
@@ -44,7 +45,7 @@ scroll_scale = Vector2(0.01, 0.01)
 texture = ExtResource("4_sa81t")
 
 [node name="Parallax2D5" type="Parallax2D" parent="." unique_id=843080761]
-z_index = 2
+z_as_relative = false
 texture_filter = 1
 scroll_scale = Vector2(0.05, 0.05)
 
@@ -60,3 +61,14 @@ scroll_scale = Vector2(0.05, 0.05)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D6" unique_id=1419702689]
 texture = ExtResource("2_d51r2")
+
+[node name="Parallax2D7" type="Parallax2D" parent="." unique_id=1359739571]
+z_as_relative = false
+texture_filter = 1
+scroll_scale = Vector2(0.04, 0.04)
+scroll_offset = Vector2(-635, 487)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D7" unique_id=1568711532]
+texture_filter = 1
+position = Vector2(332, -268)
+texture = ExtResource("6_a6m6e")

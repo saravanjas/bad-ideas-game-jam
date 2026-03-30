@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var lootParent := get_tree().get_first_node_in_group("Loot")
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var damage_sfx: AudioStreamPlayer2D = $DamageSFX
 
 var speed := 250
 @export var healthPoints := 30
@@ -23,6 +24,8 @@ func _physics_process(delta: float) -> void:
 	if healthPoints <= 0:
 		die()
 func take_damage(damage):
+	damage_sfx.pitch_scale = randf_range(0.8,1.2)
+	damage_sfx.play()
 	GlobalScripts.display_number(damage , global_position)
 	animation_player.play("hit")
 	healthPoints -= damage
