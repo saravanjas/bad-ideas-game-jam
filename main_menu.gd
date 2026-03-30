@@ -1,7 +1,7 @@
 extends Control
 @onready var planet: AnimatedSprite2D = $Planet
 @onready var  transitionBlackBlock: ColorRect = $ColorRect
-
+@onready var optionsNode : Control = get_tree().get_first_node_in_group("OptionsNode")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +24,12 @@ func _on_play_button_pressed() -> void:
 	var screenTransition = create_tween()
 	screenTransition.tween_property( transitionBlackBlock , "modulate:a" , 1 , 1.5)
 	await screenTransition.finished
-	get_tree().change_scene_to_file("res://game.tscn")
-
+	
+	
+	var gameParent = get_tree().get_first_node_in_group("GameParent")
+	gameParent.add_child(UINodeAccess.GameInstance)
+	UINodeAccess.MainMenu.queue_free()
+	
 func _on_options_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/options.tscn")
+	visible = false
+	optionsNode.visible = true

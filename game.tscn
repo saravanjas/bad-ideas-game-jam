@@ -35,7 +35,7 @@ offset_right = 1611.0
 offset_bottom = 852.0
 color = Color(0, 0, 0, 1)
 
-[node name="DamageNumbers" type="Node2D" parent="." unique_id=1049360624]
+[node name="DamageNumbers" type="Node2D" parent="." unique_id=1049360624 groups=["DamageNumbersNode"]]
 
 [node name="ImportantTechnicalLoadingSound" type="AudioStreamPlayer" parent="." unique_id=1596824908]
 

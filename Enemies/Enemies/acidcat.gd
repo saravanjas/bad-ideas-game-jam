@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damageSFX: AudioStreamPlayer2D = $DamageSFX
+@onready var wing_flapping: AudioStreamPlayer2D = $WingFlapping
 
 
 
@@ -23,6 +24,10 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * speed
 	flip(velocity.x)
 	move_and_slide()
+	
+	if animated_sprite_2d.frame == 5:
+		wing_flapping.pitch_scale = randf_range(0.8,1.2)
+		wing_flapping.play()
 	if healthPoints <= 0:
 		die()
 func take_damage(damage):
