@@ -16,5 +16,5 @@ var inCombat := false
 var inventory:Dictionary = {
 	"Cardboard" = 100,
 	"Tape" = 100,
-	"Screws" = 100
+	"Screws" = 100,
 } 

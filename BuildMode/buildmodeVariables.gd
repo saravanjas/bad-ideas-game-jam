@@ -4,7 +4,10 @@ var moduleIds:Dictionary = {
 	"InputModuleA" = 4,
 	"InputModuleW" = 3,
 	"RocketModule" = 5,
-	"ThrusterModule" = 1
+	"ThrusterModule" = 1,
+	"BlackholeModule" = 6,
+	"LightningModule" = 7,
+	"LaserModule" = 8,
 }
 
 var moduleInfo:Dictionary = {
@@ -34,6 +37,26 @@ var moduleInfo:Dictionary = {
 		"Cost" = [4,2,0],
 		"Text" = "Thruster",
 		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/boosterModule.png"
-	} 
+	} ,
 	
+	
+	"BlackholeModule" = {
+		"Cost" = [4,4,8],
+		"Text" = "It's super-massive.",
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/blackholeModule.png"
+	},
+	
+	
+	"LightningModule" = {
+		"Cost" = [1,2,4],
+		"Text" = "Z!z-zap!",
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/lightningModule.png",
+	},
+	
+	
+	"LaserModule" = {
+		"Cost" = [0,1,5],
+		"Text" = "Shing shing shing shing",
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/LaserModule.png"
+	}
 }

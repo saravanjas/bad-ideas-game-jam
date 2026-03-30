@@ -8,7 +8,7 @@ func _ready() -> void:
 		GlobalVariables.projectilesNode = child
 		break
 	spawn_objective(GlobalVariables.anntenaeDestroyed)
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass

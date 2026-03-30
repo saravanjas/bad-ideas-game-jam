@@ -5,18 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://c1m8kscgd7le5" path="res://Sprites/Space/Background/Zvijezdje.png" id="2_trj04"]
 [ext_resource type="Texture2D" uid="uid://dqmf3k2pw7ycd" path="res://Sprites/Space/Planeti/planetMacaka.png" id="2_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://cu8vxyrdo0r14" path="res://Sprites/UI elementi/mainmenu.png" id="2_yhxw7"]
-[ext_resource type="Texture2D" uid="uid://ewngvelp4it1" path="res://TempSprites/startoptions1.png" id="3_16hvj"]
-[ext_resource type="Texture2D" uid="uid://b336kjllf1j2k" path="res://TempSprites/startoptions2.png" id="4_vr1f0"]
+[ext_resource type="PackedScene" uid="uid://vi5t4amepsue" path="res://GUI/Main Menu/options_button.tscn" id="6_5egv6"]
+[ext_resource type="Texture2D" uid="uid://d28ni2hbj85pe" path="res://Sprites/UI elementi/optionsbutton.png" id="7_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://p3s7f2jlix5i" path="res://TempSprites/quit1.png" id="7_vtepg"]
 [ext_resource type="Texture2D" uid="uid://cs1auphpt416k" path="res://TempSprites/quit2.png" id="8_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://btpgs5hltxf0u" path="res://Sprites/UI elementi/play!6.png" id="11_vr1f0"]
 [ext_resource type="PackedScene" uid="uid://o1td64fkt67k" path="res://GUI/Main Menu/control.tscn" id="12_t1dhk"]
+[ext_resource type="AudioStream" uid="uid://7ddk22wal32m" path="res://SFX/Buildmode/boxPlacementSFX/kutija 1.wav" id="12_vtepg"]
+[ext_resource type="AudioStream" uid="uid://dwquucimrrcwh" path="res://SFX/Buildmode/boxPlacementSFX/kutija 2.wav" id="13_8dnnj"]
+[ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="14_m3bi6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vr1f0"]
 resource_local_to_scene = true
 shader = ExtResource("2_16hvj")
 shader_parameter/direction = Vector2(5, 5)
-shader_parameter/speed = 9.999999999999999e-05
+shader_parameter/speed = 0.0001
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t1dhk"]
 atlas = ExtResource("2_vr1f0")
@@ -376,9 +379,22 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wyh8j"]
+random_pitch = 1.0233738
+streams_count = 3
+stream_0/stream = ExtResource("12_vtepg")
+stream_1/stream = ExtResource("13_8dnnj")
+stream_2/stream = ExtResource("14_m3bi6")
+
 [node name="main_menu" type="Control" unique_id=514054854]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_yhxw7")
 
 [node name="Zvijezde" type="Sprite2D" parent="." unique_id=2075094777]
@@ -416,15 +432,16 @@ offset_left = -1.0
 offset_right = 39.0
 offset_bottom = 40.0
 
-[node name="Options" type="TextureButton" parent="buttons" unique_id=772540742]
-layout_mode = 0
-offset_left = 192.0
-offset_top = 392.0
-offset_right = 259.0
-offset_bottom = 456.0
-texture_normal = ExtResource("3_16hvj")
-texture_pressed = ExtResource("4_vr1f0")
-texture_hover = ExtResource("4_vr1f0")
+[node name="options_button" parent="buttons" unique_id=1546162664 instance=ExtResource("6_5egv6")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 249.0
+offset_top = 374.0
+offset_right = 273.0
+offset_bottom = 398.0
+scale = Vector2(2, 2)
+button_function_texture = ExtResource("7_8dnnj")
+button_function_outline_texture = ExtResource("7_8dnnj")
 
 [node name="Quit" type="TextureButton" parent="buttons" unique_id=327937314]
 layout_mode = 0
@@ -458,8 +475,13 @@ offset_right = 1611.0
 offset_bottom = 852.0
 color = Color(0, 0, 0, 1)
 
+[node name="MacijiSlanutak" type="AudioStreamPlayer" parent="." unique_id=1282833847]
+
+[node name="boxPlacementSFX" type="AudioStreamPlayer" parent="." unique_id=1235132707]
+stream = SubResource("AudioStreamRandomizer_wyh8j")
+
 [connection signal="animation_finished" from="Planet" to="." method="planet_animation_finished"]
-[connection signal="pressed" from="buttons/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="buttons/options_button" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="buttons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="buttons/PlayButton" to="." method="button_pressed"]
 [connection signal="pressed" from="buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="buttons/PlayButton" to="." method="button_pressed"]
