@@ -4,9 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cg1sa0wm7pggq" path="res://Sprites/Ship/Moduli/ModulSpriteovi/boosterModule.png" id="2_qk7dd"]
 [ext_resource type="Texture2D" uid="uid://cvrw1hwtds710" path="res://Sprites/Ship/Moduli/ModulSpriteovi/booster-Sheet.png" id="3_nv44j"]
 [ext_resource type="AudioStream" uid="uid://yhsp4imyjeyf" path="res://SFX/BoosterModule/boosterModule.wav" id="4_nv44j"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_87fno"]
-size = Vector2(32, 32)
+[ext_resource type="PackedScene" uid="uid://bqyfkjgbu1gj" path="res://Player/module_collision_box.tscn" id="5_cc7rn"]
+[ext_resource type="PackedScene" uid="uid://d1em4mbcvlfhv" path="res://Modules/InputModuleS/hitbox.tscn" id="6_ssrrg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cc7rn"]
 atlas = ExtResource("3_nv44j")
@@ -125,11 +124,6 @@ recoil = 15
 texture_filter = 1
 texture = ExtResource("2_qk7dd")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=506855556]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=342606737]
-shape = SubResource("RectangleShape2D_87fno")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=165976134]
 visible = false
 texture_filter = 1
@@ -146,6 +140,10 @@ one_shot = true
 stream = ExtResource("4_nv44j")
 volume_db = 2.9158878
 bus = &"SFX"
+
+[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("5_cc7rn")]
+
+[node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("6_ssrrg")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="BoosterTimeout" to="." method="booster_timeout"]

@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://y6f05h652fox" path="res://Projectiles/RocketProjectile.tscn" id="2_4gg6x"]
 [ext_resource type="Texture2D" uid="uid://cgtca20q0djaf" path="res://Sprites/Ship/Moduli/ModulSpriteovi/rocketModule.png" id="2_ikaaj"]
 [ext_resource type="Texture2D" uid="uid://cg6egwui4flwu" path="res://Sprites/Ship/Moduli/ModulPucanje/box_module_opening.png" id="4_4gg6x"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oogbe"]
-size = Vector2(32, 32)
+[ext_resource type="PackedScene" uid="uid://bqyfkjgbu1gj" path="res://Player/module_collision_box.tscn" id="5_xkmo8"]
+[ext_resource type="PackedScene" uid="uid://d1em4mbcvlfhv" path="res://Modules/InputModuleS/hitbox.tscn" id="6_ees1t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xkmo8"]
 atlas = ExtResource("4_4gg6x")
@@ -90,11 +89,6 @@ metadata/_custom_type_script = "uid://d17pbmq4r44co"
 texture_filter = 1
 texture = ExtResource("2_ikaaj")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1913961496]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1778652377]
-shape = SubResource("RectangleShape2D_oogbe")
-
 [node name="BoxOpenAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1383509188]
 visible = false
 texture_filter = 1
@@ -102,3 +96,7 @@ position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_uda40")
 frame = 8
 frame_progress = 1.0
+
+[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("5_xkmo8")]
+
+[node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("6_ees1t")]

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c38au3ncxsy6h" path="res://Sprites/Ship/Moduli/ModulSpriteovi/blackholeModule.png" id="1_vuf32"]
 [ext_resource type="Texture2D" uid="uid://cg6egwui4flwu" path="res://Sprites/Ship/Moduli/ModulPucanje/box_module_opening.png" id="2_8sng4"]
 [ext_resource type="PackedScene" uid="uid://cha63enhb4nm7" path="res://Projectiles/BlackholeProjectile.tscn" id="2_p5d2w"]
+[ext_resource type="PackedScene" uid="uid://bqyfkjgbu1gj" path="res://Player/module_collision_box.tscn" id="5_ubj5p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xkmo8"]
 atlas = ExtResource("2_8sng4")
@@ -96,3 +97,5 @@ sprite_frames = SubResource("SpriteFrames_p5d2w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=86137728]
 shape = SubResource("RectangleShape2D_vuf32")
+
+[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("5_ubj5p")]

@@ -6,16 +6,20 @@ extends ShipClass
 @onready var camera_2d: Camera2D = $CharacterBody2D/Camera2D
 @onready var enemy_spawn_positions: Path2D = $EnemySpawnPositions
 @onready var objective_marker: Sprite2D = $ObjectiveMarker
+@onready var invincibility_timer: Timer = $InvincibilityTimer
 
 
 func _ready() -> void:
+	
 	tilemap = tile_map_layer_body
 	characterBody = character_body_2d
 	rootCenter = root_center
+	
 	GlobalVariables.playerTilemap = tilemap
 	GlobalVariables.playerBody = character_body_2d
 	GlobalVariables.player = self
 	GlobalVariables.playerCamera = camera_2d
+	GlobalVariables.playerCanBeDamagedTimer = invincibility_timer
 func _physics_process(_delta: float) -> void:
 	if GlobalVariables.gamePaused: return
 	enemy_spawn_positions.global_position = character_body_2d.global_position

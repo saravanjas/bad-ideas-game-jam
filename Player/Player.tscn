@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cqkrcy20b5eso" path="res://Player/Player.gd" id="1_q2qul"]
 [ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/template1x1/template1x1.tscn" id="2_gbmm3"]
+[ext_resource type="Script" uid="uid://blawf8n5r2xio" path="res://Player/playerBody.gd" id="2_u5tep"]
 [ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_7vdj4"]
+[ext_resource type="Shader" uid="uid://ckcgf1dwaa62u" path="res://Shaders/enemyDamage.tres" id="3_ps8ct"]
 [ext_resource type="PackedScene" uid="uid://dlb5q6u1x3e6w" path="res://Modules/InputModuleS/InputModuleS.tscn" id="3_roy6y"]
 [ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_6ysni"]
@@ -21,6 +23,11 @@
 [ext_resource type="Script" uid="uid://bupigle58rrj0" path="res://Player/loot_detection_area.gd" id="13_p7tob"]
 [ext_resource type="Texture2D" uid="uid://ci3gc7fw4inmo" path="res://Sprites/UI elementi/LocationPointer.png" id="15_3mea3"]
 [ext_resource type="Script" uid="uid://c0jlba3boud7t" path="res://Player/objective_marker.gd" id="16_7v5gs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7uipr"]
+shader = ExtResource("3_ps8ct")
+shader_parameter/BooleanParameter = true
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
 scenes/1/scene = ExtResource("2_gbmm3")
@@ -58,10 +65,12 @@ point_count = 7
 script = ExtResource("1_q2qul")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=412447108 groups=["PlayerAccess"]]
+script = ExtResource("2_u5tep")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=1260237541]
 physics_interpolation_mode = 1
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAAAAAAAAAAAACQAAAP//AAAAAAAAAwD//wAAAAAAAAAABAACAAAAAAAAAAAAAVAAAP7/AAAAAAAAAQD+/wAAAAAAAAAAAWAAAAEAAAAAAAAACgAAAAIAAAAAAAAAATD/////AAAAAAAACAABAP//AAAAAAAACAA=")
+material = SubResource("ShaderMaterial_7uipr")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAAAAAAAAAAAACQAAAP//AAAAAAAAAwD//wAAAAAAAAAABAACAAAAAAAAAAAAAVAAAP7/AAAAAAAAAQD+/wAAAAAAAAAAAWAAAAEAAAAAAAAACgAAAAIAAAAAAAAAATD/////AAAAAAAABwABAP//AAAAAAAABwA=")
 tile_set = SubResource("TileSet_7vdj4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]
@@ -182,4 +191,8 @@ region_enabled = true
 region_rect = Rect2(0, 0, 32, 70)
 script = ExtResource("16_7v5gs")
 
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=884632544]
+wait_time = 0.75
+
 [connection signal="area_entered" from="CharacterBody2D/Loot/LootCollectionArea" to="CharacterBody2D/Loot/LootCollectionArea" method="area_entered"]
+[connection signal="timeout" from="InvincibilityTimer" to="CharacterBody2D" method="invincibility_timer_timeout"]
