@@ -20,6 +20,7 @@ func _ready() -> void:
 	GlobalVariables.player = self
 	GlobalVariables.playerCamera = camera_2d
 	GlobalVariables.playerCanBeDamagedTimer = invincibility_timer
+	
 func _physics_process(_delta: float) -> void:
 	if GlobalVariables.gamePaused: return
 	enemy_spawn_positions.global_position = character_body_2d.global_position
