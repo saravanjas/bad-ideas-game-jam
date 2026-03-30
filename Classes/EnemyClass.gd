@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	#var direction = (target.global_position - global_position).normalized()
 	#velocity = direction * speed
-	velocity = calculateAndSetVelocity()
+	calculateAndSetVelocity()
 	
 	move_and_slide()
 	flip(velocity.x)
