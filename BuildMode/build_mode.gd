@@ -4,6 +4,7 @@ extends Control
 ## GRID BUILDER CONSTANTS
 const COLLECTION_ID = 0
 const MAX_TILE_ID = 5
+const MAX_PLACE_DISTANCE = 4
 ##
 
 ## GRID VARIABLES
@@ -80,13 +81,14 @@ func resolveBuildMode():
 	else:
 		GlobalVariables.gamePaused = false
 
+
 func buildMode():
 	tilemap = GlobalVariables.playerTilemap
 	#place tiles
 	if Input.is_action_just_pressed("LeftClick"):
 		if holdingTile:
-			placeTile()
-			holdingTile = false
+			if await tryPlaceTile():
+				holdingTile = false
 				
 	#rotate module
 	if Input.is_action_just_pressed("r"):
@@ -110,16 +112,47 @@ func itemBought(button:ShopItem, moduleName:String):
 	shop.erase(button)
 	fillShop()
 
-func placeTile():
+func tryPlaceTile() -> bool:
 	var mousePos = get_global_mouse_position()
 	mousePos = tilemap.to_local(mousePos)
 	mousePos = tilemap.local_to_map(mousePos)
+	if not confirmPlaceability(mousePos, ""):
+		return false
+	
 	tilemap.set_cell(mousePos, COLLECTION_ID , Vector2i(0,0), selectedBoxId) #position of tile locally, id of collection, vecotr2i(0,0), id of tile
 	tilemap.child_entered_tree.connect(getCellInstance.bind())
 	await tilemap.child_entered_tree
 	if lastPlacedTile.has_method("rotateModule"):
 		lastPlacedTile.rotateModule(moduleLookVector.angle())
 	box_placement_sfx.play()
+	return true
+	
+
+func confirmPlaceability(pos:Vector2i, tileName:String) -> bool:
+	var modules = GlobalVariables.player.getAllModules()
+	#check if out of bounds
+	if (abs(pos.x) + abs(pos.y)) > MAX_PLACE_DISTANCE:
+		return false
+	
+	#check if the spot is empty
+	if tilemap.get_cell_source_id(pos) != -1:
+		return false
+	
+	#check adjacent
+	var directions = [Vector2i(0,1), Vector2i(0,-1), Vector2i(1,0), Vector2i(-1,0)]
+	var hasAdjacentModule = false
+
+	for dir in directions:
+		var neighbor = pos + dir
+		if tilemap.get_cell_source_id(neighbor) != -1:
+			hasAdjacentModule = true
+			break
+
+	if !hasAdjacentModule:
+		return false
+	return true
+	
+	
 func fillShop():
 	while shop.size() < 3:
 		var newItem:ShopItem = blankShopItem.instantiate()

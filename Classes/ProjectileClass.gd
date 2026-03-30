@@ -11,6 +11,7 @@ var lookVector:Vector2 = Vector2.RIGHT
 
 func _physics_process(_delta: float) -> void:
 	rigid_body_2d.move_and_collide(velocity*lookVector)
+	#rigid_body_2d.apply_impulse(velocity*lookVector)
 	
 func setVelocity(vel:float):
 	velocity = vel
