@@ -29,8 +29,9 @@ UINodeAccess="*uid://yym13gkeum6d"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="uid://fa6d3v4p6f21"
+mouse_cursor/custom_image="uid://dsg0vkyoea1hp"
 
 [global_group]
 
