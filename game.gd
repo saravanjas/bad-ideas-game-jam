@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var anntena : PackedScene = preload("res://Enemies/Objectives/antenna.tscn")
 @onready var enemies: Node2D = $root/World1/Enemies
+@onready var soundtrackAccess = get_tree().get_first_node_in_group("Soundtrack")
 var boss = preload("res://Enemies/Bosses/dr_meowstein.tscn")
 func _ready() -> void:
 	UINodeAccess.GameInstance
@@ -36,6 +37,10 @@ func spawn_objective( AntennaeDestroyed ):
 			antennaInstance.global_position = determineSpawnpoint( GlobalVariables.playerBody.global_position , 11000)
 			GlobalVariables.nextObjective = antennaInstance
 		4:
+			soundtrackAccess.silence()
+			await get_tree().create_timer(3).timeout
+			soundtrackAccess.changeTrack(1)
+			await get_tree().create_timer(5).timeout
 			GlobalVariables.bossFight = true
 			var bossBarAccess = get_tree().get_first_node_in_group("BossBar")
 			bossBarAccess.appear()

@@ -551,7 +551,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wfho"]
-size = Vector2(47, 244.4375)
+size = Vector2(43.375, 235.875)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7pc6i"]
 radius = 576.0
@@ -710,7 +710,7 @@ monitoring = false
 script = ExtResource("5_yku0q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/Laser/LaserHurtbox" unique_id=1181164592]
-position = Vector2(0, 129.90625)
+position = Vector2(-0.1875, 134.1875)
 shape = SubResource("RectangleShape2D_8wfho")
 debug_color = Color(0.23722976, 0.020361617, 0.99999994, 0.41960785)
 

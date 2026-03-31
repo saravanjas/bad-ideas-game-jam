@@ -15,7 +15,7 @@ func _ready() -> void:
 			sprite = child
 			break
 func body_entered(body: Node2D) -> void:
-	if !GlobalVariables.playerInvincible or not GlobalVariables.inBuildMode:
+	if !GlobalVariables.playerInvincible and not GlobalVariables.inBuildMode:
 		damage_tween()
 		GlobalVariables.playerInvincible = true
 		GlobalVariables.playerCanBeDamagedTimer.start()
@@ -40,7 +40,7 @@ func damage_tween():
 
 
 func hitByBoss( area) -> void:
-	if !GlobalVariables.playerInvincible or not GlobalVariables.inBuildMode:
+	if !GlobalVariables.playerInvincible and not GlobalVariables.inBuildMode:
 		damage_tween()
 		GlobalVariables.playerInvincible = true
 		GlobalVariables.playerCanBeDamagedTimer.start(iFrameLenght)
