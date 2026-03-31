@@ -78,6 +78,7 @@ func BIG_explode():
 	gameManager.spawn_objective( GlobalVariables.anntenaeDestroyed)
 	for i in range(randi_range(5,10)):
 		GlobalScripts.spawnLoot(global_position + randomizePosition() , "Objective" , lootParent)
+	GlobalVariables.anntenaeDestroyed = GlobalVariables.anntenaeDestroyed + 1
 func shake():
 	if !canStopShaking:
 		var tween = create_tween()
