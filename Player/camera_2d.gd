@@ -21,4 +21,5 @@ func shake(shakingStrenght ):
 func stopShaking():
 	shakingEnabled = false
 	await get_tree().create_timer(0.1).timeout
+	position = Vector2.ZERO
 	shakingEnabled = true

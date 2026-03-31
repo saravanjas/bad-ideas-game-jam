@@ -76,19 +76,23 @@ func display_number(value : int , position : Vector2 ):
 func spawnLoot( globalPosition , enemyType , parent):
 	var numberRoll := randf_range(0,1)
 	var lootRoll := randf_range(0,1)
-	if numberRoll >= 0.2:
+	if enemyType == "Objective":
 		var lootInstance = lootItem.instantiate()
 		lootInstance.type = determineItem(lootRoll , enemyType)
 		lootInstance.texture = determineTexture(lootInstance.type)
 		lootInstance.global_position = globalPosition
 		parent.add_child(lootInstance)
-		
-
+	elif (numberRoll <= 0.2 ):
+		var lootInstance = lootItem.instantiate()
+		lootInstance.type = determineItem(lootRoll , enemyType)
+		lootInstance.texture = determineTexture(lootInstance.type)
+		lootInstance.global_position = globalPosition
+		parent.add_child(lootInstance)
 func determineItem(lootRoll , enemyType):
 	if enemyType == "Objective":
 		return 2;
 	else:
-		if lootRoll >= 0.8:
+		if lootRoll >= 0.95:
 			return 2
 		elif lootRoll  >= 0.5:
 			return 1

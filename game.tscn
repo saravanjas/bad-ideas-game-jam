@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://twlpx8jitsm3" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="Script" uid="uid://ypi1jo3ermhb" path="res://enemy_spawner.gd" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://byxfh52u0rr8v" path="res://Scenes/GameManager/gameStartTransitionCanvas.gd" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://cb1ydrqv8i7n0" path="res://Enemies/Bosses/dr_meowstein.tscn" id="5_eow3j"]
 [ext_resource type="AudioStream" uid="uid://cbpg4s2gerg3y" path="res://Soundtrack/MAIN MENU.mp3" id="6_ryrav"]
 
 [node name="Game" type="Node2D" unique_id=1127454506 groups=["gameManager"]]
@@ -22,6 +23,8 @@ script = ExtResource("4_7jktm")
 [node name="SpawnTimer" type="Timer" parent="root/World1/Enemies" unique_id=1296057821]
 wait_time = 0.2
 autostart = true
+
+[node name="DrMeowstein" parent="root/World1/Enemies" unique_id=1432788726 instance=ExtResource("5_eow3j")]
 
 [node name="Loot" type="Node2D" parent="root/World1" unique_id=2054349770 groups=["Loot"]]
 

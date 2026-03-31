@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var health = 150
+var health = 300
+var maxHealth = 300
 @onready var explosion: GPUParticles2D = $Explosion
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var explosion_aftermath: Node2D = $"../ExplosionAftermath"
@@ -11,10 +12,13 @@ var health = 150
 @onready var antenna_damaged_sfx: AudioStreamPlayer2D = $"../AntennaDamagedSFX"
 @onready var explosion_small: AudioStreamPlayer2D = $"../ExplosionSmall"
 @onready var explosion_big: AudioStreamPlayer2D = $"../ExplosionBig"
-
+@onready var alarm: AudioStreamPlayer2D = $"../Alarm"
+@onready var lootParent := get_tree().get_first_node_in_group("Loot")
 
 var destroyed := false
 var canStopShaking := false
+var alarmPlaying := false
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -24,7 +28,7 @@ func _process(delta: float) -> void:
 	pass
 
 func take_damage(damage):
-	GlobalScripts.display_number(damage , global_position + Vector2(randi_range(20,40),randi_range(20,40)))
+	GlobalScripts.display_number(damage , global_position + randomizePosition())
 	antenna_damaged_sfx.play()
 	print("Raketa OUCH!")
 	health -= damage
@@ -34,6 +38,9 @@ func take_damage(damage):
 		explode()
 		shake()
 		radio_noise.stop()
+	if health <= (maxHealth * 0.75) and !alarmPlaying:
+		alarmPlaying = true
+		alarm.play()
 func explode():
 	var explosionCount = randi_range(5,7)
 	for i in range(explosionCount):
@@ -42,10 +49,11 @@ func explode():
 		explosionInstance.emitting = true
 		add_child(explosionInstance)
 		await get_tree().create_timer(randf_range(0.1,0.4)).timeout
-		explosion.position = Vector2(0,40) + Vector2(randi_range(-10,10),randi_range(-20,20))
+		explosion.position = Vector2(0,40) + global_position + randomizePosition()
 	await get_tree().create_timer(1.5).timeout
 	BIG_explode()
 func BIG_explode():
+	alarm.stop()
 	canStopShaking = true
 	destroyed = true
 	explosion_big.play()
@@ -68,6 +76,8 @@ func BIG_explode():
 	playerCameraAccess.stopShaking()
 	GlobalVariables.nextObjective = null
 	gameManager.spawn_objective( GlobalVariables.anntenaeDestroyed)
+	for i in range(randi_range(5,10)):
+		GlobalScripts.spawnLoot(global_position + randomizePosition() , "Objective" , lootParent)
 func shake():
 	if !canStopShaking:
 		var tween = create_tween()
@@ -89,3 +99,6 @@ func screen_exited() -> void:
 func radio_over() -> void:
 	if !destroyed:
 		radio_noise.play()
+
+func randomizePosition():
+	return Vector2(randi_range(-40,40),randi_range(-40,40))

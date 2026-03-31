@@ -5,3 +5,4 @@
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=937610599]
 stream = ExtResource("1_gulun")
 pitch_scale = 1.18
+bus = &"SFX"

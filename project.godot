@@ -41,6 +41,7 @@ gameManager=""
 OptionsNode=""
 DamageNumbersNode=""
 GameParent=""
+BossAnimations=""
 
 [input]
 

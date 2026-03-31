@@ -70,12 +70,14 @@ script = ExtResource("2_u5tep")
 [node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=1260237541]
 physics_interpolation_mode = 1
 material = SubResource("ShaderMaterial_7uipr")
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAAAAAAAAAAAACQAAAP//AAAAAAAAAwD//wAAAAAAAAAABAACAAAAAAAAAAAAAVAAAP7/AAAAAAAAAQD+/wAAAAAAAAAAAWAAAAEAAAAAAAAACgAAAAIAAAAAAAAAATD/////AAAAAAAABwABAP//AAAAAAAABwA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAAAAAAAAAAAACQAAAP//AAAAAAAAAwD//wAAAAAAAAAABAACAAAAAAAAAAAAAVAAAP7/AAAAAAAAAQD+/wAAAAAAAAAAAWAAAAEAAAAAAAAACgAAAAIAAAAAAAAAATABAP//AAAAAAAACAABAAEAAAAAAAAACFD//wEAAAAAAAAACDD/////AAAAAAAACGA=")
 tile_set = SubResource("TileSet_7vdj4")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]
 offset = Vector2(16, 0)
+zoom = Vector2(0.75, 0.75)
 position_smoothing_enabled = true
+position_smoothing_speed = 15.0
 script = ExtResource("6_vlldt")
 
 [node name="RootCenter" type="Marker2D" parent="CharacterBody2D" unique_id=853778395]

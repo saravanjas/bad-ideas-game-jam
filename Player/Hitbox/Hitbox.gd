@@ -34,3 +34,12 @@ func damage_tween():
 	reset.tween_property(sprite , "scale" , Vector2(1,1) , 0.3)
 	reset.tween_property(sprite , "modulate" , Color(1,1,1) , 0.1)
 	reset.play()
+
+
+func hitByBoss(area: Area2D) -> void:
+	if !GlobalVariables.playerInvincible:
+		damage_tween()
+		GlobalVariables.playerInvincible = true
+		GlobalVariables.playerCanBeDamagedTimer.start(0.02)
+		GlobalVariables.playerHealthCurrent -= 1
+		GlobalVariables.playerBody.sayOuch()

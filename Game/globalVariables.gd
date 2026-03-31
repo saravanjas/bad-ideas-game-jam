@@ -16,6 +16,9 @@ var inCombat := false
 var playerHealthMax := 30
 var playerHealthCurrent := 30
 var playerInvincible := false
+
+var drMeowsteinMaxHp := 500
+var drMeowsteinCurrentHp := 500
 @export var playerCanBeDamagedTimer := Timer.new()
 var inventory:Dictionary = {
 	"Cardboard" = 100,
