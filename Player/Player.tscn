@@ -76,6 +76,7 @@ tile_set = SubResource("TileSet_7vdj4")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]
 offset = Vector2(16, 0)
 position_smoothing_enabled = true
+position_smoothing_speed = 15.0
 script = ExtResource("6_vlldt")
 
 [node name="RootCenter" type="Marker2D" parent="CharacterBody2D" unique_id=853778395]
