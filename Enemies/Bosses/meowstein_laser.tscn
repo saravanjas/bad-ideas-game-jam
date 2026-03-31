@@ -9,8 +9,8 @@
 size = Vector2(12, 2)
 
 [node name="MeowsteinLaser" type="Area2D" unique_id=245460810]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 96
+collision_mask = 96
 script = ExtResource("1_xd3ho")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1049033057]

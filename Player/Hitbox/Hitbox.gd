@@ -3,6 +3,9 @@ extends Area2D
 var sprite : Sprite2D
 @export var damageSound : PackedScene
 var damageSoundInstance
+
+var iFrameLenght := 0.17
+
 func _ready() -> void:
 	damageSoundInstance = damageSound.instantiate()
 	add_child(damageSoundInstance)
@@ -36,10 +39,15 @@ func damage_tween():
 	reset.play()
 
 
-func hitByBoss(area: Area2D) -> void:
+func hitByBoss( area) -> void:
 	if !GlobalVariables.playerInvincible:
 		damage_tween()
 		GlobalVariables.playerInvincible = true
-		GlobalVariables.playerCanBeDamagedTimer.start(0.02)
+		GlobalVariables.playerCanBeDamagedTimer.start(iFrameLenght)
 		GlobalVariables.playerHealthCurrent -= 1
 		GlobalVariables.playerBody.sayOuch()
+
+func resetIFrameLenght():
+	iFrameLenght = 0.17
+func setIFrameLenght(amount):
+	iFrameLenght = amount
