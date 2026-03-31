@@ -1,24 +1,15 @@
 [gd_scene format=4 uid="uid://bbubsuu64x1pi"]
 
 [ext_resource type="Script" uid="uid://cqkrcy20b5eso" path="res://Player/Player.gd" id="1_q2qul"]
-[ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/template1x1/template1x1.tscn" id="2_gbmm3"]
 [ext_resource type="Script" uid="uid://blawf8n5r2xio" path="res://Player/playerBody.gd" id="2_u5tep"]
-[ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_7vdj4"]
 [ext_resource type="Shader" uid="uid://ckcgf1dwaa62u" path="res://Shaders/enemyDamage.tres" id="3_ps8ct"]
-[ext_resource type="PackedScene" uid="uid://dlb5q6u1x3e6w" path="res://Modules/InputModuleS/InputModuleS.tscn" id="3_roy6y"]
-[ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_8g4oa"]
-[ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_6ysni"]
-[ext_resource type="PackedScene" uid="uid://cw3mxw70m8vha" path="res://Modules/RocketModule/RocketModule.tscn" id="6_5wa8t"]
+[ext_resource type="TileSet" uid="uid://djbwf1pe50le4" path="res://tileset.tres" id="4_dm7nj"]
 [ext_resource type="Script" uid="uid://bnmtvjklrt3kj" path="res://Player/camera_2d.gd" id="6_vlldt"]
-[ext_resource type="PackedScene" uid="uid://bffwxwqabtp5e" path="res://Modules/BlackholeModule/blackhole_module.tscn" id="7_8sa4y"]
 [ext_resource type="Shader" uid="uid://bj40maf265023" path="res://Shaders/PlayerTilemap.gdshader" id="7_j23h2"]
 [ext_resource type="Texture2D" uid="uid://bngu7m4u8rvh3" path="res://Sprites/UI elementi/bg.png" id="7_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://d0qy4hvoeqvsi" path="res://Sprites/UI elementi/blueprintTilemap.png" id="8_0j2ni"]
-[ext_resource type="PackedScene" uid="uid://b537aw3rr5hhl" path="res://Modules/LightningModule.tscn" id="8_3nb2p"]
-[ext_resource type="PackedScene" uid="uid://cq5q12372fdtj" path="res://Modules/LaserModule/LaserModule.tscn" id="9_d7xyo"]
 [ext_resource type="Script" uid="uid://cxjuc3pigl5pt" path="res://Shaders/PlayerTilemapSprite.gd" id="9_v0k0e"]
 [ext_resource type="Texture2D" uid="uid://c4pfvosditmc1" path="res://Sprites/UI elementi/dots.png" id="11_5wa8t"]
-[ext_resource type="PackedScene" uid="uid://iagjwm70t6a2" path="res://Modules/InputModuleD/InputModuleD.tscn" id="11_u5tep"]
 [ext_resource type="Script" uid="uid://dnlu4f3lnqq24" path="res://Player/loot_collection_area.gd" id="13_dm7nj"]
 [ext_resource type="Script" uid="uid://bupigle58rrj0" path="res://Player/loot_detection_area.gd" id="13_p7tob"]
 [ext_resource type="Texture2D" uid="uid://ci3gc7fw4inmo" path="res://Sprites/UI elementi/LocationPointer.png" id="15_3mea3"]
@@ -28,22 +19,6 @@
 shader = ExtResource("3_ps8ct")
 shader_parameter/BooleanParameter = true
 shader_parameter/ColorParameter = Color(1, 1, 1, 1)
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
-scenes/1/scene = ExtResource("2_gbmm3")
-scenes/2/scene = ExtResource("3_7vdj4")
-scenes/3/scene = ExtResource("4_8g4oa")
-scenes/4/scene = ExtResource("5_6ysni")
-scenes/5/scene = ExtResource("6_5wa8t")
-scenes/6/scene = ExtResource("7_8sa4y")
-scenes/7/scene = ExtResource("8_3nb2p")
-scenes/8/scene = ExtResource("9_d7xyo")
-scenes/9/scene = ExtResource("11_u5tep")
-scenes/10/scene = ExtResource("3_roy6y")
-
-[sub_resource type="TileSet" id="TileSet_7vdj4"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetScenesCollectionSource_7vdj4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5wa8t"]
 shader = ExtResource("7_j23h2")
@@ -71,7 +46,7 @@ script = ExtResource("2_u5tep")
 physics_interpolation_mode = 1
 material = SubResource("ShaderMaterial_7uipr")
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAAAAAAAAAAAACQAAAP//AAAAAAAAAwD//wAAAAAAAAAABAACAAAAAAAAAAAAAVAAAP7/AAAAAAAAAQD+/wAAAAAAAAAAAWAAAAEAAAAAAAAACgAAAAIAAAAAAAAAATABAP//AAAAAAAAB1ABAAEAAAAAAAAABzD//wEAAAAAAAAAB2D/////AAAAAAAABwA=")
-tile_set = SubResource("TileSet_7vdj4")
+tile_set = ExtResource("4_dm7nj")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]
 offset = Vector2(16, 0)
@@ -164,6 +139,9 @@ script = ExtResource("13_p7tob")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Loot/LootDetectionArea" unique_id=1096009826]
 position = Vector2(16, 16)
 shape = SubResource("CircleShape2D_5wa8t")
+
+[node name="VisualTilemap" type="TileMapLayer" parent="CharacterBody2D" unique_id=222325001]
+tile_set = ExtResource("4_dm7nj")
 
 [node name="EnemySpawnPositions" type="Path2D" parent="." unique_id=646620580]
 z_index = -1

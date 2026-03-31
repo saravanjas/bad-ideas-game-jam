@@ -31,19 +31,24 @@ var shop:Array[ShopItem] = []
 @onready var buildmodeSFX: AudioStreamPlayer = $buildmodeSFX
 @onready var box_placement_sfx: AudioStreamPlayer = $boxPlacementSFX
 
-func _ready() -> void:
-	fillShop()
+var visual_tilemap 
 
+@onready var rotationIndicator
+func _ready() -> void:
+	rotationIndicator = get_tree().get_first_node_in_group("ModuleRotationIndicator")
+	fillShop()
+	visual_tilemap = GlobalVariables.BuyTileMap
 var cd := false
 func _process(delta: float) -> void:
 	resolveBuildMode()
 	animated_sprite_2d.visible = GlobalVariables.inBuildMode
-
+	visualTilemap()
 func resolveBuildMode():
 	if cd: return 
 	if Input.is_action_just_pressed("Space"):
 		
 		if not GlobalVariables.inBuildMode:
+			
 			Soundtrack.changeTrack(2)
 			buildmodeSFX.play()
 			playerRotationInformation = GlobalVariables.playerBody.rotation
@@ -53,6 +58,7 @@ func resolveBuildMode():
 			canvas_layer.visible = true
 			animated_sprite_2d.play()
 			await animated_sprite_2d.animation_finished 
+			showIndicator()
 			#for child in get_children():
 				#if child is CanvasLayer:
 					#child.visible = true
@@ -68,6 +74,7 @@ func resolveBuildMode():
 			cd = false
 			GlobalVariables.buildModeSetupFinished = true
 		else:
+			rotationIndicator.get_parent().modulate.a = 0
 			Soundtrack.changeTrack(0)
 			var bossAccess = get_tree().get_first_node_in_group("Boss")
 			if bossAccess != null:
@@ -87,6 +94,36 @@ func resolveBuildMode():
 		GlobalVariables.gamePaused = false
 
 
+
+func visualTilemap():
+	if not GlobalVariables.inBuildMode or not holdingTile:
+		visual_tilemap.clear()
+		return
+	
+	# Get mouse position snapped to grid
+	var mouse_pos = get_global_mouse_position()
+	mouse_pos = visual_tilemap.to_local(mouse_pos)
+	var cell_pos: Vector2i = visual_tilemap.local_to_map(mouse_pos)
+	
+	# Always clear so only ONE preview tile exists
+	visual_tilemap.clear()
+	
+	# Check placement validity
+	var can_place := confirmPlaceability(cell_pos, "")
+	
+	# Place preview tile ALWAYS
+	visual_tilemap.set_cell(
+		cell_pos,
+		COLLECTION_ID,
+		Vector2i(0, 0),
+		selectedBoxId
+	)
+	
+	# Color feedback
+	if can_place:
+		visual_tilemap.modulate = Color(0.3, 1.0, 0.3, 0.7) # green
+	else:
+		visual_tilemap.modulate = Color(1.0, 0.3, 0.3, 0.7) # red
 func buildMode():
 	tilemap = GlobalVariables.playerTilemap
 	#place tiles
@@ -99,17 +136,12 @@ func buildMode():
 	if Input.is_action_just_pressed("r"):
 		var angle = moduleLookVector.angle()
 		angle += PI/2.0
+		rotationIndicator.rotation += PI/2
 		moduleLookVector = Vector2.from_angle(angle).normalized()
 
-	#select different modules
-	if Input.is_action_just_pressed("ScrollDown"):
-		selectedBoxId -= 1
-		selectedBoxId = calibrateBoxId(selectedBoxId)
-	elif Input.is_action_just_pressed("ScrollUp"):
-		selectedBoxId += 1
-		selectedBoxId = calibrateBoxId(selectedBoxId)
 
 func itemBought(button:ShopItem, moduleName:String):
+	GlobalVariables.canBuy = false
 	print("bought: ", moduleName)
 	selectedBoxId = BuildmodeVariables.moduleIds.get(moduleName)
 	holdingTile = true
@@ -130,7 +162,7 @@ func tryPlaceTile() -> bool:
 	if lastPlacedTile.has_method("rotateModule"):
 		lastPlacedTile.rotateModule(moduleLookVector.angle())
 	box_placement_sfx.play()
-	
+	GlobalVariables.canBuy = true
 	return true
 	
 
@@ -168,10 +200,24 @@ func fillShop():
 		shop.append(newItem)
 
 func rollItem() -> String:
-	var max = BuildmodeVariables.moduleInfo.size()
-	var itemKey = BuildmodeVariables.moduleInfo.keys()[randi_range(0,max-1)]
-	return itemKey
+	var total_weight := 0.0
+	var keys := BuildmodeVariables.moduleInfo.keys()
 	
+	# Calculate total weight
+	for key in keys:
+		total_weight += BuildmodeVariables.moduleInfo[key]["Weight"]
+	
+	# Pick a random number between 0 and total_weight
+	var r = randf() * total_weight
+	var cumulative = 0.0
+	
+	for key in keys:
+		cumulative += BuildmodeVariables.moduleInfo[key]["Weight"]
+		if r <= cumulative:
+			return key
+	
+	# Fallback (should never happen)
+	return keys[0]
 func fillBlankItem(name:String, newItem:ShopItem): 
 	## add cost
 	var i = 0
@@ -250,3 +296,8 @@ func _tween1_hbox() -> Tween:
 	backgroundAppearTween.tween_property(h_box_container , "modulate:a" , 1.0 , 0.67)
 	backgroundAppearTween.play()
 	return backgroundAppearTween
+
+func showIndicator():
+	var tween = create_tween()
+	tween.tween_property(rotationIndicator.get_parent(), "modulate:a" , 1. , 0.67)
+	tween.play()

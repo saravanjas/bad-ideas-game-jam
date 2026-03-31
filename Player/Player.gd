@@ -7,6 +7,7 @@ extends ShipClass
 @onready var enemy_spawn_positions: Path2D = $EnemySpawnPositions
 @onready var objective_marker: Sprite2D = $ObjectiveMarker
 @onready var invincibility_timer: Timer = $InvincibilityTimer
+@onready var visual_tilemap: TileMapLayer = $CharacterBody2D/VisualTilemap
 
 
 func _ready() -> void:
@@ -15,6 +16,7 @@ func _ready() -> void:
 	characterBody = character_body_2d
 	rootCenter = root_center
 	
+	GlobalVariables.BuyTileMap = visual_tilemap
 	GlobalVariables.playerTilemap = tilemap
 	GlobalVariables.playerBody = character_body_2d
 	GlobalVariables.player = self

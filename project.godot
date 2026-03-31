@@ -45,6 +45,7 @@ GameParent=""
 BossAnimations=""
 Soundtrack=""
 Boss=""
+ModuleRotationIndicator=""
 
 [input]
 

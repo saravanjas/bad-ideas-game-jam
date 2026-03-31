@@ -16,7 +16,9 @@ var inCombat := false
 var playerHealthMax := 30
 var playerHealthCurrent := 30
 var playerInvincible := false
+var BuyTileMap
 
+var canBuy := true
 var drMeowsteinMaxHp := 500
 var drMeowsteinCurrentHp := 500
 var bossFight := false
