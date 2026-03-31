@@ -8,9 +8,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2n57m"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dps1h"]
-radius = 24.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sctef"]
+size = Vector2(38, 34)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sctef"]
 resource_local_to_scene = true
@@ -112,7 +111,7 @@ collision_mask = 50
 script = ExtResource("1_lcn0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=552641154]
-shape = SubResource("CapsuleShape2D_dps1h")
+shape = SubResource("RectangleShape2D_sctef")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=199291706]
 texture_filter = 1
