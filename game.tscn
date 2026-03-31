@@ -5,7 +5,15 @@
 [ext_resource type="Script" uid="uid://twlpx8jitsm3" path="res://game.gd" id="1_fc0e3"]
 [ext_resource type="Script" uid="uid://ypi1jo3ermhb" path="res://enemy_spawner.gd" id="4_7jktm"]
 [ext_resource type="Script" uid="uid://byxfh52u0rr8v" path="res://Scenes/GameManager/gameStartTransitionCanvas.gd" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://cb1ydrqv8i7n0" path="res://Enemies/Bosses/dr_meowstein.tscn" id="5_eow3j"]
 [ext_resource type="AudioStream" uid="uid://cbpg4s2gerg3y" path="res://Soundtrack/MAIN MENU.mp3" id="6_ryrav"]
+[ext_resource type="AudioStream" uid="uid://diktnrx88n3qi" path="res://Soundtrack/Blueprint Ambience LR.mp3" id="8_vef74"]
+[ext_resource type="Script" uid="uid://dmiqawijymd5a" path="res://GUI/soundtrackManager.gd" id="9_hve3p"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_mfdv2"]
+fade_time = 1.0
+stream_count = 1
+stream_0 = ExtResource("6_ryrav")
 
 [node name="Game" type="Node2D" unique_id=1127454506 groups=["gameManager"]]
 script = ExtResource("1_fc0e3")
@@ -23,6 +31,8 @@ script = ExtResource("4_7jktm")
 wait_time = 2.5
 autostart = true
 
+[node name="DrMeowstein" parent="root/World1/Enemies" unique_id=1432788726 instance=ExtResource("5_eow3j")]
+
 [node name="Loot" type="Node2D" parent="root/World1" unique_id=2054349770 groups=["Loot"]]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=79877745]
@@ -39,9 +49,19 @@ color = Color(0, 0, 0, 1)
 
 [node name="ImportantTechnicalLoadingSound" type="AudioStreamPlayer" parent="." unique_id=1596824908]
 
-[node name="mainMenuTheme" type="AudioStreamPlayer" parent="." unique_id=337303189]
-stream = ExtResource("6_ryrav")
+[node name="MainMenuOST" type="AudioStreamPlayer" parent="." unique_id=337303189 groups=["Soundtrack"]]
+stream = SubResource("AudioStreamPlaylist_mfdv2")
 autoplay = true
+bus = &"Music"
+script = ExtResource("9_hve3p")
+
+[node name="BossFightOST" type="AudioStreamPlayer" parent="." unique_id=1754723604]
+volume_db = -15.0
+bus = &"Music"
+
+[node name="BuildModeOST" type="AudioStreamPlayer" parent="." unique_id=1442677025]
+stream = ExtResource("8_vef74")
+volume_db = -15.0
 bus = &"Music"
 
 [connection signal="timeout" from="root/World1/Enemies/SpawnTimer" to="root/World1/Enemies" method="spawn_timer_timeout"]

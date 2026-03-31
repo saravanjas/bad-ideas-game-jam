@@ -79,6 +79,7 @@ func _physics_process(delta: float) -> void:
 		process_mode = Node.PROCESS_MODE_ALWAYS
 	if alive:
 		if GlobalVariables.drMeowsteinCurrentHp <= 0:
+			GlobalScripts.EndGame()
 			movementState = "Following"
 			alive = false
 			die()

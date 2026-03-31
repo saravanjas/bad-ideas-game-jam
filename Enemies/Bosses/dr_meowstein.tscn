@@ -649,7 +649,7 @@ streams_count = 2
 stream_0/stream = ExtResource("14_tihv8")
 stream_1/stream = ExtResource("15_wo7nk")
 
-[node name="DrMeowstein" type="CharacterBody2D" unique_id=1432788726]
+[node name="DrMeowstein" type="CharacterBody2D" unique_id=1432788726 groups=["Boss"]]
 texture_filter = 1
 scale = Vector2(2, 2)
 collision_layer = 16

@@ -22,7 +22,7 @@ var holdingTile = false
 var shop:Array[ShopItem] = []
 @onready var blankShopItem = preload("res://BuildMode/ShopItem.tscn")
 ##
-
+@onready var Soundtrack : AudioStreamPlayer = get_tree().get_first_node_in_group("Soundtrack")
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var animated_sprite_2d: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
 @onready var texture_rect_bg: TextureRect = $CanvasLayer/Background
@@ -44,6 +44,7 @@ func resolveBuildMode():
 	if Input.is_action_just_pressed("Space"):
 		
 		if not GlobalVariables.inBuildMode:
+			Soundtrack.changeTrack(2)
 			buildmodeSFX.play()
 			playerRotationInformation = GlobalVariables.playerBody.rotation
 			cd = true
@@ -67,6 +68,10 @@ func resolveBuildMode():
 			cd = false
 			GlobalVariables.buildModeSetupFinished = true
 		else:
+			Soundtrack.changeTrack(0)
+			var bossAccess = get_tree().get_first_node_in_group("Boss")
+			if bossAccess != null:
+				bossAccess.process_mode = Node.PROCESS_MODE_ALWAYS
 			var resetPlayerPosAndBackground = _tween3()
 			GlobalVariables.inBuildMode  = false
 			resetCameraTween()

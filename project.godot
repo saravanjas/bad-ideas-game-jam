@@ -42,6 +42,8 @@ OptionsNode=""
 DamageNumbersNode=""
 GameParent=""
 BossAnimations=""
+Soundtrack=""
+Boss=""
 
 [input]
 

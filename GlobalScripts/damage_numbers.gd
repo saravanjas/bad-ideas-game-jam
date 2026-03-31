@@ -9,7 +9,7 @@ var lootItem : PackedScene = preload("res://Scenes/Loot/item_drop.tscn")
 const DUCT_TAPE_TEXTURE = preload("uid://c2rdhtlco6t2g")
 const NAILS_TEXTURE = preload("uid://dmeekj2y5s8e1")
 const CARDBOARD_TEXTURE = preload("uid://q55or2u1xafj")
-
+const END_SCENE : PackedScene = preload("res://GUI/EndScreen.tscn")
 
 func display_number(value : int , position : Vector2 ):
 	if text == null:
@@ -106,3 +106,10 @@ func determineTexture( type ):
 			return DUCT_TAPE_TEXTURE
 		2:
 			return NAILS_TEXTURE
+
+func EndGame():
+	for child in UINodeAccess.GameRoot.get_children():
+		child.set_process(false)
+		child.queue_free()
+	var EndScreenInstance = END_SCENE.instantiate()
+	UINodeAccess.GameRoot.add_child(EndScreenInstance)
