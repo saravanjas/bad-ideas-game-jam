@@ -5,9 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://bvwfn2s1ohjt8" path="res://Sprites/DrMeowstein/drmeow-Sheet.png" id="2_f12r5"]
 [ext_resource type="Texture2D" uid="uid://jdmqqghx73sm" path="res://Sprites/DrMeowstein/drmeowLaser-Sheet.png" id="4_7pc6i"]
 [ext_resource type="Texture2D" uid="uid://diwn5fxrpdpdy" path="res://Sprites/DrMeowstein/pawAttack-Sheet.png" id="5_8wfho"]
+[ext_resource type="Script" uid="uid://drstxd7mackcd" path="res://Enemies/Bosses/laser_hurtbox.gd" id="5_yku0q"]
+[ext_resource type="AudioStream" uid="uid://c03kgxv78feva" path="res://SFX/MeowsteinLaser/bigCatlaser sfx LR.wav" id="6_jollr"]
+[ext_resource type="AudioStream" uid="uid://d337ejpj8wkax" path="res://SFX/MeowsteinLaser/LongLaser sfx LR.wav" id="6_r6q8j"]
 [ext_resource type="Script" uid="uid://bpbmlxlmdac2j" path="res://Enemies/Bosses/cat_paw.gd" id="6_yku0q"]
+[ext_resource type="Texture2D" uid="uid://cferjl4blt1p3" path="res://Sprites/Ship/Moduli/ModulSpriteovi/light.png" id="8_wh4n0"]
+[ext_resource type="AudioStream" uid="uid://528ftjc6o0gw" path="res://SFX/Antenna/antennaHit.mp3" id="11_54fse"]
+[ext_resource type="AudioStream" uid="uid://bc3atnirjy8s8" path="res://SFX/Antenna/antennaHit3.mp3" id="12_xiwyb"]
+[ext_resource type="AudioStream" uid="uid://usgr3pag067n" path="res://SFX/Antenna/antennaHit2.mp3" id="13_tihv8"]
+[ext_resource type="AudioStream" uid="uid://bjt65datt8bpb" path="res://SFX/Antenna/antennaExplosion2.mp3" id="14_tihv8"]
+[ext_resource type="AudioStream" uid="uid://br4exylsm4f81" path="res://SFX/Antenna/antennaExplosion.mp3" id="15_wo7nk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jrtg4"]
+radius = 19.0
+height = 133.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7pc6i"]
 atlas = ExtResource("1_rsxfd")
@@ -368,7 +379,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"LaserAttackTelegraph",
-"speed": 12.0
+"speed": 15.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fv487"]
@@ -539,6 +550,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wfho"]
+size = Vector2(47, 244.4375)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7pc6i"]
 radius = 576.0
 height = 1152.0
@@ -593,14 +607,56 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wfho"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xiwyb"]
+size = Vector2(20, 50.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54fse"]
+size = Vector2(20, 54.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wo7nk"]
+random_pitch = 1.0293022
+streams_count = 3
+stream_0/stream = ExtResource("11_54fse")
+stream_1/stream = ExtResource("12_xiwyb")
+stream_2/stream = ExtResource("13_tihv8")
+
+[sub_resource type="Gradient" id="Gradient_54fse"]
+colors = PackedColorArray(1, 0.41960785, 0, 1, 1, 1, 0.41960785, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f8aw5"]
+gradient = SubResource("Gradient_54fse")
+
+[sub_resource type="Curve" id="Curve_xiwyb"]
+_limits = [0.0, 20.0, 0.0, 1.0]
+_data = [Vector2(0, 20), 0.0, 0.0, 0, 0, Vector2(0.03378378, 20), 0.0, 0.0, 0, 0, Vector2(0.06756756, 20), 0.0, 0.0, 0, 0, Vector2(0.554054, 7.6404514), -33.25844, -33.25844, 0, 0, Vector2(0.79729724, 0.44944), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_33inc"]
+curve = SubResource("Curve_xiwyb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tihv8"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_33inc")
+color_initial_ramp = SubResource("GradientTexture1D_f8aw5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4me8r"]
+streams_count = 2
+stream_0/stream = ExtResource("14_tihv8")
+stream_1/stream = ExtResource("15_wo7nk")
 
 [node name="DrMeowstein" type="CharacterBody2D" unique_id=1432788726]
 texture_filter = 1
 scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_f12r5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=125984474]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_jrtg4")
 
 [node name="LaserMarkers" type="Node2D" parent="CollisionShape2D" unique_id=1310158958]
@@ -646,6 +702,35 @@ frame_progress = 0.924555
 centered = false
 offset = Vector2(-64, 0)
 
+[node name="LaserHurtbox" type="Area2D" parent="Animations/Laser" unique_id=1553668793]
+collision_layer = 96
+collision_mask = 96
+monitoring = false
+script = ExtResource("5_yku0q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Animations/Laser/LaserHurtbox" unique_id=1181164592]
+position = Vector2(0, 129.90625)
+shape = SubResource("RectangleShape2D_8wfho")
+debug_color = Color(0.23722976, 0.020361617, 0.99999994, 0.41960785)
+
+[node name="LaserWindup" type="AudioStreamPlayer2D" parent="Animations/Laser" unique_id=1343331174]
+stream = ExtResource("6_jollr")
+volume_db = 8.0
+bus = &"AntennaDamage"
+
+[node name="LaserActive" type="AudioStreamPlayer2D" parent="Animations/Laser" unique_id=1796969778]
+stream = ExtResource("6_r6q8j")
+volume_db = 8.0
+bus = &"AntennaDamage"
+
+[node name="LaserLight" type="PointLight2D" parent="Animations" unique_id=1132627071]
+z_index = 1
+position = Vector2(-0.5, 60.5)
+color = Color(0.89317304, 1.5113056e-05, 0.59852993, 1)
+energy = 0.0
+texture = ExtResource("8_wh4n0")
+texture_scale = 0.4
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1791388484]
 
 [node name="debug" type="Label" parent="." unique_id=666141704 groups=["Debug"]]
@@ -673,7 +758,8 @@ autoplay = "default"
 frame_progress = 0.45208755
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatPaw1" unique_id=2085594995]
-shape = SubResource("CapsuleShape2D_8wfho")
+position = Vector2(0, -6.25)
+shape = SubResource("RectangleShape2D_xiwyb")
 
 [node name="PawMarkers" type="Node2D" parent="." unique_id=1456585088]
 
@@ -693,8 +779,35 @@ autoplay = "default"
 frame_progress = 0.8726369
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatPaw2" unique_id=393551155]
-shape = SubResource("CapsuleShape2D_8wfho")
+position = Vector2(0, -7.25)
+shape = SubResource("RectangleShape2D_54fse")
 
+[node name="pawTimer" type="Timer" parent="." unique_id=1433782763]
+
+[node name="DamagedSFX" type="AudioStreamPlayer2D" parent="." unique_id=1962582920]
+stream = SubResource("AudioStreamRandomizer_wo7nk")
+bus = &"SFX"
+
+[node name="Explosion" type="GPUParticles2D" parent="." unique_id=112812240]
+position = Vector2(0, 40)
+rotation = -1.5707964
+scale = Vector2(2, 2)
+emitting = false
+amount = 256
+lifetime = 1.11
+one_shot = true
+speed_scale = 1.63
+explosiveness = 0.78
+process_material = SubResource("ParticleProcessMaterial_tihv8")
+
+[node name="ExplosionSmall" type="AudioStreamPlayer2D" parent="." unique_id=1841005921]
+stream = SubResource("AudioStreamRandomizer_4me8r")
+max_polyphony = 7
+bus = &"AntennaDamage"
+
+[connection signal="area_entered" from="Animations/Laser/LaserHurtbox" to="Animations/Laser/LaserHurtbox" method="setInvincibilityFrames"]
+[connection signal="area_exited" from="Animations/Laser/LaserHurtbox" to="Animations/Laser/LaserHurtbox" method="resetIFrames"]
 [connection signal="timeout" from="ActionTimer" to="." method="action_timer_timeout"]
 [connection signal="body_entered" from="PlayerDetectionArea" to="." method="playerDetected"]
 [connection signal="body_exited" from="PlayerDetectionArea" to="." method="playerUndetected"]
+[connection signal="timeout" from="pawTimer" to="." method="paw_timer_timeout"]
