@@ -15,7 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://c4mck5jxvckxx" path="res://Sprites/UI elementi/healthborder.png" id="10_036uw"]
 [ext_resource type="Texture2D" uid="uid://dnsbq6xof11y4" path="res://Sprites/UI elementi/healthgreen.png" id="11_qo6ls"]
 [ext_resource type="Texture2D" uid="uid://ckrnkc3r400aq" path="res://Sprites/UI elementi/destroyedantennae.png" id="13_036uw"]
+[ext_resource type="Texture2D" uid="uid://chvhy5c6g42va" path="res://Sprites/UI elementi/bosshealthunder.png" id="13_lcyfv"]
+[ext_resource type="Texture2D" uid="uid://bmcyq00ptbsic" path="res://Sprites/UI elementi/bosshealthcover.png" id="14_pm8ln"]
 [ext_resource type="Script" uid="uid://chehri1fuoguq" path="res://Game/counter_display.gd" id="14_qo6ls"]
+[ext_resource type="Texture2D" uid="uid://tmgdjn7tt3ie" path="res://Sprites/UI elementi/bosshealthred.png" id="15_5ed68"]
 
 [node name="root" type="Node2D" unique_id=435723755]
 
@@ -121,8 +124,25 @@ texture_progress = ExtResource("11_qo6ls")
 texture_progress_offset = Vector2(64, 12)
 script = ExtResource("9_vut8h")
 
+[node name="BossBar" type="TextureProgressBar" parent="UI" unique_id=1250914040]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -416.0
+offset_top = 37.0
+offset_right = -224.0
+offset_bottom = 85.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+fill_mode = 1
+texture_under = ExtResource("13_lcyfv")
+texture_over = ExtResource("14_pm8ln")
+texture_progress = ExtResource("15_5ed68")
+texture_progress_offset = Vector2(0, 12)
+
 [node name="AntennaeCounter" type="Control" parent="UI" unique_id=129048968]
 layout_mode = 3
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
