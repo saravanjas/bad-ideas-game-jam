@@ -1,0 +1,28 @@
+[gd_resource type="TileSet" format=3 uid="uid://djbwf1pe50le4"]
+
+[ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/template1x1/template1x1.tscn" id="1_rgbm4"]
+[ext_resource type="PackedScene" uid="uid://dlb5q6u1x3e6w" path="res://Modules/InputModuleS/InputModuleS.tscn" id="2_jf1by"]
+[ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_upfwc"]
+[ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_ench2"]
+[ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_lf471"]
+[ext_resource type="PackedScene" uid="uid://cw3mxw70m8vha" path="res://Modules/RocketModule/RocketModule.tscn" id="6_mupwi"]
+[ext_resource type="PackedScene" uid="uid://bffwxwqabtp5e" path="res://Modules/BlackholeModule/blackhole_module.tscn" id="7_sgfd2"]
+[ext_resource type="PackedScene" uid="uid://b537aw3rr5hhl" path="res://Modules/LightningModule.tscn" id="8_msxxj"]
+[ext_resource type="PackedScene" uid="uid://cq5q12372fdtj" path="res://Modules/LaserModule/LaserModule.tscn" id="9_rwshx"]
+[ext_resource type="PackedScene" uid="uid://iagjwm70t6a2" path="res://Modules/InputModuleD/InputModuleD.tscn" id="10_iy27q"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7vdj4"]
+scenes/1/scene = ExtResource("1_rgbm4")
+scenes/2/scene = ExtResource("3_upfwc")
+scenes/3/scene = ExtResource("4_ench2")
+scenes/4/scene = ExtResource("5_lf471")
+scenes/5/scene = ExtResource("6_mupwi")
+scenes/6/scene = ExtResource("7_sgfd2")
+scenes/7/scene = ExtResource("8_msxxj")
+scenes/8/scene = ExtResource("9_rwshx")
+scenes/9/scene = ExtResource("10_iy27q")
+scenes/10/scene = ExtResource("2_jf1by")
+
+[resource]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetScenesCollectionSource_7vdj4")

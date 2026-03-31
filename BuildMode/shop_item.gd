@@ -22,6 +22,10 @@ var revealed := false
 
 
 func _process(delta: float) -> void:
+	if !GlobalVariables.canBuy:
+		disabled = true
+	else:
+		disabled = false
 	if !GlobalVariables.inBuildMode:
 		animated_sprite_2d.frame = 0
 		revealed = false

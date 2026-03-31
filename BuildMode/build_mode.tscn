@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://g5r36rv0ojss" path="res://Sprites/UI elementi/bigbackgroundbuildmode-FIXED.png" id="4_xt3s2"]
 [ext_resource type="AudioStream" uid="uid://csvfemdr81nei" path="res://SFX/Buildmode/buildModeBlueprint beefed LR.wav" id="5_3ktn1"]
 [ext_resource type="AudioStream" uid="uid://7ddk22wal32m" path="res://SFX/Buildmode/boxPlacementSFX/kutija 1.wav" id="6_dl4qg"]
+[ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="6_skrr0"]
 [ext_resource type="AudioStream" uid="uid://dwquucimrrcwh" path="res://SFX/Buildmode/boxPlacementSFX/kutija 2.wav" id="7_3ktn1"]
 [ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="8_4sa5u"]
 [ext_resource type="AudioStream" uid="uid://dkkra7eimiuhw" path="res://SFX/Buildmode/boxPlacementSFX/kutija 5.mp3" id="9_3ktn1"]
+[ext_resource type="Texture2D" uid="uid://de6clufyb8u2i" path="res://BuildMode/Sprite-0001.png" id="10_4sa5u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4sa5u"]
 atlas = ExtResource("1_3ktn1")
@@ -261,7 +263,6 @@ grow_vertical = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1987198879]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=412298055]
-visible = false
 texture_filter = 1
 position = Vector2(559, 323.5)
 scale = Vector2(1.8666664, 2.0406249)
@@ -309,6 +310,32 @@ offset_top = -12.0
 offset_right = 1262.0
 offset_bottom = 688.0
 color = Color(0, 0, 0, 0.41960785)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1690082244]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -269.0
+offset_right = 384.0
+offset_bottom = 131.0
+grow_vertical = 2
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("6_skrr0")
+theme_override_font_sizes/font_size = 28
+text = "PRESS \"R\" TO ROTATE MODULE
+ BEFORE PLACING
+
+CURRENT ROTATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RotationIndicator" type="Sprite2D" parent="CanvasLayer/Label" unique_id=627805536 groups=["ModuleRotationIndicator"]]
+position = Vector2(221.99998, 367.99997)
+rotation = -1.5707964
+scale = Vector2(5.40625, 4.84375)
+texture = ExtResource("10_4sa5u")
 
 [node name="ItemBoxes" type="CanvasLayer" parent="." unique_id=2031676739]
 layer = 2
