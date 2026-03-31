@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://b22rinjs14lfp" path="res://Shaders/buildModeBackgroundScroll.gdshader" id="2_v3b1d"]
 [ext_resource type="Texture2D" uid="uid://bkx613wud2bjm" path="res://Sprites/UI elementi/bg2.png" id="3_xt3s2"]
 [ext_resource type="Texture2D" uid="uid://g5r36rv0ojss" path="res://Sprites/UI elementi/bigbackgroundbuildmode-FIXED.png" id="4_xt3s2"]
-[ext_resource type="AudioStream" uid="uid://c32axoc0gdxwf" path="res://SFX/Buildmode/buildModeBlueprint.wav" id="5_v3b1d"]
+[ext_resource type="AudioStream" uid="uid://csvfemdr81nei" path="res://SFX/Buildmode/buildModeBlueprint beefed LR.wav" id="5_3ktn1"]
 [ext_resource type="AudioStream" uid="uid://7ddk22wal32m" path="res://SFX/Buildmode/boxPlacementSFX/kutija 1.wav" id="6_dl4qg"]
 [ext_resource type="AudioStream" uid="uid://dwquucimrrcwh" path="res://SFX/Buildmode/boxPlacementSFX/kutija 2.wav" id="7_3ktn1"]
 [ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="8_4sa5u"]
@@ -327,7 +327,7 @@ theme_override_constants/separation = 120
 alignment = 1
 
 [node name="buildmodeSFX" type="AudioStreamPlayer" parent="." unique_id=1697289436]
-stream = ExtResource("5_v3b1d")
+stream = ExtResource("5_3ktn1")
 pitch_scale = 1.1
 bus = &"SFX"
 

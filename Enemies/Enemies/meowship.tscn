@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b8vjdheeck35c" path="res://Enemies/Enemies/meowship.gd" id="1_mcjt4"]
 [ext_resource type="Texture2D" uid="uid://ykf3tk7jgl8c" path="res://Sprites/Enemies/catgrunt.png" id="1_sy2wv"]
 [ext_resource type="Shader" uid="uid://ckcgf1dwaa62u" path="res://Shaders/enemyDamage.tres" id="2_84uyu"]
-[ext_resource type="AudioStream" uid="uid://bcvajqqmwu5rr" path="res://SFX/EnemyDamage/enemyDamageSFX.mp3" id="4_d0vdr"]
+[ext_resource type="AudioStream" uid="uid://dc3jj6mtxu4id" path="res://SFX/EnemyDamage/enemyDamageSFX.wav" id="4_d0vdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mcjt4"]
 size = Vector2(73, 46)
@@ -72,5 +72,6 @@ libraries/ = SubResource("AnimationLibrary_boyw5")
 
 [node name="DamageSFX" type="AudioStreamPlayer2D" parent="." unique_id=1414551567]
 stream = ExtResource("4_d0vdr")
+volume_db = 1.386673
 max_polyphony = 6
 bus = &"SFX"

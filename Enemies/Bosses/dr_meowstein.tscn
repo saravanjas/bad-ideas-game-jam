@@ -607,11 +607,12 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xiwyb"]
-size = Vector2(20, 50.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wo7nk"]
+height = 41.5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_54fse"]
-size = Vector2(20, 54.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tihv8"]
+radius = 9.5
+height = 45.0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wo7nk"]
 random_pitch = 1.0293022
@@ -716,11 +717,13 @@ debug_color = Color(0.23722976, 0.020361617, 0.99999994, 0.41960785)
 [node name="LaserWindup" type="AudioStreamPlayer2D" parent="Animations/Laser" unique_id=1343331174]
 stream = ExtResource("6_jollr")
 volume_db = 8.0
+max_distance = 15000.0
 bus = &"AntennaDamage"
 
 [node name="LaserActive" type="AudioStreamPlayer2D" parent="Animations/Laser" unique_id=1796969778]
 stream = ExtResource("6_r6q8j")
 volume_db = 8.0
+max_distance = 15000.0
 bus = &"AntennaDamage"
 
 [node name="LaserLight" type="PointLight2D" parent="Animations" unique_id=1132627071]
@@ -733,12 +736,6 @@ texture_scale = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1791388484]
 
-[node name="debug" type="Label" parent="." unique_id=666141704 groups=["Debug"]]
-offset_left = -20.0
-offset_top = -84.0
-offset_right = 20.0
-offset_bottom = -61.0
-
 [node name="ActionTimer" type="Timer" parent="." unique_id=1711341420]
 wait_time = 2.0
 one_shot = true
@@ -750,6 +747,8 @@ shape = SubResource("CapsuleShape2D_7pc6i")
 
 [node name="CatPaw1" type="CharacterBody2D" parent="." unique_id=1872762374]
 position = Vector2(88, -5.5)
+collision_layer = 50
+collision_mask = 50
 script = ExtResource("6_yku0q")
 
 [node name="CatPaw" type="AnimatedSprite2D" parent="CatPaw1" unique_id=1535269314]
@@ -758,8 +757,7 @@ autoplay = "default"
 frame_progress = 0.45208755
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatPaw1" unique_id=2085594995]
-position = Vector2(0, -6.25)
-shape = SubResource("RectangleShape2D_xiwyb")
+shape = SubResource("CapsuleShape2D_wo7nk")
 
 [node name="PawMarkers" type="Node2D" parent="." unique_id=1456585088]
 
@@ -771,6 +769,8 @@ position = Vector2(-81, -2.5)
 
 [node name="CatPaw2" type="CharacterBody2D" parent="." unique_id=1346249858]
 position = Vector2(-81, -2)
+collision_layer = 50
+collision_mask = 50
 script = ExtResource("6_yku0q")
 
 [node name="CatPaw" type="AnimatedSprite2D" parent="CatPaw2" unique_id=374471513]
@@ -779,8 +779,8 @@ autoplay = "default"
 frame_progress = 0.8726369
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CatPaw2" unique_id=393551155]
-position = Vector2(0, -7.25)
-shape = SubResource("RectangleShape2D_54fse")
+position = Vector2(0.5, 0)
+shape = SubResource("CapsuleShape2D_tihv8")
 
 [node name="pawTimer" type="Timer" parent="." unique_id=1433782763]
 

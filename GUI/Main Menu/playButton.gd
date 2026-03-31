@@ -6,6 +6,7 @@ extends Button
 
 @export var button_function_texture : Texture2D
 @export var button_function_outline_texture : Texture2D
+@onready var box_placement_sfx: AudioStreamPlayer = $"../../boxPlacementSFX"
 
 func _ready() -> void:
 	play_button.texture = button_function_texture
@@ -17,6 +18,7 @@ func _process(delta: float) -> void:
 
 
 func mouse_entered() -> void:
+	box_placement_sfx.play()
 	print("yea")
 	box_open.play("default")
 	play_button.scale = Vector2(1.,1.)

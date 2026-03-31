@@ -16,6 +16,8 @@ func _process(delta: float) -> void:
 	currentEnemyCount = get_child_count()
 
 func spawn_enemy():
+	if GlobalVariables.bossFight:
+		return
 	if currentEnemyCount == maxEnemyCount:
 		return
 	var enemyChoice := randi_range(0,2)
@@ -33,6 +35,5 @@ func spawn_enemy():
 
 
 func spawn_timer_timeout() -> void:
-	return
 	spawn_enemy()
 	

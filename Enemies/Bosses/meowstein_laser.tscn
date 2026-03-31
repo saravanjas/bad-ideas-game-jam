@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c8rve52628g05" path="res://Sprites/Projectiles/Laser/catdeadeye_laser.png" id="1_jdcg4"]
 [ext_resource type="Script" uid="uid://l2kaavxor164" path="res://Enemies/Bosses/meowstein_laser.gd" id="1_xd3ho"]
 [ext_resource type="Texture2D" uid="uid://cferjl4blt1p3" path="res://Sprites/Ship/Moduli/ModulSpriteovi/light.png" id="2_xd3ho"]
-[ext_resource type="AudioStream" uid="uid://w6lmcj7a0yj7" path="res://SFX/LaserProjectile/laserBlast.wav" id="3_eeuwb"]
+[ext_resource type="AudioStream" uid="uid://d12uirnocyu6r" path="res://SFX/MeowsteinLaser/simpleLaser LR.wav" id="4_xd3ho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxxtd"]
 size = Vector2(12, 2)
@@ -25,10 +25,9 @@ texture = ExtResource("2_xd3ho")
 texture_scale = 0.02
 
 [node name="LaserSFX" type="AudioStreamPlayer2D" parent="." unique_id=734153530]
-stream = ExtResource("3_eeuwb")
+stream = ExtResource("4_xd3ho")
 volume_db = 4.0
-pitch_scale = 1.48
-autoplay = true
+pitch_scale = 0.74
 max_polyphony = 5
 bus = &"SFX"
 

@@ -21,7 +21,6 @@ var laserProjectile : PackedScene = preload("res://Enemies/Bosses/meowstein_lase
 @onready var animations: Node2D = $Animations
 
 @onready var laser_hurtbox: Area2D = $Animations/Laser/LaserHurtbox
-@onready var debug: Label = $debug
 @onready var action_timer: Timer = $ActionTimer
 @onready var paw_timer: Timer = $pawTimer
 
@@ -72,17 +71,19 @@ func _ready() -> void:
 	laserShootingPoints = laser_markers.get_children()
 
 func _physics_process(delta: float) -> void:
+	if !alive:
+		return
 	if GlobalVariables.inBuildMode:
 		process_mode = Node.PROCESS_MODE_DISABLED
 	else:
 		process_mode = Node.PROCESS_MODE_ALWAYS
 	if alive:
 		if GlobalVariables.drMeowsteinCurrentHp <= 0:
+			movementState = "Following"
 			alive = false
 			die()
 			return
 		laser_markers.rotation = animations.rotation
-		debug.text = movementState
 		if !playerVisible:
 			speed = 2500
 			preferred_distance = 0
@@ -91,7 +92,7 @@ func _physics_process(delta: float) -> void:
 			preferred_distance = 250
 		match movementState:
 			"Idle":
-				if !actionTimerStarted:
+				if !actionTimerStarted and playerVisible:
 					startActionTimer(1)
 			"Following":
 				var to_player = target.global_position - global_position
@@ -122,9 +123,9 @@ func action_timer_timeout() -> void:
 		0:
 			laserSpin()
 		1:
-			laserSpin()
+			laserAttack()
 		2:
-			laserSpin()
+			pawAttack()
 func determineAction(previousAction):
 	var choice := randi_range(0,2)
 	if choice == previousAction:

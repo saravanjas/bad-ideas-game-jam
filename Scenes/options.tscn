@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://b5el3jnmsgy2k" path="res://Sprites/UI elementi/sliderbg.png" id="9_srb65"]
 [ext_resource type="Texture2D" uid="uid://bacgfxbn6omvx" path="res://Sprites/UI elementi/backbuttonhover.png" id="10_aag3x"]
 [ext_resource type="Texture2D" uid="uid://ew7l1k7ogylr" path="res://Sprites/UI elementi/sfx.png" id="10_fpdr8"]
+[ext_resource type="AudioStream" uid="uid://7ddk22wal32m" path="res://SFX/Buildmode/boxPlacementSFX/kutija 1.wav" id="14_r103k"]
+[ext_resource type="AudioStream" uid="uid://dwquucimrrcwh" path="res://SFX/Buildmode/boxPlacementSFX/kutija 2.wav" id="15_sut4s"]
+[ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="16_o88n5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5a0sy"]
 resource_local_to_scene = true
@@ -40,6 +43,13 @@ expand_margin_top = 6.0
 expand_margin_bottom = 6.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ywsft"]
+random_pitch = 1.0233738
+streams_count = 3
+stream_0/stream = ExtResource("14_r103k")
+stream_1/stream = ExtResource("15_sut4s")
+stream_2/stream = ExtResource("16_o88n5")
 
 [node name="options" type="Control" unique_id=1155851983 groups=["OptionsNode"]]
 visible = false
@@ -149,7 +159,11 @@ texture_normal = ExtResource("8_srb65")
 texture_pressed = ExtResource("9_qcivb")
 texture_hover = ExtResource("10_aag3x")
 
+[node name="boxPlacementSFX" type="AudioStreamPlayer" parent="." unique_id=1343975781]
+stream = SubResource("AudioStreamRandomizer_ywsft")
+
 [connection signal="value_changed" from="buttons/master" to="." method="_on_master_value_changed"]
 [connection signal="value_changed" from="buttons/music" to="." method="_on_music_value_changed"]
 [connection signal="value_changed" from="buttons/sfx" to="." method="_on_sfx_value_changed"]
+[connection signal="mouse_entered" from="buttons/back" to="." method="back_mouse_entered"]
 [connection signal="pressed" from="buttons/back" to="." method="_on_back_pressed"]

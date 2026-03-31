@@ -75,10 +75,11 @@ func BIG_explode():
 	await get_tree().create_timer(1).timeout
 	playerCameraAccess.stopShaking()
 	GlobalVariables.nextObjective = null
+	GlobalVariables.anntenaeDestroyed = GlobalVariables.anntenaeDestroyed + 1
 	gameManager.spawn_objective( GlobalVariables.anntenaeDestroyed)
 	for i in range(randi_range(5,10)):
 		GlobalScripts.spawnLoot(global_position + randomizePosition() , "Objective" , lootParent)
-	GlobalVariables.anntenaeDestroyed = GlobalVariables.anntenaeDestroyed + 1
+	
 func shake():
 	if !canStopShaking:
 		var tween = create_tween()

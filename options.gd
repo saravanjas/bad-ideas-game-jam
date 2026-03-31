@@ -7,6 +7,7 @@ extends Control
 @onready var master_icon = $buttons/master/master_icon
 @onready var music_icon = $buttons/music/music_icon
 @onready var sfx_icon = $buttons/sfx/sfx_icon
+@onready var box_placement_sfx: AudioStreamPlayer = $boxPlacementSFX
 
 func _ready() -> void:
 	master_slider.value = GlobalAudio.get_volume(GlobalAudio.master_bus_id)
@@ -36,3 +37,7 @@ func _on_back_pressed() -> void:
 	UINodeAccess.MainMenu.visible = true
 	UINodeAccess.OptionsMenu.visible = false
 	
+
+
+func back_mouse_entered() -> void:
+	box_placement_sfx.play()

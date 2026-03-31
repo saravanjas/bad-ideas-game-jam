@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dmeekj2y5s8e1" path="res://Sprites/Loot/nails.png" id="9_036uw"]
 [ext_resource type="PackedScene" uid="uid://bkfe7nrnvaett" path="res://Scenes/pause_menu.tscn" id="9_iqk3u"]
 [ext_resource type="Texture2D" uid="uid://c1imwpfxfcaon" path="res://Sprites/UI elementi/healthbg.png" id="9_ts3u7"]
-[ext_resource type="Script" uid="uid://dqkmool6wkndl" path="res://Game/health_bar.gd" id="9_vut8h"]
-[ext_resource type="PackedScene" uid="uid://b8vp8q2mru0q3" path="res://Scenes/game_over.tscn" id="10_7wk35"]
+[ext_resource type="Script" path="res://Game/health_bar.gd" id="9_vut8h"]
+[ext_resource type="PackedScene" path="res://Scenes/game_over.tscn" id="10_7wk35"]
 [ext_resource type="Texture2D" uid="uid://c4mck5jxvckxx" path="res://Sprites/UI elementi/healthborder.png" id="10_036uw"]
 [ext_resource type="Texture2D" uid="uid://dnsbq6xof11y4" path="res://Sprites/UI elementi/healthgreen.png" id="11_qo6ls"]
 [ext_resource type="Texture2D" uid="uid://ckrnkc3r400aq" path="res://Sprites/UI elementi/destroyedantennae.png" id="13_036uw"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bmcyq00ptbsic" path="res://Sprites/UI elementi/bosshealthcover.png" id="14_pm8ln"]
 [ext_resource type="Script" uid="uid://chehri1fuoguq" path="res://Game/counter_display.gd" id="14_qo6ls"]
 [ext_resource type="Texture2D" uid="uid://tmgdjn7tt3ie" path="res://Sprites/UI elementi/bosshealthred.png" id="15_5ed68"]
+[ext_resource type="Script" uid="uid://cumjim1y1kajr" path="res://GUI/Player HUD/boss_bar.gd" id="16_pm8ln"]
 
 [node name="root" type="Node2D" unique_id=435723755]
 
@@ -124,7 +125,8 @@ texture_progress = ExtResource("11_qo6ls")
 texture_progress_offset = Vector2(64, 12)
 script = ExtResource("9_vut8h")
 
-[node name="BossBar" type="TextureProgressBar" parent="UI" unique_id=1250914040]
+[node name="BossBar" type="TextureProgressBar" parent="UI" unique_id=1250914040 groups=["BossBar"]]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -139,6 +141,7 @@ texture_under = ExtResource("13_lcyfv")
 texture_over = ExtResource("14_pm8ln")
 texture_progress = ExtResource("15_5ed68")
 texture_progress_offset = Vector2(0, 12)
+script = ExtResource("16_pm8ln")
 
 [node name="AntennaeCounter" type="Control" parent="UI" unique_id=129048968]
 layout_mode = 3

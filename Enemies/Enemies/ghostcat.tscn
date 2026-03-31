@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c0m4mxvfxo4c6" path="res://Sprites/Enemies/ghostcatfinal-Sheet.png" id="1_r0fhd"]
 [ext_resource type="Script" uid="uid://drnrc5d8gqgw3" path="res://Enemies/Enemies/ghostcat.gd" id="1_wvcm8"]
 [ext_resource type="Shader" uid="uid://ckcgf1dwaa62u" path="res://Shaders/enemyDamage.tres" id="2_t6i7j"]
-[ext_resource type="AudioStream" uid="uid://bcvajqqmwu5rr" path="res://SFX/EnemyDamage/enemyDamageSFX.mp3" id="4_t6i7j"]
+[ext_resource type="AudioStream" uid="uid://dc3jj6mtxu4id" path="res://SFX/EnemyDamage/enemyDamageSFX.wav" id="4_t6i7j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_khjyv"]
 radius = 25.0
