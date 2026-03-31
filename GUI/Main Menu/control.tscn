@@ -89,6 +89,7 @@ grow_vertical = 2
 script = ExtResource("1_ihytg")
 
 [node name="BoxIn" type="Sprite2D" parent="." unique_id=2045818636]
+modulate = Color(0.59607846, 1, 0.25882354, 1)
 texture = ExtResource("1_mxpye")
 offset = Vector2(32, 32)
 
@@ -103,6 +104,7 @@ position = Vector2(32, 34)
 texture = ExtResource("2_7w521")
 
 [node name="BoxOpen" type="AnimatedSprite2D" parent="." unique_id=291619336]
+modulate = Color(0.5973853, 1, 0.259696, 1)
 position = Vector2(32, 32)
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_iqj6l")

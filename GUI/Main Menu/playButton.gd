@@ -20,7 +20,7 @@ func mouse_entered() -> void:
 	print("yea")
 	box_open.play("default")
 	play_button.scale = Vector2(1.,1.)
-	play_button.modulate = Color.YELLOW
+	play_button.modulate = Color.SEA_GREEN
 	
 
 func mouse_exited() -> void:
