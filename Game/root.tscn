@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c2rdhtlco6t2g" path="res://Sprites/Loot/ductTape.png" id="7_xsh8v"]
 [ext_resource type="Texture2D" uid="uid://dmeekj2y5s8e1" path="res://Sprites/Loot/nails.png" id="9_036uw"]
 [ext_resource type="PackedScene" uid="uid://bkfe7nrnvaett" path="res://Scenes/pause_menu.tscn" id="9_iqk3u"]
+[ext_resource type="PackedScene" uid="uid://b8vp8q2mru0q3" path="res://Scenes/game_over.tscn" id="10_7wk35"]
 
 [node name="root" type="Node2D" unique_id=435723755]
 
@@ -105,3 +106,7 @@ text = "9
 layer = 100
 
 [node name="PauseMenu" parent="Pause" unique_id=1666276163 instance=ExtResource("9_iqk3u")]
+
+[node name="GameOver" type="CanvasLayer" parent="." unique_id=396564760]
+
+[node name="game_over" parent="GameOver" unique_id=1417434218 instance=ExtResource("10_7wk35")]
