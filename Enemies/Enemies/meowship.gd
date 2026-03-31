@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_sfx: AudioStreamPlayer2D = $DamageSFX
 
-var speed := 350
+var speed := 225
 @export var healthPoints := 15
 func _ready() -> void:
 	pass # Replace with function body.

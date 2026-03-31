@@ -12,7 +12,7 @@ collision_mask = 96
 script = ExtResource("1_ifm8v")
 damageSound = ExtResource("2_tsmvn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1896825469]
+[node name="hitboxBody" type="CollisionShape2D" parent="." unique_id=1896825469]
 shape = SubResource("RectangleShape2D_wx2wn")
 debug_color = Color(0.61776453, 0.5359162, 0, 0.41960785)
 

@@ -30,7 +30,7 @@ texture_scale = 0.02
 
 [node name="LaserSFX" type="AudioStreamPlayer2D" parent="." unique_id=72933556]
 stream = ExtResource("4_0k5s1")
-volume_db = 2.5
+volume_db = -2.3598142
 pitch_scale = 1.48
 autoplay = true
 max_polyphony = 5

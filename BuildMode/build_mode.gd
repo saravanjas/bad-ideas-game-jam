@@ -239,7 +239,7 @@ func tweenCameraBuildmode():
 func resetCameraTween():
 	var tween = create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(1.0,1.0) , 0.5)
+	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(0.9,0.9) , 0.5)
 	tween.tween_property(GlobalVariables.playerCamera , "position:y" , 0 , 0.5)
 	tween.play()
 

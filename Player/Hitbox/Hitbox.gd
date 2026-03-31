@@ -15,6 +15,8 @@ func _ready() -> void:
 			sprite = child
 			break
 func body_entered(body: Node2D) -> void:
+	if body.name == "hitboxBody":
+		return
 	if !GlobalVariables.playerInvincible and not GlobalVariables.inBuildMode:
 		damage_tween()
 		GlobalVariables.playerInvincible = true
