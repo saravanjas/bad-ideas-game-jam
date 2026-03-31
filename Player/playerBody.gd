@@ -13,5 +13,4 @@ func sayOuch():
 	pass
 
 func _process(delta: float) -> void:
-	if GlobalVariables.playerHealthCurrent <= 0:
-		get_tree().quit()
+	pass
