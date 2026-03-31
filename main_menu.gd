@@ -8,9 +8,6 @@ extends Control
 func _ready() -> void:
 	pass # Replace with function body.
 	
-func _on_quit_pressed() -> void:
-	get_tree().quit()
-	
 func _on_play_button_pressed() -> void:
 	transitionBlackBlock.visible = true
 	for child in get_children():
@@ -33,3 +30,6 @@ func _on_play_button_pressed() -> void:
 func _on_options_button_pressed() -> void:
 	visible = false
 	optionsNode.visible = true
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
