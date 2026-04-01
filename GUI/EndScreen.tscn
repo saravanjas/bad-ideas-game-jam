@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ba1l18smhjswt"]
 
 [ext_resource type="Script" uid="uid://c3jvlhga4fqhu" path="res://GUI/EndScreen.gd" id="1_8bhjp"]
-[ext_resource type="Texture2D" uid="uid://bfvrrf4dd34ix" path="res://TempSprites/R1.png" id="2_n4h5d"]
-[ext_resource type="Texture2D" uid="uid://b5flqfclxp64e" path="res://TempSprites/305f5f6a-0e41-43fe-99b8-98cda044ff7a.png" id="3_n2158"]
+[ext_resource type="Texture2D" uid="uid://blk0ps2klvavc" path="res://Sprites/UI elementi/frame2.png" id="2_n2158"]
+[ext_resource type="Texture2D" uid="uid://ba7tb86l21igi" path="res://Sprites/UI elementi/frame1.png" id="3_v0a4g"]
 
 [node name="Control" type="Control" unique_id=974433886]
 layout_mode = 3
@@ -14,23 +14,22 @@ grow_vertical = 2
 script = ExtResource("1_8bhjp")
 
 [node name="Frame2" type="TextureRect" parent="." unique_id=750589709]
-layout_mode = 0
-offset_left = 2.0
-offset_top = -50.0
-offset_right = 1186.0
-offset_bottom = 658.0
-texture = ExtResource("2_n4h5d")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n2158")
 
 [node name="Frame1" type="TextureRect" parent="." unique_id=239480548]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 28.0
-offset_bottom = 888.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_n2158")
+texture = ExtResource("3_v0a4g")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1968243331]
 layout_mode = 0
