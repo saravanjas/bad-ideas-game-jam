@@ -6,7 +6,7 @@ extends ProjectileClass
 
 
 
-@export var damage := 15
+@export var damage := 35
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	animated_sprite_2d.play()
