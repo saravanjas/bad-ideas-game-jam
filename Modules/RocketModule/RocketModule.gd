@@ -6,7 +6,7 @@ extends ProjectileModuleClass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cooldownTime = 0.03
+	cooldownTime = 1
 
 
 func activate():
