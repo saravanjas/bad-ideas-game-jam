@@ -141,7 +141,7 @@ stream = ExtResource("4_nv44j")
 volume_db = 2.9158878
 bus = &"SFX"
 
-[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("5_cc7rn")]
+[node name="hitboxBody" parent="." unique_id=2114816925 instance=ExtResource("5_cc7rn")]
 
 [node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("6_ssrrg")]
 

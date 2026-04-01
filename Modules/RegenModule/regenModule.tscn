@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://bg8l51fytb70k"]
+
+[ext_resource type="Script" uid="uid://ynon2jdwgsuh" path="res://Modules/RegenModule/regenModule.gd" id="1_trqvn"]
+[ext_resource type="Texture2D" uid="uid://cg6egwui4flwu" path="res://Sprites/Ship/Moduli/ModulPucanje/box_module_opening.png" id="2_obcci"]
+[ext_resource type="Texture2D" uid="uid://ck85wwwsmx3el" path="res://Sprites/Ship/Moduli/ModulSpriteovi/healingModule.png" id="3_vnisv"]
+[ext_resource type="Texture2D" uid="uid://b4oyn7vgd2t8h" path="res://TempSprites/healthBAck.png" id="4_q3a7v"]
+[ext_resource type="PackedScene" uid="uid://bqyfkjgbu1gj" path="res://Player/module_collision_box.tscn" id="5_bciqu"]
+[ext_resource type="PackedScene" uid="uid://d1em4mbcvlfhv" path="res://Modules/InputModuleS/hitbox.tscn" id="6_be6j1"]
+[ext_resource type="Texture2D" uid="uid://cferjl4blt1p3" path="res://Sprites/Ship/Moduli/ModulSpriteovi/light.png" id="7_aa8kh"]
+[ext_resource type="AudioStream" uid="uid://dugc1oddv3xub" path="res://SFX/Heal/healing.mp3" id="8_obcci"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkmo8"]
+atlas = ExtResource("2_obcci")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ees1t"]
+atlas = ExtResource("2_obcci")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahqfb"]
+atlas = ExtResource("2_obcci")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nviu"]
+atlas = ExtResource("2_obcci")
+region = Rect2(192, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lebf"]
+atlas = ExtResource("2_obcci")
+region = Rect2(256, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2lie"]
+atlas = ExtResource("2_obcci")
+region = Rect2(320, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bals8"]
+atlas = ExtResource("2_obcci")
+region = Rect2(384, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooy2h"]
+atlas = ExtResource("2_obcci")
+region = Rect2(448, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imiju"]
+atlas = ExtResource("2_obcci")
+region = Rect2(512, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_12ted"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkmo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ees1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahqfb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nviu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lebf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2lie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bals8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooy2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imiju")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="Curve" id="Curve_6xu1m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7516779, 0.92134833), -1.4881401, -1.4881401, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xoekl"]
+curve = SubResource("Curve_6xu1m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g27ey"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 50.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -50.0
+linear_accel_max = -2.2351742e-06
+scale_min = 0.19999999
+alpha_curve = SubResource("CurveTexture_xoekl")
+
+[sub_resource type="Animation" id="Animation_re5jn"]
+resource_name = "HealFlash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 2.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.01, 1.2, 0.01]
+}
+
+[sub_resource type="Animation" id="Animation_n01sc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:texture_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gjpmo"]
+_data = {
+&"HealFlash": SubResource("Animation_re5jn"),
+&"RESET": SubResource("Animation_n01sc")
+}
+
+[node name="Node2D" type="Node2D" unique_id=1227577062]
+script = ExtResource("1_trqvn")
+metadata/_custom_type_script = "uid://d17pbmq4r44co"
+
+[node name="BoxOpenAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1930465677]
+texture_filter = 1
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_12ted")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=36254808]
+texture = ExtResource("3_vnisv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1535475805]
+emitting = false
+amount = 12
+texture = ExtResource("4_q3a7v")
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_g27ey")
+
+[node name="hitboxBody" parent="." unique_id=2114816925 instance=ExtResource("5_bciqu")]
+
+[node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("6_be6j1")]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1591897478]
+color = Color(0, 0.6392157, 0, 1)
+energy = 0.0
+texture = ExtResource("7_aa8kh")
+texture_scale = 0.01
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1346798816]
+libraries/ = SubResource("AnimationLibrary_gjpmo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=929490620]
+stream = ExtResource("8_obcci")
+bus = &"SFX"

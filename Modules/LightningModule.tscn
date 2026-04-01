@@ -173,6 +173,7 @@ one_shot = true
 [node name="LightningSFX" type="AudioStreamPlayer2D" parent="." unique_id=1941751772]
 stream = ExtResource("5_84xil")
 pitch_scale = 1.08
+bus = &"SFX"
 
 [node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("6_odrk2")]
 

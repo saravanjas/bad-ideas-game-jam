@@ -7,11 +7,12 @@
 [ext_resource type="Script" uid="uid://biuvt4d814ntd" path="res://GUI/Player HUD/HUD.gd" id="4_exxn8"]
 [ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="5_vut8h"]
 [ext_resource type="Texture2D" uid="uid://c2rdhtlco6t2g" path="res://Sprites/Loot/ductTape.png" id="7_xsh8v"]
+[ext_resource type="PackedScene" uid="uid://bhug0md175fi" path="res://BuildMode/RerollButton.tscn" id="9_5ed68"]
 [ext_resource type="Texture2D" uid="uid://dmeekj2y5s8e1" path="res://Sprites/Loot/nails.png" id="9_036uw"]
 [ext_resource type="PackedScene" uid="uid://bkfe7nrnvaett" path="res://Scenes/pause_menu.tscn" id="9_iqk3u"]
 [ext_resource type="Texture2D" uid="uid://c1imwpfxfcaon" path="res://Sprites/UI elementi/healthbg.png" id="9_ts3u7"]
 [ext_resource type="Script" uid="uid://dqkmool6wkndl" path="res://Game/health_bar.gd" id="9_vut8h"]
-[ext_resource type="PackedScene" uid="uid://b8vp8q2mru0q3" path="res://Scenes/game_over.tscn" id="10_7wk35"]
+[ext_resource type="PackedScene" path="res://Scenes/game_over.tscn" id="10_7wk35"]
 [ext_resource type="Texture2D" uid="uid://c4mck5jxvckxx" path="res://Sprites/UI elementi/healthborder.png" id="10_036uw"]
 [ext_resource type="Texture2D" uid="uid://dnsbq6xof11y4" path="res://Sprites/UI elementi/healthgreen.png" id="11_qo6ls"]
 [ext_resource type="Texture2D" uid="uid://ckrnkc3r400aq" path="res://Sprites/UI elementi/destroyedantennae.png" id="13_036uw"]
@@ -112,6 +113,8 @@ theme_override_font_sizes/font_size = 32
 text = "9
 "
 
+[node name="Control2" parent="UI" unique_id=1928857913 instance=ExtResource("9_5ed68")]
+
 [node name="HealthBar" type="TextureProgressBar" parent="UI" unique_id=632158719]
 offset_left = 38.0
 offset_top = 36.0
@@ -173,3 +176,5 @@ layer = 100
 layer = 101
 
 [node name="game_over" parent="GameOver" unique_id=1417434218 instance=ExtResource("10_7wk35")]
+
+[connection signal="pressed" from="UI/Control2" to="BuildMode" method="Reroll"]

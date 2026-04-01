@@ -97,6 +97,6 @@ sprite_frames = SubResource("SpriteFrames_uda40")
 frame = 8
 frame_progress = 1.0
 
-[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("5_xkmo8")]
+[node name="hitboxBody" parent="." unique_id=2114816925 instance=ExtResource("5_xkmo8")]
 
 [node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("6_ees1t")]

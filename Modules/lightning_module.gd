@@ -15,7 +15,7 @@ var damage := 1
 var lightningSFXPlaying := false
 
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 func activate():

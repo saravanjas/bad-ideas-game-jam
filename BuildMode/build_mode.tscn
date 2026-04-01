@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://dsp52qib1ipjh"]
 
 [ext_resource type="Texture2D" uid="uid://yipnyxmwad1d" path="res://Sprites/UI elementi/blueprint_newanimationPOLISH.png" id="1_3ktn1"]
+[ext_resource type="PackedScene" uid="uid://bhug0md175fi" path="res://BuildMode/RerollButton.tscn" id="1_h86hh"]
 [ext_resource type="Shader" uid="uid://b22rinjs14lfp" path="res://Shaders/buildModeBackgroundScroll.gdshader" id="2_v3b1d"]
 [ext_resource type="Texture2D" uid="uid://bkx613wud2bjm" path="res://Sprites/UI elementi/bg2.png" id="3_xt3s2"]
 [ext_resource type="Texture2D" uid="uid://g5r36rv0ojss" path="res://Sprites/UI elementi/bigbackgroundbuildmode-FIXED.png" id="4_xt3s2"]
 [ext_resource type="AudioStream" uid="uid://csvfemdr81nei" path="res://SFX/Buildmode/buildModeBlueprint beefed LR.wav" id="5_3ktn1"]
-[ext_resource type="AudioStream" uid="uid://7ddk22wal32m" path="res://SFX/Buildmode/boxPlacementSFX/kutija 1.wav" id="6_dl4qg"]
 [ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="6_skrr0"]
-[ext_resource type="AudioStream" uid="uid://dwquucimrrcwh" path="res://SFX/Buildmode/boxPlacementSFX/kutija 2.wav" id="7_3ktn1"]
-[ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="8_4sa5u"]
-[ext_resource type="AudioStream" uid="uid://dkkra7eimiuhw" path="res://SFX/Buildmode/boxPlacementSFX/kutija 5.mp3" id="9_3ktn1"]
+[ext_resource type="AudioStream" uid="uid://csgjcmvy6seni" path="res://SFX/Buildmode/boxPlacementSFX/box 1.wav" id="9_h86hh"]
+[ext_resource type="AudioStream" uid="uid://ru3qr874bcjv" path="res://SFX/Buildmode/boxPlacementSFX/box 2.wav" id="10_2asih"]
 [ext_resource type="Texture2D" uid="uid://de6clufyb8u2i" path="res://BuildMode/Sprite-0001.png" id="10_4sa5u"]
+[ext_resource type="AudioStream" uid="uid://dxbenhhcl6twa" path="res://SFX/Buildmode/boxPlacementSFX/box 3.wav" id="11_kkywj"]
+[ext_resource type="AudioStream" uid="uid://du675vbnwiqxe" path="res://SFX/Buildmode/boxPlacementSFX/box 4.wav" id="12_n0djk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4sa5u"]
 atlas = ExtResource("1_3ktn1")
@@ -244,10 +245,10 @@ shader_parameter/speed = 0.01
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dl4qg"]
 random_pitch = 1.0233738
 streams_count = 4
-stream_0/stream = ExtResource("6_dl4qg")
-stream_1/stream = ExtResource("7_3ktn1")
-stream_2/stream = ExtResource("8_4sa5u")
-stream_3/stream = ExtResource("9_3ktn1")
+stream_0/stream = ExtResource("9_h86hh")
+stream_1/stream = ExtResource("10_2asih")
+stream_2/stream = ExtResource("11_kkywj")
+stream_3/stream = ExtResource("12_n0djk")
 
 [node name="BuildMode" type="Control" unique_id=710618268]
 texture_filter = 1
@@ -316,10 +317,10 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -54.0
-offset_top = -269.0
-offset_right = 384.0
-offset_bottom = 131.0
+offset_left = -24.0
+offset_top = -170.0
+offset_right = 414.0
+offset_bottom = 230.0
 grow_vertical = 2
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("6_skrr0")
@@ -332,10 +333,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RotationIndicator" type="Sprite2D" parent="CanvasLayer/Label" unique_id=627805536 groups=["ModuleRotationIndicator"]]
+z_index = 1
 position = Vector2(221.99998, 367.99997)
 rotation = -1.5707964
 scale = Vector2(5.40625, 4.84375)
 texture = ExtResource("10_4sa5u")
+
+[node name="Reroll" parent="CanvasLayer" unique_id=1928857913 instance=ExtResource("1_h86hh")]
+z_index = 2
 
 [node name="ItemBoxes" type="CanvasLayer" parent="." unique_id=2031676739]
 layer = 2

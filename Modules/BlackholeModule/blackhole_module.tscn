@@ -98,4 +98,4 @@ sprite_frames = SubResource("SpriteFrames_p5d2w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=86137728]
 shape = SubResource("RectangleShape2D_vuf32")
 
-[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("5_ubj5p")]
+[node name="hitboxBody" parent="." unique_id=2114816925 instance=ExtResource("5_ubj5p")]
