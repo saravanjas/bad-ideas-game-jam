@@ -64,8 +64,8 @@ var pawFollowLenght := 10
 @onready var explosion_small: AudioStreamPlayer2D = $ExplosionSmall
 @onready var explosion: GPUParticles2D = $Explosion
 
-
-
+var phase := 1
+var previousPhase := 0
 func _ready() -> void:
 	target = GlobalVariables.playerBody
 	laserShootingPoints = laser_markers.get_children()

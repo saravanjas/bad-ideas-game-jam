@@ -3,7 +3,7 @@ extends Control
 
 @onready var color_rect: ColorRect = $ColorRect
 var frame1_finished := false
-# Called when the node enters the scene tree for the first time.
+var fadeCount := 0
 func _ready() -> void:
 	fadeIn()
 
@@ -15,7 +15,8 @@ func _process(delta: float) -> void:
 			color_rect.modulate = Color(1,1,1,1)
 			frame_1.hide()
 			fadeIn()
-
+	if fadeCount == 2:
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 
 func fadeIn():
 	var tween = create_tween()
@@ -23,3 +24,4 @@ func fadeIn():
 	tween.play()
 	await tween.finished
 	frame1_finished = true
+	fadeCount += 1
