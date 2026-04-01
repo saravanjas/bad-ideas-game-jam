@@ -71,6 +71,10 @@ func _ready() -> void:
 	laserShootingPoints = laser_markers.get_children()
 
 func _physics_process(delta: float) -> void:
+	if GlobalVariables.drMeowsteinCurrentHp <= 1000:
+		laserAttackAmountMax = 3
+		laserSpinAmount = 3
+		laserSpinTime = 7.5
 	if !alive:
 		return
 	if GlobalVariables.inBuildMode:

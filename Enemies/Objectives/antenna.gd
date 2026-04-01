@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var health = 300
+var health = 800
 var maxHealth = 300
 @onready var explosion: GPUParticles2D = $Explosion
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c3jvlhga4fqhu" path="res://GUI/EndScreen.gd" id="1_8bhjp"]
 [ext_resource type="Texture2D" uid="uid://blk0ps2klvavc" path="res://Sprites/UI elementi/frame2.png" id="2_n2158"]
 [ext_resource type="Texture2D" uid="uid://ba7tb86l21igi" path="res://Sprites/UI elementi/frame1.png" id="3_v0a4g"]
+[ext_resource type="AudioStream" uid="uid://br4exylsm4f81" path="res://SFX/Antenna/antennaExplosion.mp3" id="4_v0a4g"]
 
 [node name="Control" type="Control" unique_id=974433886]
 layout_mode = 3
@@ -40,3 +41,8 @@ color = Color(0, 0, 0, 1)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2043108877]
 position = Vector2(577, 325)
 zoom = Vector2(1.1, 1.1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=462154994]
+stream = ExtResource("4_v0a4g")
+autoplay = true
+bus = &"AntennaDamage"
