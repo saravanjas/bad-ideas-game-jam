@@ -29,3 +29,5 @@ var inventory:Dictionary = {
 	"Tape" = 100,
 	"Screws" = 100,
 } 
+func _process(delta: float) -> void:
+	playerHealthCurrent = clamp(playerHealthCurrent , 0 , playerHealthMax)

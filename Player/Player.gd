@@ -31,6 +31,7 @@ func _physics_process(_delta: float) -> void:
 	character_body_2d.rotation = character_body_2d.rotation + _delta*angularVelocity
 	character_body_2d.move_and_slide()	
 	
-	objective_marker.global_position = character_body_2d.global_position
-	var lookAngle = (GlobalVariables.nextObjective.global_position - character_body_2d.global_position).angle()
-	objective_marker.rotation = lookAngle + PI/2
+	if GlobalVariables.nextObjective != null:
+		objective_marker.global_position = character_body_2d.global_position
+		var lookAngle = (GlobalVariables.nextObjective.global_position - character_body_2d.global_position).angle()
+		objective_marker.rotation = lookAngle + PI/2
