@@ -17,6 +17,7 @@ func start_death():
 	trigger_game_over()
 		
 func trigger_game_over():
+	$AudioStreamPlayer.play()
 	visible = true
 	get_tree().paused = true
 
