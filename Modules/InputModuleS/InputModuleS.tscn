@@ -15,6 +15,6 @@ texture = ExtResource("2_r8xhd")
 
 [node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("3_1fg0i")]
 
-[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("3_r8xhd")]
+[node name="hitboxBody" parent="." unique_id=2114816925 instance=ExtResource("3_r8xhd")]
 
 [connection signal="body_entered" from="Hitbox" to="." method="body_entered"]

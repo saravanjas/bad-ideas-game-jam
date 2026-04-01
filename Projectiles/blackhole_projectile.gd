@@ -7,7 +7,7 @@ extends Node2D
 var velocity = 0
 var lookVector:Vector2 = Vector2.RIGHT
 
-@export var damage := 999
+@export var damage := 99
 
 @onready var black_hole_sfx: AudioStreamPlayer2D = $BlackHoleSFX
 @onready var despawn_timer: Timer = $DespawnTimer

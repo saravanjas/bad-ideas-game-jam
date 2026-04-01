@@ -301,3 +301,13 @@ func showIndicator():
 	var tween = create_tween()
 	tween.tween_property(rotationIndicator.get_parent(), "modulate:a" , 1. , 0.67)
 	tween.play()
+
+
+func Reroll() -> void:
+	# Remove old items
+	for item in shop:
+		item.queue_free()
+	shop.clear()
+	
+	# Refill with new items using weighted randomness
+	fillShop()

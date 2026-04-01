@@ -13,6 +13,6 @@ metadata/_custom_type_script = "uid://di38xstwkm06c"
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1614416142]
 texture = ExtResource("2_vyeqh")
 
-[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("3_vyeqh")]
+[node name="hitboxBody" parent="." unique_id=2114816925 instance=ExtResource("3_vyeqh")]
 
 [node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("4_pu66y")]

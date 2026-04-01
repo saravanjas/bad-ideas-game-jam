@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bhug0md175fi"]
+
+[ext_resource type="Script" uid="uid://bsarllgehgcia" path="res://BuildMode/Reroll.gd" id="1_6ypj2"]
+[ext_resource type="Texture2D" uid="uid://7hmrmyoebgke" path="res://TempSprites/rotation.png" id="3_55ef8"]
+[ext_resource type="Texture2D" uid="uid://q55or2u1xafj" path="res://Sprites/Loot/Sprite-0004.png" id="4_h7lp3"]
+[ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="5_p5633"]
+[ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="6_2im3u"]
+[ext_resource type="Script" uid="uid://cy5swhuaqyv4p" path="res://BuildMode/PriceLabelScripts/price_label1.gd" id="6_ky42g"]
+
+[node name="Control" type="Button" unique_id=1928857913]
+anchors_preset = -1
+anchor_top = 0.611
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 938.0
+offset_top = -169.96402
+offset_right = -86.0
+offset_bottom = -295.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ypj2")
+
+[node name="Description" type="Label" parent="." unique_id=2133429903]
+layout_mode = 0
+offset_right = 27.71
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1178130105]
+texture_filter = 1
+position = Vector2(64, 64)
+scale = Vector2(4, 4)
+texture = ExtResource("3_55ef8")
+
+[node name="PriceTags" type="HBoxContainer" parent="." unique_id=542983363]
+texture_filter = 1
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.2340001
+offset_left = 2.0
+offset_top = 155.0
+offset_right = 115.023994
+offset_bottom = 204.0
+theme_override_constants/separation = 64
+
+[node name="Control" type="Control" parent="PriceTags" unique_id=973241636]
+layout_mode = 2
+
+[node name="Cardboard" type="Sprite2D" parent="PriceTags/Control" unique_id=2100423642]
+position = Vector2(60, 1.0360107)
+texture = ExtResource("4_h7lp3")
+
+[node name="PriceLabel1" type="Label" parent="PriceTags/Control/Cardboard" unique_id=562767300]
+offset_left = 14.5
+offset_top = -3.875
+offset_right = 32.5
+offset_bottom = 89.125
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_p5633")
+theme_override_font_sizes/font_size = 32
+text = "9
+"
+script = ExtResource("6_ky42g")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=67931801]
+stream = ExtResource("6_2im3u")
+max_polyphony = 2
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

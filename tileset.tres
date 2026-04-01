@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dnwor0mc6jw5s" path="res://Modules/template1x1/template1x1.tscn" id="1_rgbm4"]
 [ext_resource type="PackedScene" uid="uid://dlb5q6u1x3e6w" path="res://Modules/InputModuleS/InputModuleS.tscn" id="2_jf1by"]
+[ext_resource type="PackedScene" uid="uid://bg8l51fytb70k" path="res://Modules/RegenModule/regenModule.tscn" id="3_jf1by"]
 [ext_resource type="PackedScene" uid="uid://eg8tcs8f3sj8" path="res://Modules/sexyBox/sexyBox.tscn" id="3_upfwc"]
 [ext_resource type="PackedScene" uid="uid://1d5rwf1s2ksw" path="res://Modules/InputModuleW/InputModuleW.tscn" id="4_ench2"]
 [ext_resource type="PackedScene" uid="uid://bdc0cp68od4on" path="res://Modules/InputModuleA/InputModuleA.tscn" id="5_lf471"]
@@ -22,6 +23,7 @@ scenes/7/scene = ExtResource("8_msxxj")
 scenes/8/scene = ExtResource("9_rwshx")
 scenes/9/scene = ExtResource("10_iy27q")
 scenes/10/scene = ExtResource("2_jf1by")
+scenes/11/scene = ExtResource("3_jf1by")
 
 [resource]
 tile_size = Vector2i(32, 32)

@@ -4,6 +4,7 @@ extends Button
 signal itemBoughtSignal(moduleName)
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var audio_stream_player_1: AudioStreamPlayer = $AudioStreamPlayer1
 
 @onready var description: Label = $Description
 @onready var itemTexture : Sprite2D = $ItemOfferTexture
@@ -40,7 +41,24 @@ func _on_pressed() -> void:
 			GlobalVariables.inventory.set(key,GlobalVariables.inventory.get(key) - cost.get(key))
 		emit_signal("itemBoughtSignal", self, moduleName)
 func _on_mouse_entered() -> void:
+	bounce()
 	if GlobalVariables.buildModeSetupFinished:
 		if !revealed:
 			animated_sprite_2d.play("default")
 			revealed = true
+func bounce() -> void:
+	audio_stream_player_1.pitch_scale = randf_range(0.9,1.1)
+	audio_stream_player_1.play()
+	var bounce = create_tween()
+	bounce.set_trans(Tween.TRANS_CUBIC)
+	bounce.set_parallel(true)
+	bounce.tween_property( $AnimatedSprite2D , "scale" , Vector2(2.5,2.5) , 0.3)
+	bounce.tween_property( $Sprite2D , "scale" , Vector2(2.5,2.5),0.3)
+	bounce.play()
+	await bounce.finished
+	var bounceBack = create_tween()
+	bounceBack.set_trans(Tween.TRANS_CUBIC)
+	bounceBack.set_parallel(true)
+	bounceBack.tween_property( $Sprite2D , "scale" , Vector2(2.,2.),0.3)
+	bounceBack.tween_property($AnimatedSprite2D , "scale" , Vector2(2.,2.) , 0.3)
+	bounceBack.play()

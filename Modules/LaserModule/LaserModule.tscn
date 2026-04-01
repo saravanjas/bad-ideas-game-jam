@@ -90,6 +90,6 @@ sprite_frames = SubResource("SpriteFrames_m3mdj")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=798933421]
 texture = ExtResource("3_w8y25")
 
-[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("4_pt4hv")]
+[node name="hitboxBody" parent="." unique_id=2114816925 instance=ExtResource("4_pt4hv")]
 
 [node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("5_w8y25")]

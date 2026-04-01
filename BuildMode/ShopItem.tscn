@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dmeekj2y5s8e1" path="res://Sprites/Loot/nails.png" id="7_vbt1b"]
 [ext_resource type="Script" uid="uid://cm4h5xe851sme" path="res://BuildMode/PriceLabelScripts/price_label2.gd" id="9_ony4h"]
 [ext_resource type="Script" uid="uid://b2ya83u6l8hlp" path="res://BuildMode/PriceLabelScripts/price_label3.gd" id="11_s5odr"]
+[ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="12_s5odr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x0mnx"]
 atlas = ExtResource("3_36vy2")
@@ -180,6 +181,11 @@ theme_override_font_sizes/font_size = 32
 text = "9
 "
 script = ExtResource("11_s5odr")
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="." unique_id=1973871954]
+stream = ExtResource("12_s5odr")
+max_polyphony = 2
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

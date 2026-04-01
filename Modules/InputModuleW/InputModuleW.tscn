@@ -14,6 +14,6 @@ metadata/_custom_type_script = "uid://di38xstwkm06c"
 texture_filter = 1
 texture = ExtResource("2_s1nem")
 
-[node name="ModuleCollisionBox" parent="." unique_id=2114816925 instance=ExtResource("3_5t33f")]
+[node name="hitboxBody" parent="." unique_id=2114816925 instance=ExtResource("3_5t33f")]
 
 [node name="Hitbox" parent="." unique_id=566453932 instance=ExtResource("4_waev7")]

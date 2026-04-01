@@ -3,6 +3,7 @@ extends Node2D
 @onready var cat_grunt : PackedScene = preload("res://Enemies/Enemies/meowship.tscn")
 @onready var acidcat : PackedScene = preload("res://Enemies/Enemies/acidcat.tscn")
 @onready var ghostcat : PackedScene = preload("res://Enemies/Enemies/ghostcat.tscn")
+@onready var djcat : PackedScene = preload("res://Enemies/Enemies/djcat.tscn")
 @onready var spawnLocation : PathFollow2D = get_tree().get_first_node_in_group("SpawnLocations")
 
 @export var maxEnemyCount : int = 30
@@ -20,7 +21,7 @@ func spawn_enemy():
 		return
 	if currentEnemyCount == maxEnemyCount:
 		return
-	var enemyChoice := randi_range(0,2)
+	var enemyChoice := randi_range(0,3)
 	var enemy_instance
 	match enemyChoice:
 		0:
@@ -29,6 +30,8 @@ func spawn_enemy():
 			enemy_instance = acidcat.instantiate()
 		2:
 			enemy_instance = ghostcat.instantiate()
+		3:
+			enemy_instance = djcat.instantiate()
 	spawnLocation.progress_ratio = randf_range(0,1)
 	enemy_instance.global_position = spawnLocation.global_position
 	add_child(enemy_instance)

@@ -10,6 +10,7 @@ var moduleIds:Dictionary = {
 	"LaserModule" = 8,
 	"InputModuleD" = 9,
 	"InputModuleS" = 10,
+	"RegenModule" = 11,
 }
 
 var moduleInfo:Dictionary = {
@@ -83,5 +84,13 @@ var moduleInfo:Dictionary = {
 		"Text" = "Shing shing shing shing",
 		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/LaserModule.png",
 		"Weight" = 2.75
+	},
+	
+	
+	"RegenModule" = {
+		"Cost" = [3,3,3],
+		"Text" = "Shing shing shing shing",
+		"Texture" = "res://Sprites/Ship/Moduli/ModulSpriteovi/healingModule.png",
+		"Weight" = 2
 	}
 }
