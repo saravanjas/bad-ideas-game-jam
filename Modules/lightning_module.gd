@@ -11,16 +11,16 @@ extends ProjectileModuleClass
 
 var targets : Array = []
 var attacking := false
-var damage := 1
+var damage := 3
 var lightningSFXPlaying := false
 
 func _ready() -> void:
-	pass
+	cooldownTime = 0.07
 
 
 func activate():
 	if onCooldown: return
-	
+	onCooldown = true
 	if !lightningSFXPlaying:
 		lightningSFXPlaying = true
 		lightning_sfx.play()

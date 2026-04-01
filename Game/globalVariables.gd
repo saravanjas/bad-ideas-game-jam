@@ -19,8 +19,8 @@ var playerInvincible := false
 var BuyTileMap
 
 var canBuy := true
-var drMeowsteinMaxHp := 500
-var drMeowsteinCurrentHp := 500
+var drMeowsteinMaxHp := 820
+var drMeowsteinCurrentHp := 820
 var bossFight := false
 
 @export var playerCanBeDamagedTimer := Timer.new()

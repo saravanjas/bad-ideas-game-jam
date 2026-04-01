@@ -18,5 +18,5 @@ func heal():
 		$AudioStreamPlayer.play()
 		gpu_particles_2d.emitting = true
 		animation_player.play("HealFlash")
-		GlobalVariables.playerHealthCurrent += 15
+		GlobalVariables.playerHealthCurrent += 5
 		await get_tree().create_timer(3).timeout
