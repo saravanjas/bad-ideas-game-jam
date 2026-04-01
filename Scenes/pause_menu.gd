@@ -47,8 +47,7 @@ func _on_back_pressed() -> void:
 	main_container.show()
 
 func _on_quit_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().quit()
 
 func update_all_icons():
 	master_icon.frame = GlobalAudio.get_volume_frame(master_slider.value)
