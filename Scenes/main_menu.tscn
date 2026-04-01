@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="14_m3bi6"]
 [ext_resource type="AudioStream" uid="uid://cbpg4s2gerg3y" path="res://Soundtrack/MAIN MENU.mp3" id="15_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://disqycihq3r0a" path="res://Sprites/UI elementi/tutorial.png" id="16_m3bi6"]
-[ext_resource type="Script" uid="uid://ckkkj3bwh6kkh" path="res://GUI/Main Menu/tutorialButton.gd" id="16_wyh8j"]
+[ext_resource type="Script" path="res://GUI/Main Menu/tutorialButton.gd" id="16_wyh8j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vr1f0"]
 resource_local_to_scene = true
