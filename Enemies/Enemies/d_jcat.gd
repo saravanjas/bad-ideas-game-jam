@@ -8,7 +8,6 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damageSFX: AudioStreamPlayer2D = $DamageSFX
-@onready var wing_flapping: AudioStreamPlayer2D = $WingFlapping
 
 
 

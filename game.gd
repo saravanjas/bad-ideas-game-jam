@@ -45,7 +45,7 @@ func spawn_objective( AntennaeDestroyed ):
 			var bossBarAccess = get_tree().get_first_node_in_group("BossBar")
 			bossBarAccess.appear()
 			var bossInstance = boss.instantiate()
-			bossInstance.global_position = determineSpawnpoint( GlobalVariables.playerBody.global_position , 15000)
+			bossInstance.global_position = determineSpawnpoint( GlobalVariables.playerBody.global_position , 7500)
 			enemies.add_child(bossInstance)
 			GlobalVariables.nextObjective = bossInstance
 func determineSpawnpoint( playerPos : Vector2 , distance : int):

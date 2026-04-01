@@ -6,7 +6,7 @@ extends Node2D
 @onready var djcat : PackedScene = preload("res://Enemies/Enemies/djcat.tscn")
 @onready var spawnLocation : PathFollow2D = get_tree().get_first_node_in_group("SpawnLocations")
 
-@export var maxEnemyCount : int = 30
+@export var maxEnemyCount : int = 50
 var currentEnemyCount : int = 0
 var time_count : float 
 func _ready() -> void:

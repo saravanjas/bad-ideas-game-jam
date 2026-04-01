@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhdviusevgebk"
+path="res://.godot/imported/BLIND CAT.mp3-20078889a11b726cb3b8dafc6ca667db.mp3str"
+
+[deps]
+
+source_file="res://Soundtrack/BLIND CAT.mp3"
+dest_files=["res://.godot/imported/BLIND CAT.mp3-20078889a11b726cb3b8dafc6ca667db.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

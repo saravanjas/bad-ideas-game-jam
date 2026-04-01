@@ -45,7 +45,7 @@ script = ExtResource("2_u5tep")
 [node name="TileMapLayer" type="TileMapLayer" parent="CharacterBody2D" unique_id=1260237541]
 physics_interpolation_mode = 1
 material = SubResource("ShaderMaterial_7uipr")
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAAAAAAAAAAAACQAAAP//AAAAAAAAAwD//wAAAAAAAAAABAACAAAAAAAAAAAAAVAAAP7/AAAAAAAAAQD+/wAAAAAAAAAAAWAAAAEAAAAAAAAACgAAAAIAAAAAAAAAATD/////AAAAAAAACAABAP//AAAAAAAACAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAgABAAAAAAAAAAAACQAAAP//AAAAAAAAAwD//wAAAAAAAAAABAACAAAAAAAAAAAAAVAAAP7/AAAAAAAAAQD+/wAAAAAAAAAAAWAAAAEAAAAAAAAACgAAAAIAAAAAAAAAATD/////AAAAAAAABgABAP//AAAAAAAABgA=")
 tile_set = ExtResource("4_dm7nj")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=105189105 groups=["PlayerCamera"]]

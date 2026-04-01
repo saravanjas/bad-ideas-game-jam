@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhug0md175fi"]
 
 [ext_resource type="Script" uid="uid://bsarllgehgcia" path="res://BuildMode/Reroll.gd" id="1_6ypj2"]
-[ext_resource type="Texture2D" uid="uid://7hmrmyoebgke" path="res://TempSprites/rotation.png" id="3_55ef8"]
+[ext_resource type="Texture2D" uid="uid://caqc2obore064" path="res://Sprites/UI elementi/reroll.png" id="2_2im3u"]
 [ext_resource type="Texture2D" uid="uid://q55or2u1xafj" path="res://Sprites/Loot/Sprite-0004.png" id="4_h7lp3"]
 [ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="5_p5633"]
 [ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="6_2im3u"]
@@ -30,7 +30,7 @@ theme_override_font_sizes/font_size = 9
 texture_filter = 1
 position = Vector2(64, 64)
 scale = Vector2(4, 4)
-texture = ExtResource("3_55ef8")
+texture = ExtResource("2_2im3u")
 
 [node name="PriceTags" type="HBoxContainer" parent="." unique_id=542983363]
 texture_filter = 1

@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bts6wl71et2w1" path="res://SFX/Buildmode/boxPlacementSFX/kutija 3.wav" id="14_m3bi6"]
 [ext_resource type="AudioStream" uid="uid://cbpg4s2gerg3y" path="res://Soundtrack/MAIN MENU.mp3" id="15_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://disqycihq3r0a" path="res://Sprites/UI elementi/tutorial.png" id="16_m3bi6"]
+[ext_resource type="Texture2D" uid="uid://3t5pxcmyo104" path="res://Game/tutorial.png" id="16_ujyyl"]
 [ext_resource type="Script" path="res://GUI/Main Menu/tutorialButton.gd" id="16_wyh8j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vr1f0"]
@@ -488,20 +489,21 @@ bus = &"SFX"
 [node name="mainMenuTheme" type="AudioStreamPlayer" parent="." unique_id=2055710740]
 stream = ExtResource("15_8dnnj")
 autoplay = true
-bus = &"SFX"
+bus = &"Music"
 
-[node name="Tutorial" type="ColorRect" parent="." unique_id=2123948404]
+[node name="Tutorial" type="TextureRect" parent="." unique_id=836985082]
 visible = false
 layout_mode = 0
 offset_right = 1151.0
 offset_bottom = 651.0
+texture = ExtResource("16_ujyyl")
 
 [node name="Button" type="Button" parent="." unique_id=555549832]
 layout_mode = 0
-offset_left = 878.0
-offset_top = 244.0
-offset_right = 979.0
-offset_bottom = 347.0
+offset_left = 961.0
+offset_top = 213.0
+offset_right = 1062.0
+offset_bottom = 316.0
 script = ExtResource("16_wyh8j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Button" unique_id=286361582]

@@ -21,7 +21,7 @@ func changeTrack(index):
 			volumeUp.tween_property(currentPlaying , "volume_db" , 0. , 1.5)
 			volumeUp.play()
 		1:
-			currentPlaying = main_menu_ost
+			currentPlaying = boss_fight_ost
 			currentPlaying.play()
 			var volumeUp = create_tween()
 			volumeUp.tween_property(currentPlaying , "volume_db" , 0. , 5)
@@ -33,4 +33,4 @@ func changeTrack(index):
 			volumeUp.tween_property(currentPlaying , "volume_db" , 0. , 1.5)
 			volumeUp.play()
 func silence():
-	currentPlaying.volume_db = -50
+	currentPlaying.stop()

@@ -74,7 +74,7 @@ func resolveBuildMode():
 			cd = false
 			GlobalVariables.buildModeSetupFinished = true
 		else:
-			rotationIndicator.get_parent().modulate.a = 0
+			rotationIndicator.modulate.a = 0
 			Soundtrack.changeTrack(0)
 			var bossAccess = get_tree().get_first_node_in_group("Boss")
 			if bossAccess != null:
@@ -136,7 +136,7 @@ func buildMode():
 	if Input.is_action_just_pressed("r"):
 		var angle = moduleLookVector.angle()
 		angle += PI/2.0
-		rotationIndicator.rotation += PI/2
+		rotationIndicator.rotation += PI/2.
 		moduleLookVector = Vector2.from_angle(angle).normalized()
 
 
@@ -285,7 +285,7 @@ func tweenCameraBuildmode():
 func resetCameraTween():
 	var tween = create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(0.9,0.9) , 0.5)
+	tween.tween_property(GlobalVariables.playerCamera , "zoom" , Vector2(0.75,0.75) , 0.5)
 	tween.tween_property(GlobalVariables.playerCamera , "position:y" , 0 , 0.5)
 	tween.play()
 
@@ -299,7 +299,7 @@ func _tween1_hbox() -> Tween:
 
 func showIndicator():
 	var tween = create_tween()
-	tween.tween_property(rotationIndicator.get_parent(), "modulate:a" , 1. , 0.67)
+	tween.tween_property(rotationIndicator, "modulate:a" , 1. , 0.67)
 	tween.play()
 
 

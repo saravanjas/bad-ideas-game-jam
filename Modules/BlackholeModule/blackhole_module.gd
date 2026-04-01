@@ -6,7 +6,7 @@ extends ProjectileModuleClass
 @onready var projectile : PackedScene = preload("res://Projectiles/BlackholeProjectile.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cooldownTime = 30
+	cooldownTime = 10
 
 
 func activate():

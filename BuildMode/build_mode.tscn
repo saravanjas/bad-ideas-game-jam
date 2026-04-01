@@ -6,10 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bkx613wud2bjm" path="res://Sprites/UI elementi/bg2.png" id="3_xt3s2"]
 [ext_resource type="Texture2D" uid="uid://g5r36rv0ojss" path="res://Sprites/UI elementi/bigbackgroundbuildmode-FIXED.png" id="4_xt3s2"]
 [ext_resource type="AudioStream" uid="uid://csvfemdr81nei" path="res://SFX/Buildmode/buildModeBlueprint beefed LR.wav" id="5_3ktn1"]
-[ext_resource type="FontFile" uid="uid://cuiiur4py5v80" path="res://GUI/Fonts/Tanker-Regular.otf" id="6_skrr0"]
+[ext_resource type="Texture2D" uid="uid://twm2ft1frma1" path="res://BuildMode/rotation.png" id="6_skrr0"]
 [ext_resource type="AudioStream" uid="uid://csgjcmvy6seni" path="res://SFX/Buildmode/boxPlacementSFX/box 1.wav" id="9_h86hh"]
 [ext_resource type="AudioStream" uid="uid://ru3qr874bcjv" path="res://SFX/Buildmode/boxPlacementSFX/box 2.wav" id="10_2asih"]
-[ext_resource type="Texture2D" uid="uid://de6clufyb8u2i" path="res://BuildMode/Sprite-0001.png" id="10_4sa5u"]
 [ext_resource type="AudioStream" uid="uid://dxbenhhcl6twa" path="res://SFX/Buildmode/boxPlacementSFX/box 3.wav" id="11_kkywj"]
 [ext_resource type="AudioStream" uid="uid://du675vbnwiqxe" path="res://SFX/Buildmode/boxPlacementSFX/box 4.wav" id="12_n0djk"]
 
@@ -312,35 +311,15 @@ offset_right = 1262.0
 offset_bottom = 688.0
 color = Color(0, 0, 0, 0.41960785)
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1690082244]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -170.0
-offset_right = 414.0
-offset_bottom = 230.0
-grow_vertical = 2
-theme_override_constants/outline_size = 16
-theme_override_fonts/font = ExtResource("6_skrr0")
-theme_override_font_sizes/font_size = 28
-text = "PRESS \"R\" TO ROTATE MODULE
- BEFORE PLACING
-
-CURRENT ROTATION"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="RotationIndicator" type="Sprite2D" parent="CanvasLayer/Label" unique_id=627805536 groups=["ModuleRotationIndicator"]]
-z_index = 1
-position = Vector2(221.99998, 367.99997)
-rotation = -1.5707964
-scale = Vector2(5.40625, 4.84375)
-texture = ExtResource("10_4sa5u")
-
 [node name="Reroll" parent="CanvasLayer" unique_id=1928857913 instance=ExtResource("1_h86hh")]
 z_index = 2
+
+[node name="RotationIndicator" type="Sprite2D" parent="CanvasLayer" unique_id=627805536 groups=["ModuleRotationIndicator"]]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+position = Vector2(156, 312)
+scale = Vector2(2.683939, 2.6475995)
+texture = ExtResource("6_skrr0")
 
 [node name="ItemBoxes" type="CanvasLayer" parent="." unique_id=2031676739]
 layer = 2

@@ -82,7 +82,7 @@ func spawnLoot( globalPosition , enemyType , parent):
 		lootInstance.texture = determineTexture(lootInstance.type)
 		lootInstance.global_position = globalPosition
 		parent.add_child(lootInstance)
-	elif (numberRoll <= 0.2 ):
+	elif (numberRoll <= 0.4 ):
 		var lootInstance = lootItem.instantiate()
 		lootInstance.type = determineItem(lootRoll , enemyType)
 		lootInstance.texture = determineTexture(lootInstance.type)
@@ -92,9 +92,9 @@ func determineItem(lootRoll , enemyType):
 	if enemyType == "Objective":
 		return 2;
 	else:
-		if lootRoll >= 0.95:
+		if lootRoll >= 0.99:
 			return 2
-		elif lootRoll  >= 0.5:
+		elif lootRoll  >= 0.6:
 			return 1
 		else:
 			return 0

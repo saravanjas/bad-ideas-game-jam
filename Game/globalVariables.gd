@@ -19,15 +19,15 @@ var playerInvincible := false
 var BuyTileMap
 
 var canBuy := true
-var drMeowsteinMaxHp := 820
-var drMeowsteinCurrentHp := 820
+var drMeowsteinMaxHp := 1800
+var drMeowsteinCurrentHp := 1800
 var bossFight := false
 
 @export var playerCanBeDamagedTimer := Timer.new()
 var inventory:Dictionary = {
-	"Cardboard" = 100,
-	"Tape" = 100,
-	"Screws" = 100,
+	"Cardboard" = 0,
+	"Tape" = 0,
+	"Screws" = 0,
 } 
 func _process(delta: float) -> void:
 	playerHealthCurrent = clamp(playerHealthCurrent , 0 , playerHealthMax)
